@@ -8,6 +8,7 @@ type ProfileVisualProps = {
   className?: string;
   imageSrc?: string | StaticImageData;
   variant?: ProfileVisualVariant;
+  text?: string;
 };
 
 const variantConfig = {
@@ -41,11 +42,11 @@ const variantConfig = {
 
 export function ProfileVisual({
   className,
-  imageSrc = "/images/hero-profile-reference.png",
+  imageSrc = "/images/me.png",
   variant = "message",
+  text = "WEB",
 }: ProfileVisualProps) {
   const config = variantConfig[variant];
-  const BadgeIcon = config.Icon;
 
   return (
     <div
@@ -74,7 +75,11 @@ export function ProfileVisual({
         <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black/40 to-transparent" />
       </div>
 
-      <AnimatedRoundBadge className={config.badgeClass} icon={BadgeIcon} />
+      <AnimatedRoundBadge
+        className={config.badgeClass}
+        icon={Code2}
+        text={text}
+      />
 
       <div
         className={cn(
@@ -104,9 +109,11 @@ export function ProfileVisual({
 function AnimatedRoundBadge({
   className,
   icon: Icon,
+  text,
 }: {
   className?: string;
   icon: typeof Code2;
+  text: string;
 }) {
   return (
     <div
@@ -115,8 +122,8 @@ function AnimatedRoundBadge({
         className,
       )}
     >
-      <span className="profile-badge-copy absolute font-semibold text-sm uppercase tracking-normal">
-        Web
+      <span className="profile-badge-copy absolute font-semibold text-sm uppercase tracking-normal sm:text-base md:text-lg lg:text-xl">
+        {text}
       </span>
       <Icon className="profile-badge-icon absolute size-10 stroke-[2.6]" />
     </div>

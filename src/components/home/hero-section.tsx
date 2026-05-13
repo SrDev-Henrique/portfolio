@@ -48,7 +48,7 @@ export function HeroSection() {
 
           <div className="mt-10 grid gap-4 border-white/10 border-y py-6 sm:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="text-center">
                 <strong className="block font-semibold text-2xl text-lime-300">
                   {stat.value}
                 </strong>
@@ -59,7 +59,7 @@ export function HeroSection() {
             ))}
           </div>
 
-          <div className="mt-6 flex gap-2">
+          <div className="mt-6 flex justify-center gap-2 sm:justify-start">
             <SocialLink href="https://github.com/" label="GitHub">
               <Github className="size-4" />
             </SocialLink>
@@ -75,7 +75,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <ProfileVisual variant="message" />
+        <ProfileVisual variant="message" text="DEV" />
       </div>
     </section>
   );
