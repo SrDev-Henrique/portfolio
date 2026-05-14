@@ -39,12 +39,13 @@ const projects: Project[] = [
 ];
 
 export function ProjectsSection() {
+  
   return (
     <section
       id="projetos"
-      className="relative overflow-hidden bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28"
+      className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28"
     >
-      <div className="mx-auto w-full max-w-7xl border-white/10 border-t pt-14 lg:pt-20">
+      <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
         <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
@@ -55,7 +56,7 @@ export function ProjectsSection() {
             </h2>
           </div>
 
-          <p className="max-w-lg font-inter text-base text-zinc-400 leading-7 lg:text-right">
+          <p className="max-w-lg font-inter text-base text-muted-foreground leading-7 lg:text-right">
             Uma seleção de trabalhos que combinam estratégia, interfaces
             responsivas e desenvolvimento preparado para crescer.
           </p>
@@ -67,7 +68,7 @@ export function ProjectsSection() {
               key={project.name}
               className="group min-w-0 overflow-hidden rounded-lg transition-colors duration-300 hover:border-accent/45"
             >
-              <div className="relative aspect-16/10 overflow-hidden bg-zinc-900">
+              <div className="relative aspect-16/10 overflow-hidden bg-surface">
                 <Image
                   src={project.image}
                   alt={`Mockup do projeto ${project.name}`}
@@ -75,17 +76,17 @@ export function ProjectsSection() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-zinc-950/55 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-background/55 via-transparent to-transparent" />
               </div>
 
               <div className="p-5 sm:p-6">
                 <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
                   {project.tag}
                 </span>
-                <h3 className="mt-3 font-semibold text-3xl text-zinc-50 leading-none tracking-normal sm:text-4xl">
+                <h3 className="mt-3 font-semibold text-3xl text-foreground leading-none tracking-normal sm:text-4xl">
                   {project.name}
                 </h3>
-                <p className="mt-4 font-inter text-base text-zinc-400 leading-7">
+                <p className="mt-4 font-inter text-base text-muted-foreground leading-7">
                   {project.description}
                 </p>
               </div>

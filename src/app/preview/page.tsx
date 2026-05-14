@@ -84,7 +84,7 @@ const metricStats = [
 
 export default function PreviewPage() {
   return (
-    <main className="min-h-screen bg-zinc-950 px-5 py-10 text-zinc-50 sm:px-8 lg:px-12">
+    <main className="min-h-screen bg-background px-5 py-10 text-foreground sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-7xl">
         <header className="pb-12">
           <p className="mb-4 font-medium text-accent text-sm uppercase tracking-normal">
@@ -93,7 +93,7 @@ export default function PreviewPage() {
           <h1 className="max-w-4xl font-semibold text-5xl leading-none tracking-normal sm:text-7xl">
             Preview do sistema visual
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-zinc-400 leading-8">
+          <p className="mt-5 max-w-2xl text-lg text-muted-foreground leading-8">
             Uma página de referência para visualizar os componentes criados no
             projeto e suas variações principais.
           </p>
@@ -105,23 +105,23 @@ export default function PreviewPage() {
         >
           <div className="space-y-8">
             <article className="min-w-0">
-              <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
-                <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
+              <div className="mb-4 flex items-center justify-between border-border border-b pb-3">
+                <h3 className="font-semibold text-2xl text-foreground tracking-normal">
                   Left / Right
                 </h3>
-                <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+                <code className="rounded-full border border-border px-3 py-1 text-muted-foreground text-xs">
                   variant=&quot;metric&quot;
                 </code>
               </div>
 
-              <div className="rounded-[1.75rem] border border-white/10 bg-black/25 p-6">
+              <div className="rounded-[1.75rem] border border-border bg-overlay p-6">
                 <div className="grid gap-6 md:grid-cols-3 md:gap-0">
                   {metricStats.map((item, index) => (
                     <div
                       key={item.value}
                       className={
                         index > 0
-                          ? "md:border-white/10 md:border-l md:px-8"
+                          ? "md:border-border md:border-l md:px-8"
                           : "md:px-8"
                       }
                     >
@@ -139,23 +139,23 @@ export default function PreviewPage() {
             </article>
 
             <article className="min-w-0">
-              <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
-                <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
+              <div className="mb-4 flex items-center justify-between border-border border-b pb-3">
+                <h3 className="font-semibold text-2xl text-foreground tracking-normal">
                   Top / Bottom
                 </h3>
-                <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+                <code className="rounded-full border border-border px-3 py-1 text-muted-foreground text-xs">
                   variant=&quot;feature&quot;
                 </code>
               </div>
 
-              <div className="rounded-[1.75rem] border border-white/10 bg-black/25 p-6">
+              <div className="rounded-[1.75rem] border border-border bg-overlay p-6">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
                   {featureStats.map((item, index) => (
                     <div
                       key={item.label}
                       className={
                         index > 0
-                          ? "lg:border-white/10 lg:border-l lg:px-6"
+                          ? "lg:border-border lg:border-l lg:px-6"
                           : "lg:px-6"
                       }
                     >
@@ -180,16 +180,16 @@ export default function PreviewPage() {
           <div className="grid gap-6 lg:grid-cols-3">
             {buttonVariants.map((item) => (
               <article key={item.variant} className="min-w-0">
-                <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
-                  <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
+                <div className="mb-4 flex items-center justify-between border-border border-b pb-3">
+                  <h3 className="font-semibold text-2xl text-foreground tracking-normal">
                     {item.name}
                   </h3>
-                  <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+                  <code className="rounded-full border border-border px-3 py-1 text-muted-foreground text-xs">
                     variant=&quot;{item.variant}&quot;
                   </code>
                 </div>
 
-                <div className="flex min-h-40 items-center justify-center rounded-[1.75rem] border border-white/10 bg-black/25 p-6">
+                <div className="flex min-h-40 items-center justify-center rounded-[1.75rem] border border-border bg-overlay p-6">
                   <PortfolioButton href="#" variant={item.variant}>
                     {item.label}
                   </PortfolioButton>
@@ -206,16 +206,16 @@ export default function PreviewPage() {
           <div className="grid gap-8 lg:grid-cols-3">
             {profileVariants.map((item) => (
               <article key={item.variant} className="min-w-0">
-                <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
-                  <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
+                <div className="mb-4 flex items-center justify-between border-border border-b pb-3">
+                  <h3 className="font-semibold text-2xl text-foreground tracking-normal">
                     {item.name}
                   </h3>
-                  <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
+                  <code className="rounded-full border border-border px-3 py-1 text-muted-foreground text-xs">
                     variant=&quot;{item.variant}&quot;
                   </code>
                 </div>
 
-                <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/25 py-6">
+                <div className="overflow-hidden rounded-[1.75rem] border border-border bg-overlay py-6">
                   <ProfileVisual
                     variant={item.variant}
                     className="max-w-92 px-6 py-5 sm:px-8"

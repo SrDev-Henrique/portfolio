@@ -23,7 +23,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-accent px-5 py-12 text-accent-foreground sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid gap-10 border-zinc-950/15 border-b pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+        <div className="grid gap-10 border-accent-foreground/15 border-b pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div>
             <p className="mb-4 font-inter font-semibold text-sm uppercase tracking-normal opacity-70">
               Henrique Albuquerque
@@ -46,7 +46,7 @@ export function SiteFooter() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-inter font-semibold text-sm transition-opacity hover:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+                  className="font-inter font-semibold text-sm transition-opacity hover:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
                 >
                   {link.label}
                 </a>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
-                className="group inline-flex items-center gap-2 font-inter font-semibold text-sm transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+                className="group inline-flex items-center gap-2 font-inter font-semibold text-sm transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
               >
                 <Icon className="size-4" />
                 <span>{label}</span>

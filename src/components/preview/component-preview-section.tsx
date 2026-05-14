@@ -10,13 +10,13 @@ export function ComponentPreviewSection({
   title,
 }: ComponentPreviewSectionProps) {
   return (
-    <section className="border-white/10 border-t py-12">
+    <section className="border-border border-t py-12">
       <div className="mb-8 max-w-3xl">
-        <h2 className="font-semibold text-4xl text-zinc-50 tracking-normal sm:text-5xl">
+        <h2 className="font-semibold text-4xl text-foreground tracking-normal sm:text-5xl">
           {title}
         </h2>
         {description ? (
-          <p className="mt-3 text-base text-zinc-400 leading-7">
+          <p className="mt-3 text-base text-muted-foreground leading-7">
             {description}
           </p>
         ) : null}

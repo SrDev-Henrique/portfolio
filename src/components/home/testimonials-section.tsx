@@ -35,8 +35,8 @@ const testimonials: Testimonial[] = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative overflow-hidden bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28">
-      <div className="mx-auto w-full max-w-7xl border-white/10 border-t pt-14 lg:pt-20">
+    <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
+      <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
         <header className="mb-12 max-w-4xl lg:mb-14">
           <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
             Depoimentos
@@ -44,7 +44,7 @@ export function TestimonialsSection() {
           <h2 className="font-semibold text-5xl leading-none tracking-normal sm:text-7xl lg:text-8xl">
             O que meus clientes dizem
           </h2>
-          <p className="mt-6 max-w-2xl font-inter text-lg text-zinc-300 leading-8">
+          <p className="mt-6 max-w-2xl font-inter text-foreground-muted text-lg leading-8">
             Feedbacks de projetos que uniram estratégia, desenvolvimento bem
             executado e uma experiência digital pensada para gerar resultado.
           </p>
@@ -55,14 +55,14 @@ export function TestimonialsSection() {
           <TestimonialCard testimonial={testimonials[1]} />
 
           <MetricCard
-            className="bg-zinc-50 text-zinc-950"
+            className="bg-foreground text-accent-foreground"
             description="Projetos pensados para performance, clareza e conversão"
             label="Foco em resultado"
             value="100%"
           />
 
           <MetricCard
-            className="bg-accent text-zinc-950"
+            className="bg-accent text-accent-foreground"
             description="Processo proximo do briefing ao deploy"
             label="Entrega completa"
             value="Do zero"
@@ -78,7 +78,7 @@ export function TestimonialsSection() {
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <article className="flex min-h-72 flex-col justify-between rounded-md bg-zinc-900/95 p-6 shadow-2xl shadow-black/10 ring-1 ring-white/5 sm:p-8">
+    <article className="flex min-h-72 flex-col justify-between rounded-md bg-surface/95 p-6 shadow-2xl shadow-overlay ring-1 ring-border/50 sm:p-8">
       <div>
         <div
           className="mb-5 flex gap-2 text-accent"
@@ -94,20 +94,20 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           ))}
         </div>
 
-        <p className="font-inter text-lg text-zinc-50 leading-8">
+        <p className="font-inter text-foreground text-lg leading-8">
           {testimonial.quote}
         </p>
       </div>
 
       <div className="mt-8 flex items-center gap-4">
-        <div className="grid size-12 shrink-0 place-items-center rounded-full bg-accent font-inter font-semibold text-zinc-950">
+        <div className="grid size-12 shrink-0 place-items-center rounded-full bg-accent font-inter font-semibold text-accent-foreground">
           {getInitials(testimonial.author)}
         </div>
         <div>
-          <p className="font-inter font-semibold text-zinc-50">
+          <p className="font-inter font-semibold text-foreground">
             {testimonial.author}
           </p>
-          <p className="font-inter text-sm text-zinc-300">
+          <p className="font-inter text-foreground-muted text-sm">
             {testimonial.company}
           </p>
         </div>

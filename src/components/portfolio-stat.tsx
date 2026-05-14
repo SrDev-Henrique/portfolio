@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const statVariants = cva("group min-w-0 text-zinc-100", {
+const statVariants = cva("group min-w-0 text-foreground-soft", {
   variants: {
     variant: {
       feature: "flex flex-col items-center justify-center text-center",
@@ -44,9 +44,9 @@ const iconWrapVariants = cva(
     variants: {
       variant: {
         feature:
-          "size-12 rounded-full bg-transparent drop-shadow-[0_0_14px_rgba(190,242,100,0.55)]",
+          "size-12 rounded-full bg-transparent drop-shadow-[0_0_14px_rgb(var(--glow-rgb)/0.55)]",
         metric:
-          "size-14 rounded-xl border border-white/10 bg-zinc-950/70 shadow-[inset_0_0_18px_rgba(255,255,255,0.04),0_0_26px_rgba(190,242,100,0.12)]",
+          "size-14 rounded-xl border border-border bg-surface-elevated shadow-[inset_0_0_18px_rgb(var(--light-rgb)/0.04),0_0_26px_rgb(var(--glow-rgb)/0.12)]",
       },
     },
     defaultVariants: {
@@ -93,7 +93,7 @@ export function PortfolioStat({
         ) : null}
         <p
           className={cn(
-            "font-inter text-zinc-100",
+            "font-inter text-foreground-soft",
             hasValue
               ? "mt-2 max-w-48 text-base leading-6"
               : "max-w-32 text-lg leading-6",
@@ -102,7 +102,7 @@ export function PortfolioStat({
           {label}
         </p>
         {description ? (
-          <p className="mt-1 max-w-48 font-inter text-sm text-zinc-400 leading-5">
+          <p className="mt-1 max-w-48 font-inter text-muted-foreground text-sm leading-5">
             {description}
           </p>
         ) : null}

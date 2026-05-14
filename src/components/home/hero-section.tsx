@@ -10,16 +10,16 @@ const stats = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden px-5 py-8 text-zinc-50 sm:px-8 lg:px-12">
+    <section className="relative min-h-screen overflow-hidden px-5 py-8 text-foreground sm:px-8 lg:px-12">
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl flex-col justify-center gap-12 lg:grid lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
         <div className="max-w-4xl pt-10 lg:pt-0">
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-accent text-sm backdrop-blur">
-            <span className="size-2 rounded-full bg-accent shadow-[0_0_18px_rgba(201,255,63,0.9)]" />
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-foreground/5 px-3 py-1.5 text-accent text-sm backdrop-blur">
+            <span className="size-2 rounded-full bg-accent shadow-[0_0_18px_rgb(var(--accent-rgb)/0.9)]" />
             DESENVOLVEDOR FULL STACK
           </p>
 
           <h1 className="max-w-4xl font-semibold text-5xl leading-[0.98] tracking-normal sm:text-6xl lg:text-7xl">
-            <span className="block text-balance text-zinc-50">
+            <span className="block text-balance text-foreground">
               Websites, webapps e e-commerce
             </span>
             <span className="mt-2 block text-balance text-accent">
@@ -27,7 +27,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg text-zinc-300 leading-8 sm:text-xl">
+          <p className="mt-6 max-w-2xl text-foreground-muted text-lg leading-8 sm:text-xl">
             Desenvolvo soluções completas, modernas e escaláveis do zero ao
             deploy. Foco em performance, experiência do usuário e código limpo
             para impulsionar seu negócio online.
@@ -46,13 +46,13 @@ export function HeroSection() {
             </PortfolioButton>
           </div>
 
-          <div className="mt-10 grid gap-4 border-white/10 border-y py-6 sm:grid-cols-3">
+          <div className="mt-10 grid gap-4 border-border border-y py-6 sm:grid-cols-3">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <strong className="block font-semibold text-2xl text-accent">
                   {stat.value}
                 </strong>
-                <span className="mt-1 block text-sm text-zinc-400 leading-5">
+                <span className="mt-1 block text-muted-foreground text-sm leading-5">
                   {stat.label}
                 </span>
               </div>
@@ -94,7 +94,7 @@ function SocialLink({
     <a
       href={href}
       aria-label={label}
-      className="grid size-11 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:border-accent/60 hover:text-lime-200"
+      className="grid size-11 place-items-center rounded-full border border-border bg-foreground/5 text-foreground-muted transition hover:border-accent/60 hover:text-accent-hover"
     >
       {children}
     </a>

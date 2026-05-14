@@ -3,6 +3,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import TVStaticCanvas from "@/components/canvas-rain";
 import SmoothScrollProvider from "@/components/smooth-scroll-provider";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Henrique Albuquerque",
@@ -16,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className="dark relative antialiased">
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
-        <TVStaticCanvas animated />
+        <Providers>
+          <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <TVStaticCanvas animated />
+        </Providers>
       </body>
     </html>
   );

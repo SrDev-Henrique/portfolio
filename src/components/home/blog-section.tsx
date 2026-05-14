@@ -63,8 +63,8 @@ const featuredPosts = posts.slice(0, 2);
 
 export function BlogSection() {
   return (
-    <section className="relative overflow-hidden bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28">
-      <div className="mx-auto w-full max-w-7xl border-white/10 border-t pt-14 lg:pt-20">
+    <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
+      <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
         <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
@@ -75,7 +75,7 @@ export function BlogSection() {
             </h2>
           </div>
 
-          <p className="max-w-lg font-inter text-base text-zinc-400 leading-7 lg:text-right">
+          <p className="max-w-lg font-inter text-base text-muted-foreground leading-7 lg:text-right">
             conteúdos para ajudar voce a planejar, construir e evoluir sua
             presença digital com mais clareza.
           </p>
@@ -87,9 +87,9 @@ export function BlogSection() {
               key={post.title}
               className="group min-w-0 overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-accent/45"
             >
-              <div className="relative aspect-16/7 overflow-hidden bg-zinc-900">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(201,255,63,0.18),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0))]" />
-                <div className="absolute inset-4 rounded-md border border-white/10" />
+              <div className="relative aspect-16/7 overflow-hidden bg-surface">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgb(var(--accent-rgb)/0.18),transparent_30%),linear-gradient(135deg,rgb(var(--light-rgb)/0.08),rgb(var(--light-rgb)/0))]" />
+                <div className="absolute inset-4 rounded-md border border-border" />
                 <span className="absolute right-5 bottom-5 font-inter font-semibold text-accent text-xs uppercase tracking-normal">
                   Imagem em breve
                 </span>
@@ -100,16 +100,16 @@ export function BlogSection() {
                   <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
                     {post.tag}
                   </span>
-                  <span className="size-1 rounded-full bg-zinc-600" />
-                  <time className="font-inter text-xs text-zinc-500 uppercase leading-5 tracking-normal">
+                  <span className="size-1 rounded-full bg-foreground-placeholder" />
+                  <time className="font-inter text-foreground-subtle text-xs uppercase leading-5 tracking-normal">
                     {post.date}
                   </time>
                 </div>
 
-                <h3 className="mt-4 font-semibold text-3xl text-zinc-50 leading-none tracking-normal sm:text-4xl">
+                <h3 className="mt-4 font-semibold text-3xl text-foreground leading-none tracking-normal sm:text-4xl">
                   {post.title}
                 </h3>
-                <p className="mt-4 font-inter text-base text-zinc-400 leading-7">
+                <p className="mt-4 font-inter text-base text-muted-foreground leading-7">
                   {post.description}
                 </p>
               </div>

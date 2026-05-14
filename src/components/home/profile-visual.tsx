@@ -57,12 +57,12 @@ export function ProfileVisual({
         className,
       )}
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_48%,rgba(201,255,63,0.22),transparent_21%),radial-gradient(circle_at_80%_96%,rgba(201,255,63,0.18),transparent_19%)] blur-md" />
-      <div className="absolute top-[48%] left-0 h-24 w-28 -translate-x-3 bg-[radial-gradient(circle,rgba(201,255,63,0.75)_1px,transparent_1.8px)] opacity-50 bg-size:[12px_12px]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_48%,rgb(var(--accent-rgb)/0.22),transparent_21%),radial-gradient(circle_at_80%_96%,rgb(var(--accent-rgb)/0.18),transparent_19%)] blur-md" />
+      <div className="absolute top-[48%] left-0 h-24 w-28 -translate-x-3 bg-[radial-gradient(circle,rgb(var(--accent-rgb)/0.75)_1px,transparent_1.8px)] opacity-50 bg-size:[12px_12px]" />
 
       <div
         className={cn(
-          "relative aspect-[0.74] overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-200 shadow-[0_24px_80px_rgba(0,0,0,0.42)] transition-transform duration-500",
+          "relative aspect-[0.74] overflow-hidden rounded-[2rem] border border-border bg-foreground-soft shadow-[0_24px_80px_rgb(var(--shadow-rgb)/0.42)] transition-transform duration-500",
           config.tiltClass,
         )}
       >
@@ -74,7 +74,7 @@ export function ProfileVisual({
           sizes="(min-width: 1024px) 31rem, 86vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-overlay to-transparent" />
       </div>
 
       <AnimatedRoundBadge
@@ -85,15 +85,15 @@ export function ProfileVisual({
 
       <div
         className={cn(
-          "absolute rounded-2xl border border-white/10 bg-zinc-950/70 px-5 py-4 text-sm shadow-2xl shadow-black/35 backdrop-blur-md",
+          "absolute rounded-2xl border border-border bg-surface-elevated px-5 py-4 text-sm shadow-2xl shadow-overlay-strong backdrop-blur-md",
           config.cardClass,
         )}
       >
         <div className="flex items-start gap-3">
-          <span className="mt-1 size-4 rounded-full border border-lime-200/70 bg-accent shadow-[0_0_18px_rgba(201,255,63,0.8)]" />
+          <span className="mt-1 size-4 rounded-full border border-accent-hover/70 bg-accent shadow-[0_0_18px_rgb(var(--accent-rgb)/0.8)]" />
           <div className="space-y-1.5">
             <p className="font-semibold text-accent">Desenvolvedor Fullstack</p>
-            <p className="max-w-[16rem] text-zinc-100/85 leading-6">
+            <p className="max-w-[16rem] text-foreground-soft/85 leading-6">
               Transformo ideias em produtos digitais com performance e código
               limpo.
             </p>
@@ -101,7 +101,7 @@ export function ProfileVisual({
         </div>
       </div>
 
-      <span className="absolute right-8 bottom-7 size-5 rounded-full bg-accent shadow-[0_0_22px_rgba(201,255,63,0.85)]" />
+      <span className="absolute right-8 bottom-7 size-5 rounded-full bg-accent shadow-[0_0_22px_rgb(var(--accent-rgb)/0.85)]" />
     </div>
   );
 }
@@ -118,7 +118,7 @@ function AnimatedRoundBadge({
   return (
     <div
       className={cn(
-        "absolute grid size-28 place-items-center overflow-hidden rounded-full bg-accent text-zinc-950 shadow-[0_0_48px_rgba(201,255,63,0.55)] sm:size-32",
+        "absolute grid size-28 place-items-center overflow-hidden rounded-full bg-accent text-accent-foreground shadow-[0_0_48px_rgb(var(--accent-rgb)/0.55)] sm:size-32",
         className,
       )}
     >

@@ -72,8 +72,8 @@ export function ContactSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28">
-      <div className="mx-auto grid w-full max-w-7xl gap-12 border-white/10 border-t pt-14 md:grid-cols-[0.9fr_1.1fr] md:items-center lg:gap-20 lg:pt-20">
+    <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
+      <div className="mx-auto grid w-full max-w-7xl gap-12 border-border border-t pt-14 md:grid-cols-[0.9fr_1.1fr] md:items-center lg:gap-20 lg:pt-20">
         <ProfileVisual
           variant="code"
           text="OLÁ"
@@ -109,7 +109,7 @@ export function ContactSection() {
                   <h2 className="max-w-3xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
                     Vamos transformar sua ideia em projeto
                   </h2>
-                  <p className="mt-6 max-w-xl font-inter text-lg text-zinc-400 leading-8">
+                  <p className="mt-6 max-w-xl font-inter text-lg text-muted-foreground leading-8">
                     Conte um pouco sobre o que voce precisa. Eu retorno com os
                     proximos passos para tirar a ideia do papel com clareza.
                   </p>
@@ -131,7 +131,7 @@ export function ContactSection() {
                             <FormControl>
                               <Input
                                 placeholder="Seu nome"
-                                className="h-12 border-white/10 bg-zinc-950/70 text-zinc-50 placeholder:text-zinc-600 focus-visible:border-accent/60 focus-visible:ring-accent/20"
+                                className="h-12 border-border bg-surface-elevated text-foreground placeholder:text-foreground-placeholder focus-visible:border-accent/60 focus-visible:ring-accent/20"
                                 {...field}
                               />
                             </FormControl>
@@ -152,7 +152,7 @@ export function ContactSection() {
                               <Input
                                 type="email"
                                 placeholder="voce@email.com"
-                                className="h-12 border-white/10 bg-zinc-950/70 text-zinc-50 placeholder:text-zinc-600 focus-visible:border-accent/60 focus-visible:ring-accent/20"
+                                className="h-12 border-border bg-surface-elevated text-foreground placeholder:text-foreground-placeholder focus-visible:border-accent/60 focus-visible:ring-accent/20"
                                 {...field}
                               />
                             </FormControl>
@@ -175,16 +175,16 @@ export function ContactSection() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger className="h-12 w-full border-white/10 bg-zinc-950/70 text-zinc-50 focus-visible:border-accent/60 focus-visible:ring-accent/20">
+                              <SelectTrigger className="h-12 w-full border-border bg-surface-elevated text-foreground focus-visible:border-accent/60 focus-visible:ring-accent/20">
                                 <SelectValue placeholder="Escolha o tipo de projeto" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="border-white/10 bg-zinc-950 text-zinc-50">
+                            <SelectContent className="border-border bg-background text-foreground">
                               {serviceOptions.map((option) => (
                                 <SelectItem
                                   key={option.value}
                                   value={option.value}
-                                  className="focus:bg-accent focus:text-zinc-950"
+                                  className="focus:bg-accent focus:text-accent-foreground"
                                 >
                                   {option.label}
                                 </SelectItem>
@@ -203,12 +203,14 @@ export function ContactSection() {
                         <FormItem>
                           <FormLabel className="font-inter text-accent">
                             Descricao do projeto
-                            <span className="text-zinc-500">(opcional)</span>
+                            <span className="text-foreground-subtle">
+                              (opcional)
+                            </span>
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               placeholder="Conte sobre seu objetivo, prazo, referencias ou qualquer detalhe importante."
-                              className="min-h-36 resize-none border-white/10 bg-zinc-950/70 text-zinc-50 placeholder:text-zinc-600 focus-visible:border-accent/60 focus-visible:ring-accent/20"
+                              className="min-h-36 resize-none border-border bg-surface-elevated text-foreground placeholder:text-foreground-placeholder focus-visible:border-accent/60 focus-visible:ring-accent/20"
                               {...field}
                             />
                           </FormControl>
@@ -251,21 +253,21 @@ export function ContactSection() {
 function SuccessMessage({ onReset }: { onReset: () => void }) {
   return (
     <div className="flex min-h-136 flex-col justify-center">
-      <div className="mb-8 grid size-16 place-items-center rounded-full border border-accent/40 bg-accent/10 text-accent shadow-[0_0_34px_rgba(201,255,63,0.18)]">
+      <div className="mb-8 grid size-16 place-items-center rounded-full border border-accent/40 bg-accent/10 text-accent shadow-[0_0_34px_rgb(var(--accent-rgb)/0.18)]">
         <CheckCircle2 className="size-8" />
       </div>
 
       <p className="mb-4 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
         Mensagem enviada
       </p>
-      <h3 className="font-semibold text-4xl text-zinc-50 leading-none tracking-normal sm:text-5xl">
+      <h3 className="font-semibold text-4xl text-foreground leading-none tracking-normal sm:text-5xl">
         Recebi suas informacoes.
       </h3>
-      <p className="mt-5 max-w-xl font-inter text-lg text-zinc-300 leading-8">
+      <p className="mt-5 max-w-xl font-inter text-foreground-muted text-lg leading-8">
         Em breve entro em contato para entender melhor o projeto e te orientar
         nos proximos passos.
       </p>
-      <p className="mt-4 max-w-xl font-inter text-base text-zinc-500 leading-7">
+      <p className="mt-4 max-w-xl font-inter text-base text-foreground-subtle leading-7">
         Se preferir acelerar a conversa, voce tambem pode me chamar pelo
         WhatsApp.
       </p>
@@ -291,7 +293,7 @@ function WhatsappGhostLink() {
       href={whatsappHref}
       target="_blank"
       rel="noreferrer"
-      className="group inline-flex items-center gap-2 font-inter font-semibold text-sm text-zinc-300 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+      className="group inline-flex items-center gap-2 font-inter font-semibold text-foreground-muted text-sm transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       <HugeiconsIcon icon={WhatsappFreeIcons} strokeWidth={1.5} />
       <span>Prefere conversar pelo WhatsApp?</span>
