@@ -1,4 +1,6 @@
 import { AboutSection } from "@/components/home/about-section";
+import { BlogSection } from "@/components/home/blog-section";
+import { FaqSection } from "@/components/home/faq-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { ProjectsSection } from "@/components/home/projects-section";
 import { ServicesShowcase } from "@/components/home/services-showcase";
@@ -12,6 +14,8 @@ export default function Home() {
       <ServicesShowcase />
       <ProjectsSection />
       <TestimonialsSection />
+      <FaqSection />
+      <BlogSection />
     </main>
   );
 }
