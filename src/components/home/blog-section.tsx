@@ -118,7 +118,7 @@ export function BlogSection() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <PortfolioButton href="/blog" size="sm" variant="outline">
+          <PortfolioButton href="/blog" size="sm" variant="outline-green">
             Ver todos os posts
           </PortfolioButton>
         </div>
