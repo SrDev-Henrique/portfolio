@@ -122,9 +122,9 @@ function AnimatedRoundBadge({
         className,
       )}
     >
-      <span className="profile-badge-copy absolute font-semibold text-sm uppercase tracking-normal sm:text-base md:text-lg lg:text-xl">
+      <h6 className="profile-badge-copy absolute font-semibold text-3xl uppercase tracking-normal">
         {text}
-      </span>
+      </h6>
       <Icon className="profile-badge-icon absolute size-10 stroke-[2.6]" />
     </div>
   );
