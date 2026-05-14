@@ -24,7 +24,7 @@ const services: Service[] = [
     title: "Sites sob medida",
     tag: "Web customizado",
     description:
-      "Desenvolvimento de sites rapidos, responsivos e alinhados ao posicionamento do seu negocio.",
+      "Desenvolvimento de sites rápidos, responsivos e alinhados ao posicionamento do seu negócio.",
     image: "/images/web-custom.jpeg",
   },
   {
@@ -40,7 +40,7 @@ const services: Service[] = [
     title: "SEO e Performance",
     tag: "Crescimento organico",
     description:
-      "Otimizacao tecnica para melhorar velocidade, indexacao e presenca organica nos buscadores.",
+      "otimização técnica para melhorar velocidade, indexação e presença orgânica nos buscadores.",
     image: "/images/seo.jpeg",
   },
   {
@@ -48,7 +48,7 @@ const services: Service[] = [
     title: "APIs e Integracoes",
     tag: "Sistemas conectados",
     description:
-      "Criacao de APIs seguras, escalaveis e prontas para conectar sistemas, dashboards e automacoes.",
+      "criação de APIs seguras, escaláveis e prontas para conectar sistemas, dashboards e automações.",
     image: "/images/api.jpeg",
   },
 ];
@@ -83,7 +83,7 @@ export function ServicesShowcase() {
 
   return (
     <section
-      aria-label="Solucoes digitais"
+      aria-label="soluções digitais"
       onMouseMove={handleMouseMove}
       className="relative w-full cursor-default overflow-hidden bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28"
     >
@@ -102,7 +102,7 @@ export function ServicesShowcase() {
               O que eu posso fazer
             </p>
             <h2 className="max-w-4xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
-              Solucoes digitais que eu entrego
+              soluções digitais que eu entrego
             </h2>
           </div>
 
@@ -154,7 +154,7 @@ export function ServicesShowcase() {
                   <div className="flex items-center gap-2">
                     <div className="size-1.5 rounded-full bg-accent shadow-[0_0_14px_rgba(201,255,63,0.9)]" />
                     <span className="font-inter text-[10px] text-white/85 uppercase tracking-normal">
-                      Solucao em destaque
+                      solução em destaque
                     </span>
                   </div>
                 </div>

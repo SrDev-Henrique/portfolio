@@ -9,25 +9,25 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Henrique entendeu a necessidade do projeto e entregou um site claro, rapido e preparado para gerar contatos qualificados.",
+      "Henrique entendeu a necessidade do projeto e entregou um site claro, rápido e preparado para gerar contatos qualificados.",
     author: "Equipe Jaber Seguros",
-    company: "Seguros e consorcios",
+    company: "Seguros e consórcios",
   },
   {
     quote:
-      "O trabalho trouxe uma presenca digital mais profissional, com conteudo organizado e formularios integrados ao processo comercial.",
+      "O trabalho trouxe uma presença digital mais profissional, com conteúdo organizado e formulários integrados ao processo comercial.",
     author: "Equipe Coimcamp",
-    company: "Seguranca e automacao",
+    company: "segurança e automação",
   },
   {
     quote:
-      "A plataforma ficou simples de administrar, com uma experiencia fluida para publicar achadinhos e acompanhar os links de afiliado.",
+      "A plataforma ficou simples de administrar, com uma experiência fluida para publicar achadinhos e acompanhar os links de afiliado.",
     author: "Achadinho Preferido",
     company: "Curadoria e afiliados",
   },
   {
     quote:
-      "A experiencia visual ficou imersiva, responsiva e muito bem cuidada nos detalhes de interacao, animacao e organizacao do front-end.",
+      "A experiência visual ficou imersiva, responsiva e muito bem cuidada nos detalhes de interacao, animacao e organizacao do front-end.",
     author: "Projeto Arcane",
     company: "Frontend interativo",
   },
@@ -45,8 +45,8 @@ export function TestimonialsSection() {
             O que meus clientes dizem
           </h2>
           <p className="mt-6 max-w-2xl font-inter text-lg text-zinc-300 leading-8">
-            Feedbacks de projetos que uniram estrategia, desenvolvimento bem
-            executado e uma experiencia digital pensada para gerar resultado.
+            Feedbacks de projetos que uniram estratégia, desenvolvimento bem
+            executado e uma experiência digital pensada para gerar resultado.
           </p>
         </header>
 
@@ -56,7 +56,7 @@ export function TestimonialsSection() {
 
           <MetricCard
             className="bg-zinc-50 text-zinc-950"
-            description="Projetos pensados para performance, clareza e conversao"
+            description="Projetos pensados para performance, clareza e conversão"
             label="Foco em resultado"
             value="100%"
           />

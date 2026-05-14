@@ -10,30 +10,30 @@ type Project = {
 const projects: Project[] = [
   {
     name: "Coimcamp",
-    tag: "Marketing e automacao",
+    tag: "Marketing e automação",
     description:
-      "Site comercial para empresa de seguranca e automacao, com conteudo estruturado, formularios integrados e suporte a arquivos.",
+      "Site comercial para empresa de segurança e automação, com conteúdo estruturado, formulários integrados e suporte a arquivos.",
     image: "/images/projects/coimcamp/coimcamp-main.webp",
   },
   {
     name: "Jaber Seguros",
     tag: "Site institucional",
     description:
-      "Site para corretora de seguros e consorcios, com paginas comerciais, conteudo legal e formulario de contato por e-mail.",
+      "Site para corretora de seguros e consórcios, com páginas comerciais, conteúdo legal e formulário de contato por e-mail.",
     image: "/images/projects/jaber-seguros/jaber-main.webp",
   },
   {
     name: "Achadinho Preferido",
     tag: "Afiliados e painel admin",
     description:
-      "Curadoria de achadinhos com links de afiliado, painel administrativo e integracao com API REST.",
+      "Curadoria de achadinhos com links de afiliado, painel administrativo e integração com API REST.",
     image: "/images/projects/achadinho-preferido/achadinho-main.webp",
   },
   {
     name: "Arcane",
     tag: "Frontend interativo",
     description:
-      "Experiencia visual rica em animacoes e UX para explorar o universo de Arcane, demonstrando frontend moderno e responsivo.",
+      "Experiência visual rica em animações e UX para explorar o universo de Arcane, demonstrando frontend moderno e responsivo.",
     image: "/images/projects/arcane/arcane-main.webp",
   },
 ];
@@ -56,7 +56,7 @@ export function ProjectsSection() {
           </div>
 
           <p className="max-w-lg font-inter text-base text-zinc-400 leading-7 lg:text-right">
-            Uma selecao de trabalhos que combinam estrategia, interfaces
+            Uma seleção de trabalhos que combinam estratégia, interfaces
             responsivas e desenvolvimento preparado para crescer.
           </p>
         </header>

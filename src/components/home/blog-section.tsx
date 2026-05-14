@@ -11,35 +11,35 @@ const posts: BlogPost[] = [
   {
     tag: "Insight",
     date: "14 Mai 2026",
-    title: "Como um site profissional transforma a percepcao do seu negocio",
+    title: "Como um site profissional transforma a percepcao do seu negócio",
     description:
-      "Estrategias para usar design, performance e clareza para gerar mais confianca online.",
+      "estratégias para usar design, performance e clareza para gerar mais confianca online.",
   },
   {
     tag: "Tutorial",
     date: "14 Mai 2026",
     title: "Primeiros passos para planejar um site que converte",
     description:
-      "Um guia simples para organizar objetivo, publico, paginas e chamadas antes do desenvolvimento.",
+      "Um guia simples para organizar objetivo, publico, páginas e chamadas antes do desenvolvimento.",
   },
   {
     tag: "Recurso",
     date: "14 Mai 2026",
     title: "Checklist essencial antes de publicar um site",
     description:
-      "Itens importantes de performance, SEO, responsividade, acessibilidade e formularios.",
+      "Itens importantes de performance, SEO, responsividade, acessibilidade e formulários.",
   },
   {
     tag: "Insight",
     date: "14 Mai 2026",
-    title: "Por que performance tambem e uma estrategia de vendas",
+    title: "Por que performance tambem e uma estratégia de vendas",
     description:
-      "Como velocidade, estabilidade e experiencia afetam conversao e retencao.",
+      "Como velocidade, estabilidade e experiência afetam conversão e retencao.",
   },
   {
     tag: "Tutorial",
     date: "14 Mai 2026",
-    title: "Como estruturar uma API para crescer com seguranca",
+    title: "Como estruturar uma API para crescer com segurança",
     description:
       "Conceitos praticos para pensar rotas, validacao, autenticacao e manutencao.",
   },
@@ -55,7 +55,7 @@ const posts: BlogPost[] = [
     date: "14 Mai 2026",
     title: "SEO tecnico: o basico que todo site moderno precisa",
     description:
-      "Fundamentos de metadados, semantica, velocidade e organizacao de conteudo.",
+      "Fundamentos de metadados, semantica, velocidade e organizacao de conteúdo.",
   },
 ];
 
@@ -76,8 +76,8 @@ export function BlogSection() {
           </div>
 
           <p className="max-w-lg font-inter text-base text-zinc-400 leading-7 lg:text-right">
-            Conteudos para ajudar voce a planejar, construir e evoluir sua
-            presenca digital com mais clareza.
+            conteúdos para ajudar voce a planejar, construir e evoluir sua
+            presença digital com mais clareza.
           </p>
         </header>
 

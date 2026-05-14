@@ -52,7 +52,7 @@ const featureStats = [
   },
   {
     icon: Wrench,
-    label: "Codigo limpo",
+    label: "código limpo",
   },
   {
     icon: CalendarCheck2,

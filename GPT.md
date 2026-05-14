@@ -1,72 +1,84 @@
 # Portfolio Context
 
-Este projeto e um portfolio pessoal de Henrique Albuquerque, feito com Next.js 16, React 19, Tailwind CSS v4, shadcn/radix para base de UI e Bun como runtime de scripts.
+Este projeto e o portfolio pessoal de Henrique Albuquerque, feito com Next.js 16, React 19, Tailwind CSS v4, shadcn/radix, Motion, React Hook Form, Zod e Bun.
 
 ## Regra obrigatoria de Next.js
 
-Antes de alterar qualquer API, convencao de rota, imagem, metadata, fonte, cache, server/client component ou estrutura do App Router, leia o guia relevante em `node_modules/next/dist/docs/`. Este projeto usa uma versao de Next com mudancas que podem divergir do conhecimento previo do agente.
+Antes de alterar API, convencao de rota, imagem, metadata, fonte, cache, server/client component ou estrutura do App Router, leia o guia relevante em `node_modules/next/dist/docs/`. Esta versao do Next.js pode divergir do conhecimento previo do agente.
 
-## Objetivo de produto
+## Direcao de produto
 
-Construir uma home de portfolio com visual premium, escuro, tecnico e editorial, comunicando desenvolvimento fullstack, performance, websites, webapps e e-commerce. A pagina deve parecer uma experiencia real de portfolio, nao uma landing generica.
-
-O usuario quer construir o projeto por componentes reutilizaveis. Cada secao nova deve virar componente proprio, e componentes visuais importantes devem ser incluidos em `/preview` com suas variantes.
+- A home deve comunicar desenvolvimento full stack, websites, webapps, e-commerce, APIs, performance, SEO e foco em resultado.
+- O tom publico deve ser portugues do Brasil, direto, vendavel e profissional.
+- A experiencia deve parecer um portfolio premium, escuro, tecnico e editorial, nao uma landing generica.
+- Cada nova area da home deve virar uma secao independente em `src/components/home`.
+- Evite inventar backend, envio real, rotas internas ou páginas novas quando o pedido for apenas criar a secao visual.
 
 ## Direcao visual
 
-- Base escura: `zinc-950`, preto transluscido, bordas brancas com baixa opacidade.
-- Cor de destaque: verde/lime eletrico, principalmente `accent`.
-- Tipografia local: titulos usam Bebas Neue; texto, links, botoes e inputs usam Inter.
-- Visual deve ter contraste, glow controlado, bordas arredondadas grandes em elementos de marca, e ruido de fundo via `TVStaticCanvas`.
-- Evite aparencia de template SaaS comum. O portfolio deve ter personalidade, mas continuar limpo.
-- Nao use cards dentro de cards. Use cards apenas para previews, itens repetidos ou ferramentas claramente emolduradas.
-- Prefira icones `lucide-react`.
-- Elementos devem ser responsivos sem quebrar texto, sobrepor conteudo ou depender de escala por viewport.
+- Use as cores vindas de `src/app/globals.css` como fonte de verdade. A direcao daqui em diante e migrar classNames para tokens como `bg-background`, `text-foreground`, `bg-accent`, `text-accent`, `text-accent-foreground`, `border-border`, `ring-ring`, etc.
+- Temporariamente ainda existem classes Tailwind diretas como `zinc-950`, `lime-300` e `white/10`; ao editar, prefira aproximar novas decisoes aos tokens globais em vez de espalhar mais cores hardcoded.
+- `accent` e a cor principal de destaque. Em modo escuro, ela representa o verde/lime eletrico da identidade.
+- Titulos usam Bebas Neue; texto, links, botoes, labels e inputs usam Inter.
+- A interface usa fundo escuro, contraste alto, ruido global via `TVStaticCanvas`, bordas discretas, glow controlado e CTAs arredondados.
+- Nao use cards dentro de cards. Cards sao apropriados para itens repetidos, previews, depoimentos, posts e ferramentas claramente emolduradas.
+- Evite decoracoes abstratas sem funcao, gradientes excessivos e paletas novas.
+- Tudo deve funcionar em mobile e desktop sem texto cortado, sobreposto ou dependente de escala por viewport.
 
-## Metodos de implementacao
+## Estado atual da home
 
-- Componentize sempre que uma peca visual for reutilizavel ou tiver variantes.
-- Para variantes de estilo, use `class-variance-authority` quando o componente tiver mais de um estado visual relevante.
-- Use `cn` de `src/lib/utils.ts` para combinar classes Tailwind.
-- Prefira props simples e explicitamente tipadas. Exemplo: `variant`, `size`, `imageSrc`, `className`.
-- Para imagens locais renderizadas na UI, use `next/image`.
-- Para animacoes simples e globais, use keyframes em `src/app/globals.css` com classes semanticas.
-- Para CTAs de marca, use `PortfolioButton`, nao `src/components/ui/button.tsx`.
-- Mantenha `src/components/ui` como base shadcn generica. Nao misture identidade visual especifica do portfolio ali.
-- Depois de criar ou alterar componente visual, adicione sua demonstracao em `/preview`.
+A home em `src/app/page.tsx` compoe, nesta ordem:
 
-## Paginas atuais
+1. `HeroSection`
+2. `AboutSection`
+3. `ServicesShowcase`
+4. `ProjectsSection`
+5. `TestimonialsSection`
+6. `FaqSection`
+7. `BlogSection`
+8. `ContactSection`
+9. `SiteFooter`
 
-- `/`: home, atualmente renderiza `HeroSection`.
-- `/preview`: vitrine interna de componentes e variantes. Deve crescer junto com o design system.
+Preserve essa ordem a menos que o usuario peca explicitamente outra organizacao.
 
-## Componentes atuais
+## conteúdo e contatos
 
-- `HeroSection`: primeira secao da home.
-- `ProfileVisual`: frame da foto com variantes `code`, `message`, `caption`.
-- `PortfolioButton`: botao de marca com variantes `primary`, `outline`, `outline-green`.
-- `ComponentPreviewSection`: wrapper da pagina `/preview` para listar componentes.
-- `TVStaticCanvas`: ruido visual fixo no layout global.
+- Nome publico: Henrique Albuquerque.
+- WhatsApp: `(19) 99401-2785`
+- Link WhatsApp: `https://wa.me/5519994012785`
+- E-mail atual: `halbuquerque2850@gmail.com`
+- Link e-mail: `mailto:halbuquerque2850@gmail.com`
+- Link sobre mim planejado: `/sobre-mim`
+- Link blog planejado: `/blog`
 
-## Assets
+## Secoes ja criadas
 
-- Foto temporaria do Hero: `public/images/hero-profile-reference.png`.
-- Fontes locais:
-  - `public/fonts/bebas-neue-v16-latin-regular.woff2`
-  - `public/fonts/inter-v20-latin-regular.woff2`
-  - `public/fonts/inter-v20-latin-500.woff2`
-  - `public/fonts/inter-v20-latin-600.woff2`
-  - `public/fonts/inter-v20-latin-700.woff2`
+- **Sobre mim**: texto breve, `2+` anos de experiencia e `20+` clientes atendidos, links ghost para WhatsApp, e-mail e `/sobre-mim`.
+- **Servicos**: `ServicesShowcase`, baseado no antigo `KineticTeamHybrid`, com linhas interativas e imagens locais de servicos.
+- **Projetos**: grid com ate 2 colunas, imagem grande, nome, tag e descricao. Cards nao sao links por enquanto.
+- **Depoimentos**: inspirado em layout de cards escuros com estrelas e cards metricos; grid 1/2/3 por breakpoint.
+- **FAQ**: accordion client-side inspirado na interacao mobile de `ServicesShowcase`; coluna de titulo sticky a partir de `md`.
+- **Blog**: lista local com 7 posts, renderiza apenas 2 na home; imagens sao placeholders ate o usuario fornecer assets.
+- **Contato**: formulário client-side com React Hook Form + Zod, envio simulado de 1 segundo, spinner durante submit, sucesso com `AnimatePresence`.
+- **Footer**: usa `bg-accent` e inclui e-mail, WhatsApp, links rápidos e copyright.
 
-Evite depender de `next/font/google`, pois builds em ambiente sem rede podem falhar. Use as fontes locais ja configuradas em `globals.css`.
+## Implementacao
+
+- Use `PortfolioButton` para CTAs de marca.
+- Use `next/image` para imagens locais renderizadas na UI.
+- Use Motion para transicoes e interacoes ja estabelecidas, especialmente onde ja existe padrao com `AnimatePresence`.
+- Use `react-hook-form` + `zod` para formulários com validacao.
+- Use `cn` de `src/lib/utils.ts` para combinar classes.
+- `src/components/ui` deve permanecer generico; estilos especificos do portfolio ficam fora dela.
+- Se um componente visual tiver variantes reutilizaveis, adicione ou atualize preview em `/preview`.
 
 ## Validacao
 
-Antes de encerrar uma alteracao de codigo, rode:
+Antes de encerrar alteracoes de código, rode:
 
 ```bash
 bun run lint
 bun run build
 ```
 
-Se houver alteracao visual importante, tente verificar localmente no navegador. A rota de desenvolvimento comum e `http://127.0.0.1:3001` ou outra porta livre.
+Para mudancas visuais importantes, verifique no navegador em desktop e mobile quando possivel.

@@ -28,9 +28,9 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg text-zinc-300 leading-8 sm:text-xl">
-            Desenvolvo solucoes completas, modernas e escalaveis do zero ao
-            deploy. Foco em performance, experiencia do usuario e codigo limpo
-            para impulsionar seu negocio online.
+            Desenvolvo soluções completas, modernas e escaláveis do zero ao
+            deploy. Foco em performance, experiência do usuário e código limpo
+            para impulsionar seu negócio online.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">

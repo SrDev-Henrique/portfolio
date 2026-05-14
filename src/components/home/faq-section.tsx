@@ -19,9 +19,9 @@ const faqItems: FaqItem[] = [
   },
   {
     id: "02",
-    question: "Voce desenvolve o design e o codigo?",
+    question: "Voce desenvolve o design e o código?",
     answer:
-      "Sim. Posso cuidar da estrutura visual, experiencia de uso, desenvolvimento front-end, back-end, banco de dados e deploy, mantendo tudo alinhado ao objetivo do negocio.",
+      "Sim. Posso cuidar da estrutura visual, experiência de uso, desenvolvimento front-end, back-end, banco de dados e deploy, mantendo tudo alinhado ao objetivo do negócio.",
   },
   {
     id: "03",
@@ -33,13 +33,13 @@ const faqItems: FaqItem[] = [
     id: "04",
     question: "Voce tambem faz SEO?",
     answer:
-      "Sim. Trabalho SEO tecnico, estrutura de paginas, performance, metadados e boas praticas para ajudar o site a ser melhor compreendido por buscadores.",
+      "Sim. Trabalho SEO tecnico, estrutura de páginas, performance, metadados e boas praticas para ajudar o site a ser melhor compreendido por buscadores.",
   },
   {
     id: "05",
-    question: "Consigo editar conteudos depois da entrega?",
+    question: "Consigo editar conteúdos depois da entrega?",
     answer:
-      "Quando o projeto pede isso, posso criar painel administrativo, integracao com CMS ou uma estrutura simples de conteudo para facilitar atualizacoes futuras.",
+      "Quando o projeto pede isso, posso criar painel administrativo, integração com CMS ou uma estrutura simples de conteúdo para facilitar atualizacoes futuras.",
   },
   {
     id: "06",
