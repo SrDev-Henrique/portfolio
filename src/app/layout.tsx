@@ -18,10 +18,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="dark relative antialiased">
-        <SmoothScrollProvider>
-          <TVStaticCanvas animated />
-          {children}
-        </SmoothScrollProvider>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <TVStaticCanvas animated />
       </body>
     </html>
   );

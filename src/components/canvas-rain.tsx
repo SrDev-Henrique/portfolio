@@ -24,21 +24,33 @@ export default function TVStaticCanvas({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
+  const timeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
     let width = 0;
     let height = 0;
     let imageData: ImageData | null = null;
-    let data: Uint8ClampedArray;
+    let cancelled = false;
+
+    function viewportSize() {
+      return {
+        width: Math.round(window.innerWidth),
+        height: Math.round(window.innerHeight),
+      };
+    }
 
     function resize() {
-      if (!canvas || !ctx) return;
-      width = window.innerWidth;
-      height = window.innerHeight;
+      if (!canvas || !ctx || cancelled) return;
+      const { width: nextW, height: nextH } = viewportSize();
+      if (nextW < 1 || nextH < 1) return;
+      width = nextW;
+      height = nextH;
 
       canvas.width = width;
       canvas.height = height;
@@ -48,10 +60,11 @@ export default function TVStaticCanvas({
       ctx.setTransform(1, 0, 0, 1, 0, 0);
 
       imageData = ctx.createImageData(width, height);
-      data = imageData.data;
     }
 
     function renderNoise() {
+      if (!imageData || !ctx || width < 1 || height < 1) return;
+      const d = imageData.data;
       const grain = Math.max(1, Math.floor(4 - intensity * 3));
 
       for (let y = 0; y < height; y += grain) {
@@ -65,10 +78,10 @@ export default function TVStaticCanvas({
               if (px >= width || py >= height) continue;
 
               const index = (py * width + px) * 4;
-              data[index] = value; // R
-              data[index + 1] = value; // G
-              data[index + 2] = value; // B
-              data[index + 3] = 255; // A
+              d[index] = value; // R
+              d[index + 1] = value; // G
+              d[index + 2] = value; // B
+              d[index + 3] = 255; // A
             }
           }
         }
@@ -80,9 +93,11 @@ export default function TVStaticCanvas({
     }
 
     function frame() {
+      if (cancelled) return;
       renderNoise();
       rafRef.current = requestAnimationFrame(() => {
-        setTimeout(frame, 16 / speed);
+        if (cancelled) return;
+        timeoutRef.current = window.setTimeout(frame, 16 / speed);
       });
     }
 
@@ -95,17 +110,23 @@ export default function TVStaticCanvas({
     }
 
     window.addEventListener("resize", resize);
+    window.visualViewport?.addEventListener("resize", resize);
+    window.visualViewport?.addEventListener("scroll", resize);
 
     return () => {
+      cancelled = true;
       window.removeEventListener("resize", resize);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      window.visualViewport?.removeEventListener("resize", resize);
+      window.visualViewport?.removeEventListener("scroll", resize);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
     };
   }, [intensity, animated, speed]);
 
   return (
     <canvas
       ref={canvasRef}
-      className={`pointer-events-none fixed inset-0 z-9999 ${className}`}
+      className={`pointer-events-none fixed inset-0 z-999 ${className}`}
       style={{ opacity }}
     />
   );
