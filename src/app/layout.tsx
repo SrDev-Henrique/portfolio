@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "lenis/dist/lenis.css";
 import TVStaticCanvas from "@/components/canvas-rain";
+import SmoothScrollProvider from "@/components/smooth-scroll-provider";
 
 export const metadata: Metadata = {
   title: "Henrique Albuquerque",
@@ -16,8 +18,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="dark relative antialiased">
-        <TVStaticCanvas animated />
-        {children}
+        <SmoothScrollProvider>
+          <TVStaticCanvas animated />
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
