@@ -55,7 +55,7 @@ export function ProfileVisual({
         className,
       )}
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_48%,rgba(201,255,63,0.22),transparent_21%),radial-gradient(circle_at_80%_96%,rgba(201,255,63,0.18),transparent_19%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_48%,rgba(201,255,63,0.22),transparent_21%),radial-gradient(circle_at_80%_96%,rgba(201,255,63,0.18),transparent_19%)] blur-md" />
       <div className="absolute top-[48%] left-0 h-24 w-28 -translate-x-3 bg-[radial-gradient(circle,rgba(201,255,63,0.75)_1px,transparent_1.8px)] opacity-50 bg-size:[12px_12px]" />
 
       <div
