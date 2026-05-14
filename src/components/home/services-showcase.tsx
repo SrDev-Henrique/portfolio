@@ -98,7 +98,7 @@ export function ServicesShowcase() {
           className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <p className="mb-5 font-inter font-semibold text-lime-300 text-sm uppercase tracking-normal">
+            <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               O que eu posso fazer
             </p>
             <h2 className="max-w-4xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
@@ -152,7 +152,7 @@ export function ServicesShowcase() {
 
                 <div className="absolute right-0 bottom-0 w-full bg-linear-to-t from-black/85 to-transparent p-4">
                   <div className="flex items-center gap-2">
-                    <div className="size-1.5 rounded-full bg-lime-300 shadow-[0_0_14px_rgba(201,255,63,0.9)]" />
+                    <div className="size-1.5 rounded-full bg-accent shadow-[0_0_14px_rgba(201,255,63,0.9)]" />
                     <span className="font-inter text-[10px] text-white/85 uppercase tracking-normal">
                       Solucao em destaque
                     </span>
@@ -207,7 +207,7 @@ function ServiceRow({
     >
       <div className="relative z-10 flex flex-col py-7 md:grid md:grid-cols-[minmax(0,1fr)_minmax(18rem,28rem)_3rem] md:items-center md:gap-8 md:py-10">
         <div className="flex items-baseline gap-5 transition-transform duration-500 group-hover:translate-x-3 md:gap-10">
-          <span className="font-mono text-lime-300/55 text-xs">{data.id}</span>
+          <span className="font-mono text-accent/55 text-xs">{data.id}</span>
           <h3 className="font-semibold text-3xl text-zinc-300 leading-none tracking-normal transition-colors duration-300 group-hover:text-zinc-50 sm:text-4xl md:text-5xl">
             {data.title}
           </h3>
@@ -215,7 +215,7 @@ function ServiceRow({
 
         <div className="mt-5 flex items-start justify-between gap-5 pl-11 md:mt-0 md:pl-0">
           <div>
-            <span className="font-inter font-semibold text-lime-300 text-xs uppercase leading-5 tracking-normal transition-colors">
+            <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal transition-colors">
               {data.tag}
             </span>
             <p className="mt-2 max-w-md font-inter text-sm text-zinc-500 leading-6 transition-colors group-hover:text-zinc-300">
@@ -230,7 +230,7 @@ function ServiceRow({
 
         <motion.div
           animate={{ x: isActive ? 0 : -10, opacity: isActive ? 1 : 0 }}
-          className="hidden justify-self-end text-lime-300 md:block"
+          className="hidden justify-self-end text-accent md:block"
         >
           <ArrowUpRight size={28} strokeWidth={1.5} />
         </motion.div>

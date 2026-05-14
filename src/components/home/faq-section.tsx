@@ -58,7 +58,7 @@ export function FaqSection() {
     <section className="relative bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto grid w-full max-w-7xl gap-12 border-white/10 border-t pt-14 md:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:pt-20">
         <header className="md:sticky md:top-10 md:self-start">
-          <p className="mb-5 font-inter font-semibold text-lime-300 text-sm uppercase tracking-normal">
+          <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
             FAQ
           </p>
           <h2 className="max-w-xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
@@ -101,9 +101,9 @@ function FaqRow({
         aria-expanded={isActive}
         aria-controls={`faq-answer-${data.id}`}
         onClick={() => setActiveId(isActive ? null : data.id)}
-        className="flex w-full items-start gap-5 py-7 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 md:gap-8 md:py-9"
+        className="flex w-full items-start gap-5 py-7 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 md:gap-8 md:py-9"
       >
-        <span className="mt-1 shrink-0 font-mono text-lime-300/55 text-xs">
+        <span className="mt-1 shrink-0 font-mono text-accent/55 text-xs">
           {data.id}
         </span>
 
@@ -113,7 +113,7 @@ function FaqRow({
           </span>
         </span>
 
-        <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-white/10 text-zinc-500 transition-colors group-hover:border-lime-300/50 group-hover:text-lime-300">
+        <span className="mt-1 grid size-8 shrink-0 place-items-center rounded-full border border-white/10 text-zinc-500 transition-colors group-hover:border-accent/50 group-hover:text-accent">
           {isActive ? <Minus size={18} /> : <Plus size={18} />}
         </span>
       </button>

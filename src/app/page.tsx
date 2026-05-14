@@ -1,5 +1,6 @@
 import { AboutSection } from "@/components/home/about-section";
 import { BlogSection } from "@/components/home/blog-section";
+import { ContactSection } from "@/components/home/contact-section";
 import { FaqSection } from "@/components/home/faq-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { ProjectsSection } from "@/components/home/projects-section";
@@ -16,6 +17,7 @@ export default function Home() {
       <TestimonialsSection />
       <FaqSection />
       <BlogSection />
+      <ContactSection />
     </main>
   );
 }

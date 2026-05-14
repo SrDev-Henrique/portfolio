@@ -39,7 +39,7 @@ const statVariants = cva("group min-w-0 text-zinc-100", {
 });
 
 const iconWrapVariants = cva(
-  "grid shrink-0 place-items-center text-lime-300 transition duration-300 group-hover:scale-105",
+  "grid shrink-0 place-items-center text-accent transition duration-300 group-hover:scale-105",
   {
     variants: {
       variant: {
@@ -87,7 +87,7 @@ export function PortfolioStat({
 
       <div className="min-w-0">
         {hasValue ? (
-          <strong className="block font-bebas-neue text-6xl leading-none tracking-normal text-lime-300 sm:text-7xl">
+          <strong className="block font-bebas-neue text-6xl text-accent leading-none tracking-normal sm:text-7xl">
             {value}
           </strong>
         ) : null}
@@ -102,7 +102,7 @@ export function PortfolioStat({
           {label}
         </p>
         {description ? (
-          <p className="mt-1 max-w-48 font-inter text-sm leading-5 text-zinc-400">
+          <p className="mt-1 max-w-48 font-inter text-sm text-zinc-400 leading-5">
             {description}
           </p>
         ) : null}

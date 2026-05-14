@@ -67,7 +67,7 @@ export function BlogSection() {
       <div className="mx-auto w-full max-w-7xl border-white/10 border-t pt-14 lg:pt-20">
         <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="mb-5 font-inter font-semibold text-lime-300 text-sm uppercase tracking-normal">
+            <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               Blog
             </p>
             <h2 className="max-w-4xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
@@ -85,19 +85,19 @@ export function BlogSection() {
           {featuredPosts.map((post) => (
             <article
               key={post.title}
-              className="group min-w-0 overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-lime-300/45"
+              className="group min-w-0 overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-accent/45"
             >
               <div className="relative aspect-16/7 overflow-hidden bg-zinc-900">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(201,255,63,0.18),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0))]" />
                 <div className="absolute inset-4 rounded-md border border-white/10" />
-                <span className="absolute right-5 bottom-5 font-inter font-semibold text-lime-300 text-xs uppercase tracking-normal">
+                <span className="absolute right-5 bottom-5 font-inter font-semibold text-accent text-xs uppercase tracking-normal">
                   Imagem em breve
                 </span>
               </div>
 
               <div className="p-5 sm:p-6">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                  <span className="font-inter font-semibold text-lime-300 text-xs uppercase leading-5 tracking-normal">
+                  <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
                     {post.tag}
                   </span>
                   <span className="size-1 rounded-full bg-zinc-600" />

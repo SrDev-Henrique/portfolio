@@ -9,6 +9,7 @@ type ProfileVisualProps = {
   imageSrc?: string | StaticImageData;
   variant?: ProfileVisualVariant;
   text?: string;
+  contato?: boolean;
 };
 
 const variantConfig = {
@@ -19,7 +20,7 @@ const variantConfig = {
     tiltClass: "rotate-0",
   },
   message: {
-    Icon: MessageCircle,
+    Icon: Code2,
     badgeClass: "left-0 top-1/2 -translate-x-8 -translate-y-1/2",
     cardClass: "bottom-10 left-6 right-6",
     tiltClass: "rotate-0",
@@ -45,6 +46,7 @@ export function ProfileVisual({
   imageSrc = "/images/me.png",
   variant = "message",
   text = "WEB",
+  contato = false,
 }: ProfileVisualProps) {
   const config = variantConfig[variant];
 
@@ -77,7 +79,7 @@ export function ProfileVisual({
 
       <AnimatedRoundBadge
         className={config.badgeClass}
-        icon={Code2}
+        icon={contato ? MessageCircle : config.Icon}
         text={text}
       />
 
@@ -88,11 +90,9 @@ export function ProfileVisual({
         )}
       >
         <div className="flex items-start gap-3">
-          <span className="mt-1 size-4 rounded-full border border-lime-200/70 bg-lime-300 shadow-[0_0_18px_rgba(201,255,63,0.8)]" />
+          <span className="mt-1 size-4 rounded-full border border-lime-200/70 bg-accent shadow-[0_0_18px_rgba(201,255,63,0.8)]" />
           <div className="space-y-1.5">
-            <p className="font-semibold text-lime-300">
-              Desenvolvedor Fullstack
-            </p>
+            <p className="font-semibold text-accent">Desenvolvedor Fullstack</p>
             <p className="max-w-[16rem] text-zinc-100/85 leading-6">
               Transformo ideias em produtos digitais com performance e código
               limpo.
@@ -101,7 +101,7 @@ export function ProfileVisual({
         </div>
       </div>
 
-      <span className="absolute right-8 bottom-7 size-5 rounded-full bg-lime-300 shadow-[0_0_22px_rgba(201,255,63,0.85)]" />
+      <span className="absolute right-8 bottom-7 size-5 rounded-full bg-accent shadow-[0_0_22px_rgba(201,255,63,0.85)]" />
     </div>
   );
 }
@@ -118,7 +118,7 @@ function AnimatedRoundBadge({
   return (
     <div
       className={cn(
-        "absolute grid size-28 place-items-center overflow-hidden rounded-full bg-lime-300 text-zinc-950 shadow-[0_0_48px_rgba(201,255,63,0.55)] sm:size-32",
+        "absolute grid size-28 place-items-center overflow-hidden rounded-full bg-accent text-zinc-950 shadow-[0_0_48px_rgba(201,255,63,0.55)] sm:size-32",
         className,
       )}
     >

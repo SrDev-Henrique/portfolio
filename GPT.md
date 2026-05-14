@@ -15,7 +15,7 @@ O usuario quer construir o projeto por componentes reutilizaveis. Cada secao nov
 ## Direcao visual
 
 - Base escura: `zinc-950`, preto transluscido, bordas brancas com baixa opacidade.
-- Cor de destaque: verde/lime eletrico, principalmente `lime-300`.
+- Cor de destaque: verde/lime eletrico, principalmente `accent`.
 - Tipografia local: titulos usam Bebas Neue; texto, links, botoes e inputs usam Inter.
 - Visual deve ter contraste, glow controlado, bordas arredondadas grandes em elementos de marca, e ruido de fundo via `TVStaticCanvas`.
 - Evite aparencia de template SaaS comum. O portfolio deve ter personalidade, mas continuar limpo.

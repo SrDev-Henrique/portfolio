@@ -47,7 +47,7 @@ export function ProjectsSection() {
       <div className="mx-auto w-full max-w-7xl border-white/10 border-t pt-14 lg:pt-20">
         <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="mb-5 font-inter font-semibold text-lime-300 text-sm uppercase tracking-normal">
+            <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               Projetos
             </p>
             <h2 className="max-w-4xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
@@ -65,7 +65,7 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <article
               key={project.name}
-              className="group min-w-0 overflow-hidden rounded-lg transition-colors duration-300 hover:border-lime-300/45"
+              className="group min-w-0 overflow-hidden rounded-lg transition-colors duration-300 hover:border-accent/45"
             >
               <div className="relative aspect-16/10 overflow-hidden bg-zinc-900">
                 <Image
@@ -79,7 +79,7 @@ export function ProjectsSection() {
               </div>
 
               <div className="p-5 sm:p-6">
-                <span className="font-inter font-semibold text-lime-300 text-xs uppercase leading-5 tracking-normal">
+                <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
                   {project.tag}
                 </span>
                 <h3 className="mt-3 font-semibold text-3xl text-zinc-50 leading-none tracking-normal sm:text-4xl">

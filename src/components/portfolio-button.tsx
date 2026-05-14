@@ -4,16 +4,16 @@ import type * as React from "react";
 import { cn } from "@/lib/utils";
 
 const portfolioButtonVariants = cva(
-  "group inline-flex h-16 items-center justify-center gap-4 rounded-full px-8 font-semibold text-base leading-none transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:pointer-events-none disabled:opacity-50",
+  "group inline-flex h-16 items-center justify-center gap-4 rounded-full px-8 font-semibold text-base leading-none transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary:
-          "bg-lime-300 text-zinc-950 shadow-[0_0_34px_rgba(201,255,63,0.2)] hover:bg-lime-200",
+          "bg-accent text-zinc-950 shadow-[0_0_34px_rgba(201,255,63,0.2)] hover:bg-lime-200",
         outline:
-          "border border-white/25 bg-transparent text-zinc-100 hover:border-lime-300/70 hover:text-lime-200",
+          "border border-white/25 bg-transparent text-zinc-100 hover:border-accent/70 hover:text-lime-200",
         "outline-green":
-          "border border-lime-300/70 bg-transparent text-lime-300 hover:bg-lime-300/10 hover:text-lime-200",
+          "border border-accent/70 bg-transparent text-accent hover:bg-accent/10 hover:text-lime-200",
       },
       size: {
         default: "h-16 px-8 text-base",
@@ -33,9 +33,9 @@ const portfolioButtonIconVariants = cva(
   {
     variants: {
       variant: {
-        primary: "size-11 bg-zinc-950 text-lime-300",
-        outline: "size-5 text-lime-300",
-        "outline-green": "size-5 text-lime-300",
+        primary: "size-11 bg-zinc-950 text-accent",
+        outline: "size-5 text-accent",
+        "outline-green": "size-5 text-accent",
       },
       size: {
         default: "",

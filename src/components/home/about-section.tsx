@@ -26,7 +26,7 @@ export function AboutSection() {
     <section className="relative overflow-hidden px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto grid w-full max-w-7xl gap-12 border-white/10 border-t pt-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20 lg:pt-20">
         <div>
-          <p className="mb-5 font-inter font-semibold text-lime-300 text-sm uppercase tracking-normal">
+          <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
             Sobre mim
           </p>
 
@@ -46,7 +46,7 @@ export function AboutSection() {
           <div className="mt-10 grid gap-6 border-white/10 border-y py-7 sm:grid-cols-2">
             {metrics.map((metric) => (
               <div key={metric.label} className="text-center">
-                <strong className="block font-bebas-neue text-6xl text-lime-300 leading-none tracking-normal sm:text-7xl">
+                <strong className="block font-bebas-neue text-6xl text-accent leading-none tracking-normal sm:text-7xl">
                   {metric.value}
                 </strong>
                 <span className="mt-2 block font-inter text-sm text-zinc-400 uppercase leading-5 tracking-normal">

@@ -38,7 +38,7 @@ export function TestimonialsSection() {
     <section className="relative overflow-hidden bg-zinc-950 px-5 py-20 text-zinc-50 sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto w-full max-w-7xl border-white/10 border-t pt-14 lg:pt-20">
         <header className="mb-12 max-w-4xl lg:mb-14">
-          <p className="mb-5 font-inter font-semibold text-lime-300 text-sm uppercase tracking-normal">
+          <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
             Depoimentos
           </p>
           <h2 className="font-semibold text-5xl leading-none tracking-normal sm:text-7xl lg:text-8xl">
@@ -62,7 +62,7 @@ export function TestimonialsSection() {
           />
 
           <MetricCard
-            className="bg-lime-300 text-zinc-950"
+            className="bg-accent text-zinc-950"
             description="Processo proximo do briefing ao deploy"
             label="Entrega completa"
             value="Do zero"
@@ -81,7 +81,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     <article className="flex min-h-72 flex-col justify-between rounded-md bg-zinc-900/95 p-6 shadow-2xl shadow-black/10 ring-1 ring-white/5 sm:p-8">
       <div>
         <div
-          className="mb-5 flex gap-2 text-lime-300"
+          className="mb-5 flex gap-2 text-accent"
           role="img"
           aria-label="5 estrelas"
         >
@@ -100,7 +100,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       </div>
 
       <div className="mt-8 flex items-center gap-4">
-        <div className="grid size-12 shrink-0 place-items-center rounded-full bg-lime-300 font-inter font-semibold text-zinc-950">
+        <div className="grid size-12 shrink-0 place-items-center rounded-full bg-accent font-inter font-semibold text-zinc-950">
           {getInitials(testimonial.author)}
         </div>
         <div>

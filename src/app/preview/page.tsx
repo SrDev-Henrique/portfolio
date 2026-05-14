@@ -87,13 +87,13 @@ export default function PreviewPage() {
     <main className="min-h-screen bg-zinc-950 px-5 py-10 text-zinc-50 sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-7xl">
         <header className="pb-12">
-          <p className="mb-4 text-sm font-medium uppercase tracking-normal text-lime-300">
+          <p className="mb-4 font-medium text-accent text-sm uppercase tracking-normal">
             Componentes
           </p>
-          <h1 className="max-w-4xl text-5xl font-semibold leading-none tracking-normal sm:text-7xl">
+          <h1 className="max-w-4xl font-semibold text-5xl leading-none tracking-normal sm:text-7xl">
             Preview do sistema visual
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+          <p className="mt-5 max-w-2xl text-lg text-zinc-400 leading-8">
             Uma página de referência para visualizar os componentes criados no
             projeto e suas variações principais.
           </p>
@@ -105,8 +105,8 @@ export default function PreviewPage() {
         >
           <div className="space-y-8">
             <article className="min-w-0">
-              <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                <h3 className="text-2xl font-semibold tracking-normal text-zinc-50">
+              <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
+                <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
                   Left / Right
                 </h3>
                 <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
@@ -121,7 +121,7 @@ export default function PreviewPage() {
                       key={item.value}
                       className={
                         index > 0
-                          ? "md:border-l md:border-white/10 md:px-8"
+                          ? "md:border-white/10 md:border-l md:px-8"
                           : "md:px-8"
                       }
                     >
@@ -139,8 +139,8 @@ export default function PreviewPage() {
             </article>
 
             <article className="min-w-0">
-              <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                <h3 className="text-2xl font-semibold tracking-normal text-zinc-50">
+              <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
+                <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
                   Top / Bottom
                 </h3>
                 <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
@@ -155,7 +155,7 @@ export default function PreviewPage() {
                       key={item.label}
                       className={
                         index > 0
-                          ? "lg:border-l lg:border-white/10 lg:px-6"
+                          ? "lg:border-white/10 lg:border-l lg:px-6"
                           : "lg:px-6"
                       }
                     >
@@ -180,8 +180,8 @@ export default function PreviewPage() {
           <div className="grid gap-6 lg:grid-cols-3">
             {buttonVariants.map((item) => (
               <article key={item.variant} className="min-w-0">
-                <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                  <h3 className="text-2xl font-semibold tracking-normal text-zinc-50">
+                <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
+                  <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
                     {item.name}
                   </h3>
                   <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
@@ -206,8 +206,8 @@ export default function PreviewPage() {
           <div className="grid gap-8 lg:grid-cols-3">
             {profileVariants.map((item) => (
               <article key={item.variant} className="min-w-0">
-                <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-                  <h3 className="text-2xl font-semibold tracking-normal text-zinc-50">
+                <div className="mb-4 flex items-center justify-between border-white/10 border-b pb-3">
+                  <h3 className="font-semibold text-2xl text-zinc-50 tracking-normal">
                     {item.name}
                   </h3>
                   <code className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400">
@@ -218,7 +218,7 @@ export default function PreviewPage() {
                 <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/25 py-6">
                   <ProfileVisual
                     variant={item.variant}
-                    className="max-w-[23rem] px-6 py-5 sm:px-8"
+                    className="max-w-92 px-6 py-5 sm:px-8"
                   />
                 </div>
               </article>
