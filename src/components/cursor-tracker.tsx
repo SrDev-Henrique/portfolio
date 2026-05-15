@@ -1,4 +1,4 @@
-/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: <because> */
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
@@ -213,7 +213,7 @@ export function CursorTrackerVisual({
             transition={{ duration: 0.18, ease: "easeOut" }}
             className="absolute inset-0 grid place-items-center text-accent-foreground"
           >
-            <ArrowUpRight className="size-10 stroke-[2]" />
+            <ArrowUpRight className="size-10 stroke-2" />
           </motion.div>
         ) : null}
 
