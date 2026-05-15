@@ -3,6 +3,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import TVStaticCanvas from "@/components/canvas-rain";
 import SmoothScrollProvider from "@/components/smooth-scroll-provider";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -18,9 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className="dark relative antialiased">
+      <body className="relative antialiased">
         <Providers>
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <ThemeSwitcher />
           <TVStaticCanvas animated />
         </Providers>
       </body>

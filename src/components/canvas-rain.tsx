@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "@teispace/next-themes";
 import { useEffect, useRef } from "react";
 
 /**
@@ -25,8 +26,11 @@ export default function TVStaticCanvas({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
+  const { resolvedTheme } = useTheme<"light" | "dark">();
+  const isLight = resolvedTheme === "light";
 
   useEffect(() => {
+    if (isLight) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -121,12 +125,12 @@ export default function TVStaticCanvas({
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       if (timeoutRef.current !== null) clearTimeout(timeoutRef.current);
     };
-  }, [intensity, animated, speed]);
+  }, [intensity, animated, speed, isLight]);
 
   return (
     <canvas
       ref={canvasRef}
-      className={`pointer-events-none fixed inset-0 z-999 ${className}`}
+      className={`pointer-events-none fixed inset-0 z-999 ${isLight ? "hidden" : className}`}
       style={{ opacity }}
     />
   );

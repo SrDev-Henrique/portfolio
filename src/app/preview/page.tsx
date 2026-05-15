@@ -60,7 +60,7 @@ const featureStats = [
   },
   {
     icon: Headphones,
-    label: "Suporte proximo",
+    label: "Suporte próximo",
   },
 ] as const;
 

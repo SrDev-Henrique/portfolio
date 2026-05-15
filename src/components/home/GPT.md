@@ -46,7 +46,7 @@ Secao "Solucoes digitais que eu entrego". Nasceu do antigo `KineticTeamHybrid`, 
 
 - Mantem mecanica cinetica no desktop: hover em cada linha mostra imagem flutuante.
 - No mobile, toque expande o item e mostra a imagem.
-- Servicos atuais: Sites sob medida, Aplicacoes Full Stack, SEO e Performance, APIs e Integracoes.
+- Servicos atuais: Sites sob medida, aplicações Full Stack, SEO e Performance, APIs e integrações.
 - Imagens locais:
   - `/images/web-custom.jpeg`
   - `/images/fullstack.jpeg`
@@ -103,7 +103,7 @@ Secao final antes do footer.
 - Campos:
   - Nome obrigatorio.
   - E-mail obrigatorio e valido.
-  - Servico obrigatorio: website, webapp, e-commerce, API, "Ainda nao sei ao certo".
+  - Servico obrigatorio: website, webapp, e-commerce, API, "Ainda não sei ao certo".
   - Descricao opcional.
 - Submit e simulado: aguarda 1 segundo, mostra spinner via `isSubmitting`, depois troca para sucesso.
 - Troca formulário/sucesso deve ser suave com `AnimatePresence mode="wait"` e fade-in/fade-out.

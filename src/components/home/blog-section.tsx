@@ -1,4 +1,5 @@
 import { PortfolioButton } from "@/components/portfolio-button";
+import { Reveal } from "@/components/reveal";
 
 type BlogPost = {
   date: string;
@@ -20,7 +21,7 @@ const posts: BlogPost[] = [
     date: "14 Mai 2026",
     title: "Primeiros passos para planejar um site que converte",
     description:
-      "Um guia simples para organizar objetivo, publico, páginas e chamadas antes do desenvolvimento.",
+      "Um guia simples para organizar objetivo, público, páginas e chamadas antes do desenvolvimento.",
   },
   {
     tag: "Recurso",
@@ -32,7 +33,7 @@ const posts: BlogPost[] = [
   {
     tag: "Insight",
     date: "14 Mai 2026",
-    title: "Por que performance tambem e uma estratégia de vendas",
+    title: "Por que performance também e uma estratégia de vendas",
     description:
       "Como velocidade, estabilidade e experiência afetam conversão e retencao.",
   },
@@ -48,7 +49,7 @@ const posts: BlogPost[] = [
     date: "14 Mai 2026",
     title: "O que preparar antes de contratar um desenvolvedor",
     description:
-      "Materiais, referencias e decisoes que aceleram briefing, orcamento e execucao.",
+      "Materiais, referências e decisoes que aceleram briefing, orcamento e execução.",
   },
   {
     tag: "Insight",
@@ -65,7 +66,10 @@ export function BlogSection() {
   return (
     <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
-        <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
+        <Reveal
+          as="header"
+          className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between"
+        >
           <div>
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               Blog
@@ -76,15 +80,18 @@ export function BlogSection() {
           </div>
 
           <p className="max-w-lg font-inter text-base text-muted-foreground leading-7 lg:text-right">
-            conteúdos para ajudar voce a planejar, construir e evoluir sua
+            conteúdos para ajudar você a planejar, construir e evoluir sua
             presença digital com mais clareza.
           </p>
-        </header>
+        </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {featuredPosts.map((post) => (
-            <article
+          {featuredPosts.map((post, index) => (
+            <Reveal
+              as="article"
               key={post.title}
+              delay={0.08}
+              staggerIndex={index}
               className="group min-w-0 overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-accent/45"
             >
               <div className="relative aspect-16/7 overflow-hidden bg-surface">
@@ -113,15 +120,15 @@ export function BlogSection() {
                   {post.description}
                 </p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-10 flex justify-center">
+        <Reveal delay={0.2} className="mt-10 flex justify-center">
           <PortfolioButton href="/blog" size="sm" variant="outline-green">
             Ver todos os posts
           </PortfolioButton>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

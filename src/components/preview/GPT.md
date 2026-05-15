@@ -16,5 +16,5 @@ Esta pasta contem componentes usados para a vitrine interna `/preview`.
 
 ## Cores
 
-- Previews tambem devem respeitar os tokens do `globals.css`.
+- Previews também devem respeitar os tokens do `globals.css`.
 - Se o componente principal migrar para tokens globais, atualize a preview junto.

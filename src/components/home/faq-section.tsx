@@ -3,6 +3,7 @@
 import { Minus, Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
+import { Reveal } from "@/components/reveal";
 
 type FaqItem = {
   answer: string;
@@ -15,11 +16,11 @@ const faqItems: FaqItem[] = [
     id: "01",
     question: "Quanto tempo leva para desenvolver um projeto?",
     answer:
-      "Depende do escopo. Um site institucional costuma levar menos tempo do que uma plataforma com painel, API e integracoes. Depois do briefing, eu defino etapas, prazo e prioridades com clareza.",
+      "Depende do escopo. Um site institucional costuma levar menos tempo do que uma plataforma com painel, API e integrações. Depois do briefing, eu defino etapas, prazo e prioridades com clareza.",
   },
   {
     id: "02",
-    question: "Voce desenvolve o design e o código?",
+    question: "você desenvolve o design e o código?",
     answer:
       "Sim. Posso cuidar da estrutura visual, experiência de uso, desenvolvimento front-end, back-end, banco de dados e deploy, mantendo tudo alinhado ao objetivo do negócio.",
   },
@@ -27,13 +28,13 @@ const faqItems: FaqItem[] = [
     id: "03",
     question: "Meu site vai funcionar bem no celular?",
     answer:
-      "Sim. Os projetos sao pensados para mobile e desktop desde o inicio, com layout responsivo, boa leitura, performance e interacoes adequadas para cada tamanho de tela.",
+      "Sim. Os projetos são pensados para mobile e desktop desde o inicio, com layout responsivo, boa leitura, performance e interações adequadas para cada tamanho de tela.",
   },
   {
     id: "04",
-    question: "Voce tambem faz SEO?",
+    question: "você também faz SEO?",
     answer:
-      "Sim. Trabalho SEO tecnico, estrutura de páginas, performance, metadados e boas praticas para ajudar o site a ser melhor compreendido por buscadores.",
+      "Sim. Trabalho SEO tecnico, estrutura de páginas, performance, metadados e boas práticas para ajudar o site a ser melhor compreendido por buscadores.",
   },
   {
     id: "05",
@@ -43,9 +44,9 @@ const faqItems: FaqItem[] = [
   },
   {
     id: "06",
-    question: "Como comecamos um projeto?",
+    question: "Como começamos um projeto?",
     answer:
-      "O primeiro passo e uma conversa para entender objetivo, publico, funcionalidades e referencias. A partir disso, eu organizo a proposta e o caminho de execucao.",
+      "O primeiro passo é uma conversa para entender objetivo, público, funcionalidades e referências. A partir disso, eu organizo a proposta e o caminho de execução.",
   },
 ];
 
@@ -57,7 +58,7 @@ export function FaqSection() {
   return (
     <section className="relative bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto grid w-full max-w-7xl gap-12 border-border border-t pt-14 md:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:pt-20">
-        <header className="md:sticky md:top-10 md:self-start">
+        <Reveal as="header" className="md:sticky md:top-10 md:self-start">
           <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
             FAQ
           </p>
@@ -68,13 +69,14 @@ export function FaqSection() {
             Algumas respostas rapidas para entender o processo, o escopo e como
             eu conduzo projetos digitais do briefing ao deploy.
           </p>
-        </header>
+        </Reveal>
 
         <div className="flex flex-col">
-          {faqItems.map((item) => (
+          {faqItems.map((item, index) => (
             <FaqRow
               key={item.id}
               data={item}
+              index={index}
               isActive={activeId === item.id}
               setActiveId={setActiveId}
             />
@@ -87,15 +89,22 @@ export function FaqSection() {
 
 function FaqRow({
   data,
+  index,
   isActive,
   setActiveId,
 }: {
   data: FaqItem;
+  index: number;
   isActive: boolean;
   setActiveId: (id: string | null) => void;
 }) {
   return (
-    <article className="group border-border border-t transition-colors duration-500 last:border-b">
+    <Reveal
+      as="article"
+      delay={0.08}
+      staggerIndex={index}
+      className="group border-border border-t transition-colors duration-500 last:border-b"
+    >
       <button
         type="button"
         aria-expanded={isActive}
@@ -134,6 +143,6 @@ function FaqRow({
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </article>
+    </Reveal>
   );
 }

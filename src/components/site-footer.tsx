@@ -1,4 +1,5 @@
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 
 const footerLinks = [
   { href: "#projetos", label: "Projetos" },
@@ -23,7 +24,10 @@ export function SiteFooter() {
   return (
     <footer className="bg-accent px-5 py-12 text-accent-foreground sm:px-8 lg:px-12">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid gap-10 border-accent-foreground/15 border-b pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+        <Reveal
+          className="grid gap-10 border-accent-foreground/15 border-b pb-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end"
+          direction="up"
+        >
           <div>
             <p className="mb-4 font-inter font-semibold text-sm uppercase tracking-normal opacity-70">
               Henrique Albuquerque
@@ -53,9 +57,13 @@ export function SiteFooter() {
               ))}
             </nav>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col gap-8 pt-8 lg:flex-row lg:items-center lg:justify-between">
+        <Reveal
+          delay={0.12}
+          viewportMargin="0px 0px 0px 0px"
+          className="flex flex-col gap-8 pt-8 lg:flex-row lg:items-center lg:justify-between"
+        >
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             {contactLinks.map(({ href, Icon, label }) => (
               <a
@@ -75,7 +83,7 @@ export function SiteFooter() {
           <p className="font-inter text-sm opacity-70">
             © 2026 Henrique Albuquerque. Todos os direitos reservados.
           </p>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 import Image from "next/image";
 import * as React from "react";
+import { Reveal } from "@/components/reveal";
 
 type Service = {
   description: string;
@@ -29,7 +30,7 @@ const services: Service[] = [
   },
   {
     id: "02",
-    title: "Aplicacoes Full Stack",
+    title: "aplicações Full Stack",
     tag: "Produto completo",
     description:
       "Front-end, back-end, banco de dados e deploy integrados para produtos digitais completos.",
@@ -45,7 +46,7 @@ const services: Service[] = [
   },
   {
     id: "04",
-    title: "APIs e Integracoes",
+    title: "APIs e integrações",
     tag: "Sistemas conectados",
     description:
       "Criação de APIs seguras, escaláveis e prontas para conectar sistemas, dashboards e automações.",
@@ -90,11 +91,8 @@ export function ServicesShowcase() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-border" />
 
       <div className="mx-auto max-w-7xl">
-        <motion.header
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ duration: 0.6 }}
+        <Reveal
+          as="header"
           className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between"
         >
           <div>
@@ -111,7 +109,7 @@ export function ServicesShowcase() {
           <p className="max-w-52 text-right font-inter font-semibold text-foreground-subtle text-xs uppercase leading-5 tracking-normal">
             Do site institucional ao sistema completo
           </p>
-        </motion.header>
+        </Reveal>
 
         <div className="flex flex-col">
           {services.map((service, index) => (
@@ -185,22 +183,18 @@ function ServiceRow({
   const isDimmed = isAnyActive && !isActive;
 
   return (
-    <motion.article
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{
-        opacity: isDimmed ? 0.35 : 1,
-        y: 0,
-      }}
+    <Reveal
+      as="article"
+      delay={0.08}
+      staggerIndex={index}
       style={{
         backgroundColor:
           isActive && isMobile ? "rgb(var(--light-rgb)/0.03)" : "transparent",
       }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
       onMouseEnter={() => !isMobile && setActiveId(data.id)}
       onMouseLeave={() => !isMobile && setActiveId(null)}
       onClick={() => isMobile && setActiveId(isActive ? null : data.id)}
+      visibleOpacity={isDimmed ? 0.35 : 1}
       className={`group relative border-border border-t transition-colors duration-500 last:border-b ${
         isMobile ? "cursor-pointer" : "cursor-default"
       }`}
@@ -260,6 +254,6 @@ function ServiceRow({
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </motion.article>
+    </Reveal>
   );
 }

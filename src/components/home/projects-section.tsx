@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/reveal";
 
 type Project = {
   description: string;
@@ -39,14 +40,16 @@ const projects: Project[] = [
 ];
 
 export function ProjectsSection() {
-  
   return (
     <section
       id="projetos"
       className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28"
     >
       <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
-        <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
+        <Reveal
+          as="header"
+          className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between"
+        >
           <div>
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               Projetos
@@ -60,12 +63,16 @@ export function ProjectsSection() {
             Uma seleção de trabalhos que combinam estratégia, interfaces
             responsivas e desenvolvimento preparado para crescer.
           </p>
-        </header>
+        </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {projects.map((project) => (
-            <article
+          {projects.map((project, index) => (
+            <Reveal
+              as="article"
               key={project.name}
+              delay={0.08}
+              direction="up"
+              staggerIndex={index}
               className="group min-w-0 overflow-hidden rounded-lg transition-colors duration-300 hover:border-accent/45"
             >
               <div className="relative aspect-16/10 overflow-hidden bg-surface">
@@ -90,7 +97,7 @@ export function ProjectsSection() {
                   {project.description}
                 </p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

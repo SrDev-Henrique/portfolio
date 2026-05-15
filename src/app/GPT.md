@@ -14,7 +14,7 @@ Esta pasta usa o App Router do Next.js. Antes de mexer em convencoes de páginas
 
 - páginas devem compor secoes, nao concentrar markup complexo.
 - Use `main` como container de pagina.
-- Texto publico deve estar em portugues do Brasil.
+- Texto público deve estar em portugues do Brasil.
 - Mantenha a home na ordem atual salvo pedido explicito do usuario: Hero, Sobre, Servicos, Projetos, Depoimentos, FAQ, Blog, Contato, Footer.
 - Nao crie rotas como `/blog`, `/sobre-mim` ou páginas de projeto apenas porque ha links apontando para elas; crie somente quando solicitado.
 

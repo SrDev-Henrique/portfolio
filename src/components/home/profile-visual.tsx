@@ -1,4 +1,8 @@
+"use client";
+
+import { useTheme } from "@teispace/next-themes";
 import { Code2, MessageCircle, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 import Image, { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -49,6 +53,8 @@ export function ProfileVisual({
   contato = false,
 }: ProfileVisualProps) {
   const config = variantConfig[variant];
+  const { resolvedTheme } = useTheme<"light" | "dark">();
+  const isLight = resolvedTheme === "light";
 
   return (
     <div
@@ -74,6 +80,29 @@ export function ProfileVisual({
           sizes="(min-width: 1024px) 31rem, 86vw"
           className="object-cover object-center"
         />
+        <motion.div
+          initial={{
+            clipPath: isLight
+              ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+              : "polygon(0 0, 100% 0, 100% 0, 0 0)",
+          }}
+          animate={{
+            clipPath: isLight
+              ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+              : "polygon(0 0, 100% 0, 100% 0, 0 0)",
+          }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/images/me-2.png"
+            alt="Retrato de Henrique Albuquerque"
+            fill
+            priority
+            sizes="(min-width: 1024px) 31rem, 86vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
         <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-overlay to-transparent" />
       </div>
 

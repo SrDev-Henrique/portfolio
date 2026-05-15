@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 
 type Testimonial = {
   author: string;
@@ -37,7 +38,7 @@ export function TestimonialsSection() {
   return (
     <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
       <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
-        <header className="mb-12 max-w-4xl lg:mb-14">
+        <Reveal as="header" className="mb-12 max-w-4xl lg:mb-14">
           <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
             Depoimentos
           </p>
@@ -48,13 +49,14 @@ export function TestimonialsSection() {
             Feedbacks de projetos que uniram estratégia, desenvolvimento bem
             executado e uma experiência digital pensada para gerar resultado.
           </p>
-        </header>
+        </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <TestimonialCard testimonial={testimonials[0]} />
-          <TestimonialCard testimonial={testimonials[1]} />
+          <TestimonialCard staggerIndex={0} testimonial={testimonials[0]} />
+          <TestimonialCard staggerIndex={1} testimonial={testimonials[1]} />
 
           <MetricCard
+            staggerIndex={2}
             className="bg-foreground text-accent-foreground"
             description="Projetos pensados para performance, clareza e conversão"
             label="Foco em resultado"
@@ -62,23 +64,35 @@ export function TestimonialsSection() {
           />
 
           <MetricCard
+            staggerIndex={3}
             className="bg-accent text-accent-foreground"
-            description="Processo proximo do briefing ao deploy"
+            description="Processo próximo do briefing ao deploy"
             label="Entrega completa"
             value="Do zero"
           />
 
-          <TestimonialCard testimonial={testimonials[2]} />
-          <TestimonialCard testimonial={testimonials[3]} />
+          <TestimonialCard staggerIndex={4} testimonial={testimonials[2]} />
+          <TestimonialCard staggerIndex={5} testimonial={testimonials[3]} />
         </div>
       </div>
     </section>
   );
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function TestimonialCard({
+  staggerIndex,
+  testimonial,
+}: {
+  staggerIndex: number;
+  testimonial: Testimonial;
+}) {
   return (
-    <article className="flex min-h-72 flex-col justify-between rounded-md bg-surface/95 p-6 shadow-2xl shadow-overlay ring-1 ring-border/50 sm:p-8">
+    <Reveal
+      as="article"
+      delay={0.08}
+      staggerIndex={staggerIndex}
+      className="flex min-h-72 flex-col justify-between rounded-md bg-surface/95 p-6 shadow-2xl shadow-overlay ring-1 ring-border/50 sm:p-8"
+    >
       <div>
         <div
           className="mb-5 flex gap-2 text-accent"
@@ -112,7 +126,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           </p>
         </div>
       </div>
-    </article>
+    </Reveal>
   );
 }
 
@@ -120,15 +134,20 @@ function MetricCard({
   className,
   description,
   label,
+  staggerIndex,
   value,
 }: {
   className: string;
   description: string;
   label: string;
+  staggerIndex: number;
   value: string;
 }) {
   return (
-    <article
+    <Reveal
+      as="article"
+      delay={0.08}
+      staggerIndex={staggerIndex}
       className={`${className} flex min-h-72 flex-col justify-between rounded-md p-6 sm:p-8`}
     >
       <p className="max-w-sm font-inter text-base leading-7 opacity-80">
@@ -140,7 +159,7 @@ function MetricCard({
         </strong>
         <p className="font-inter text-base opacity-80">{label}</p>
       </div>
-    </article>
+    </Reveal>
   );
 }
 

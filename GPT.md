@@ -9,7 +9,7 @@ Antes de alterar API, convencao de rota, imagem, metadata, fonte, cache, server/
 ## Direcao de produto
 
 - A home deve comunicar desenvolvimento full stack, websites, webapps, e-commerce, APIs, performance, SEO e foco em resultado.
-- O tom publico deve ser portugues do Brasil, direto, vendavel e profissional.
+- O tom público deve ser portugues do Brasil, direto, vendavel e profissional.
 - A experiencia deve parecer um portfolio premium, escuro, tecnico e editorial, nao uma landing generica.
 - Cada nova area da home deve virar uma secao independente em `src/components/home`.
 - Evite inventar backend, envio real, rotas internas ou páginas novas quando o pedido for apenas criar a secao visual.
@@ -43,7 +43,7 @@ Preserve essa ordem a menos que o usuario peca explicitamente outra organizacao.
 
 ## conteúdo e contatos
 
-- Nome publico: Henrique Albuquerque.
+- Nome público: Henrique Albuquerque.
 - WhatsApp: `(19) 99401-2785`
 - Link WhatsApp: `https://wa.me/5519994012785`
 - E-mail atual: `halbuquerque2850@gmail.com`
