@@ -40,7 +40,7 @@ const faqItems: FaqItem[] = [
     id: "05",
     question: "Consigo editar conteúdos depois da entrega?",
     answer:
-      "Quando o projeto pede isso, posso criar painel administrativo, integração com CMS ou uma estrutura simples de conteúdo para facilitar atualizacoes futuras.",
+      "Quando o projeto pede isso, posso criar painel administrativo, integração com CMS ou uma estrutura simples de conteúdo para facilitar atualizações futuras.",
   },
   {
     id: "06",

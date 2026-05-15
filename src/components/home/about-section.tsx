@@ -24,7 +24,10 @@ const contactLinks = [
 
 export function AboutSection() {
   return (
-    <section className="relative overflow-hidden px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
+    <section
+      id="sobre"
+      className="relative scroll-mt-24 overflow-hidden px-5 py-20 text-foreground sm:scroll-mt-28 sm:px-8 lg:px-12 lg:py-28"
+    >
       <div className="mx-auto grid w-full max-w-7xl gap-12 border-border border-t pt-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20 lg:pt-20">
         <Reveal>
           <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">

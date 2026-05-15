@@ -64,7 +64,10 @@ const featuredPosts = posts.slice(0, 2);
 
 export function BlogSection() {
   return (
-    <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
+    <section
+      id="blog"
+      className="relative scroll-mt-24 overflow-hidden bg-background px-5 py-20 text-foreground sm:scroll-mt-28 sm:px-8 lg:px-12 lg:py-28"
+    >
       <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
         <Reveal
           as="header"

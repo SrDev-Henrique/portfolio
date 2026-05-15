@@ -73,7 +73,10 @@ export function ContactSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28">
+    <section
+      id="contato"
+      className="relative scroll-mt-24 overflow-hidden bg-background px-5 py-20 text-foreground sm:scroll-mt-28 sm:px-8 lg:px-12 lg:py-28"
+    >
       <div className="mx-auto grid w-full max-w-7xl gap-12 border-border border-t pt-14 md:grid-cols-[0.9fr_1.1fr] md:items-center lg:gap-20 lg:pt-20">
         <Reveal direction="right" distance={34}>
           <ProfileVisual

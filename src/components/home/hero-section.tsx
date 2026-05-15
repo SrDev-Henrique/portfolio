@@ -11,7 +11,10 @@ const stats = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden px-5 py-8 text-foreground sm:px-8 lg:px-12">
+    <section
+      id="inicio"
+      className="relative min-h-screen overflow-hidden px-5 py-8 pt-14 text-foreground sm:px-8 lg:px-12"
+    >
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl flex-col justify-center gap-12 lg:grid lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
         <div className="max-w-4xl pt-10 lg:pt-0">
           <Reveal
@@ -46,10 +49,7 @@ export function HeroSection() {
             para impulsionar seu negócio online.
           </Reveal>
 
-          <Reveal
-            delay={0.24}
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
-          >
+          <Reveal delay={0.24} className="mt-9 flex flex-col gap-3 sm:flex-row">
             <PortfolioButton
               href="mailto:contato@henriquealbuquerque.dev"
               size="sm"
