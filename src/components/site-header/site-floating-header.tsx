@@ -8,6 +8,7 @@ import { PillHeaderAvailability } from "./pill-header-availability";
 import { PillHeaderContact } from "./pill-header-contact";
 import { PillNavLink } from "./pill-nav-link";
 import { SiteHeaderAvatar } from "./site-header-avatar";
+import { useHasWindow } from "./use-has-window";
 import { useHeaderScrollCompact } from "./use-header-scroll-compact";
 import { useDesktopHeaderEnabled } from "./use-show-desktop-header";
 
@@ -25,8 +26,13 @@ export function SiteFloatingHeader({
   className,
   availabilityLabel,
 }: SiteFloatingHeaderProps) {
+  const hasWindow = useHasWindow();
   const compact = useHeaderScrollCompact();
   const showDesktopHeader = useDesktopHeaderEnabled();
+
+  if (!hasWindow) {
+    return null;
+  }
 
   return (
     <header
