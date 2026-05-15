@@ -31,7 +31,7 @@ export function PillHeaderAvailability({
         className,
       )}
     >
-      <span className="truncate font-inter font-medium text-foreground text-sm tracking-tight sm:text-[0.9375rem]">
+      <span className="truncate font-inter font-medium text-[0.9375rem] text-foreground tracking-tight">
         {avaible ? "Disponível" : "Ocupado"}
       </span>
       <div

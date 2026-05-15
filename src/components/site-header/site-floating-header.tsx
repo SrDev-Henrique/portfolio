@@ -2,12 +2,14 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { MobileHeader } from "./mobile-header";
 import { SITE_NAV_ITEMS } from "./nav-items";
 import { PillHeaderAvailability } from "./pill-header-availability";
 import { PillHeaderContact } from "./pill-header-contact";
 import { PillNavLink } from "./pill-nav-link";
 import { SiteHeaderAvatar } from "./site-header-avatar";
 import { useHeaderScrollCompact } from "./use-header-scroll-compact";
+import { useDesktopHeaderEnabled } from "./use-show-desktop-header";
 
 export type SiteFloatingHeaderProps = {
   className?: string;
@@ -24,6 +26,7 @@ export function SiteFloatingHeader({
   availabilityLabel,
 }: SiteFloatingHeaderProps) {
   const compact = useHeaderScrollCompact();
+  const showDesktopHeader = useDesktopHeaderEnabled();
 
   return (
     <header
@@ -32,50 +35,54 @@ export function SiteFloatingHeader({
         className,
       )}
     >
-      <motion.nav
-        layout
-        transition={navTransition.layout}
-        className={cn(
-          "pointer-events-auto flex items-center gap-2 overflow-hidden rounded-full border border-border shadow-lg backdrop-blur-md",
-          "bg-card/95 text-card-foreground",
-          compact
-            ? "w-42 max-w-md py-1.5 pr-3 pl-2"
-            : "w-full max-w-120 py-1.5 pr-2 pl-2 sm:gap-4 sm:px-4",
-        )}
-        aria-label="Navegação principal"
-      >
-        <motion.div layout className="shrink-0">
-          <SiteHeaderAvatar />
-        </motion.div>
-
-        <AnimatePresence initial={false} mode="popLayout">
-          {compact ? (
-            <PillHeaderAvailability
-              key="availability"
-              avaible={availabilityLabel === "Disponível"}
-            />
-          ) : (
-            <motion.div
-              key="nav-expanded"
-              layout
-              initial={{ opacity: 0, filter: "blur(4px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, filter: "blur(4px)" }}
-              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-              className="flex min-w-98 flex-1 shrink-0 items-center gap-2 sm:gap-4"
-            >
-              <ul className="flex min-w-0 flex-1 items-center justify-center gap-3 overflow-x-auto overscroll-x-contain px-1 py-0.5 sm:gap-7 sm:px-2">
-                {SITE_NAV_ITEMS.map((item) => (
-                  <li key={item.href} className="shrink-0">
-                    <PillNavLink href={item.href} label={item.label} />
-                  </li>
-                ))}
-              </ul>
-              <PillHeaderContact />
-            </motion.div>
+      {showDesktopHeader ? (
+        <motion.nav
+          layout
+          transition={navTransition.layout}
+          className={cn(
+            "pointer-events-auto flex items-center gap-2 overflow-hidden rounded-full border border-border shadow-lg backdrop-blur-md",
+            "bg-card/95 text-card-foreground",
+            compact
+              ? "w-42 max-w-md py-1.5 pr-3 pl-2"
+              : "w-full max-w-120 py-1.5 pr-2 pl-2 sm:gap-4 sm:px-4",
           )}
-        </AnimatePresence>
-      </motion.nav>
+          aria-label="Navegação principal"
+        >
+          <motion.div layout className="shrink-0">
+            <SiteHeaderAvatar />
+          </motion.div>
+
+          <AnimatePresence initial={false} mode="popLayout">
+            {compact ? (
+              <PillHeaderAvailability
+                key="availability"
+                avaible={availabilityLabel === "Disponível"}
+              />
+            ) : (
+              <motion.div
+                key="nav-expanded"
+                layout
+                initial={{ opacity: 0, filter: "blur(4px)" }}
+                animate={{ opacity: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, filter: "blur(4px)" }}
+                transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+                className="flex min-w-98 flex-1 shrink-0 items-center gap-2 sm:gap-4"
+              >
+                <ul className="flex min-w-0 flex-1 items-center justify-center gap-3 overflow-x-auto overscroll-x-contain px-1 py-0.5 sm:gap-7 sm:px-2">
+                  {SITE_NAV_ITEMS.map((item) => (
+                    <li key={item.href} className="shrink-0">
+                      <PillNavLink href={item.href} label={item.label} />
+                    </li>
+                  ))}
+                </ul>
+                <PillHeaderContact />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.nav>
+      ) : (
+        <MobileHeader />
+      )}
     </header>
   );
 }

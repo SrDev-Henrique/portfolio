@@ -193,8 +193,10 @@ export function CursorTrackerVisual({
     <motion.div
       animate={{
         borderRadius: isMedia ? 28 : 999,
-        height: isMedia ? 176 : state.mode === "arrow" ? 112 : 20,
-        width: isMedia ? 176 : state.mode === "arrow" ? 112 : 20,
+        height: isMedia ? 276 : state.mode === "arrow" ? 112 : 20,
+        width: isMedia ? 276 : state.mode === "arrow" ? 112 : 20,
+        x: isMedia ? 120 : state.mode === "arrow" ? 25 : 0,
+        y: isMedia ? 120 : state.mode === "arrow" ? 20 : 0,
       }}
       transition={{ damping: 24, mass: 0.4, stiffness: 280, type: "spring" }}
       className={cn(
@@ -220,9 +222,9 @@ export function CursorTrackerVisual({
         {mediaSrc ? (
           <motion.div
             key={mediaSrc}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="absolute inset-0"
           >

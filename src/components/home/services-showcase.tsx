@@ -84,7 +84,7 @@ export function ServicesShowcase() {
       <div className="mx-auto max-w-7xl">
         <Reveal
           as="header"
-          className="mb-14 flex flex-col gap-6 md:mb-20 md:flex-row md:items-end md:justify-between"
+          className="mb-14 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between"
         >
           <div>
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
@@ -95,7 +95,7 @@ export function ServicesShowcase() {
             </h2>
           </div>
 
-          <div className="hidden h-px flex-1 bg-border md:block" />
+          <div className="hidden h-px flex-1 bg-border lg:block" />
 
           <p className="max-w-52 text-right font-inter font-semibold text-foreground-subtle text-xs uppercase leading-5 tracking-normal">
             Do site institucional ao sistema completo
@@ -173,15 +173,15 @@ function ServiceRow({
         isMobile ? "cursor-pointer" : "cursor-default"
       }`}
     >
-      <div className="relative z-10 flex flex-col py-7 md:grid md:grid-cols-[minmax(0,1fr)_minmax(18rem,28rem)_3rem] md:items-center md:gap-8 md:py-10">
-        <div className="flex items-baseline gap-5 transition-transform duration-500 group-hover:translate-x-3 md:gap-10">
+      <div className="relative z-10 flex flex-col py-7 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(18rem,28rem)_3rem] lg:items-center lg:gap-8 lg:py-10">
+        <div className="flex items-baseline gap-5 transition-transform duration-500 group-hover:translate-x-3 lg:gap-10">
           <span className="font-mono text-accent/55 text-xs">{data.id}</span>
-          <h3 className="font-semibold text-3xl text-foreground-muted leading-none tracking-normal transition-colors duration-300 group-hover:text-foreground sm:text-4xl md:text-5xl">
+          <h3 className="font-semibold text-3xl text-foreground-muted leading-none tracking-normal transition-colors duration-300 group-hover:text-foreground sm:text-4xl lg:text-5xl">
             {data.title}
           </h3>
         </div>
 
-        <div className="mt-5 flex items-start justify-between gap-5 pl-11 md:mt-0 md:pl-0">
+        <div className="mt-5 flex items-start justify-between gap-5 pl-11 lg:mt-0 lg:pl-0">
           <div>
             <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal transition-colors">
               {data.tag}
@@ -191,14 +191,14 @@ function ServiceRow({
             </p>
           </div>
 
-          <div className="block shrink-0 text-foreground-subtle md:hidden">
+          <div className="block shrink-0 text-foreground-subtle lg:hidden">
             {isActive ? <Minus size={18} /> : <Plus size={18} />}
           </div>
         </div>
 
         <motion.div
           animate={{ x: isActive ? 0 : -10, opacity: isActive ? 1 : 0 }}
-          className="hidden justify-self-end text-accent md:block"
+          className="hidden justify-self-end text-accent lg:block"
         >
           <ArrowUpRight size={28} strokeWidth={1.5} />
         </motion.div>
