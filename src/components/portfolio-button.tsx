@@ -1,7 +1,11 @@
+"use client";
+
 import { cva, type VariantProps } from "class-variance-authority";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import type * as React from "react";
 import { cn } from "@/lib/utils";
+import { requestLenisRouteReset } from "@/utils/lenis-route-reset";
 
 const portfolioButtonVariants = cva(
   "group inline-flex h-16 items-center justify-center gap-4 rounded-full px-8 font-semibold text-base leading-none transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
@@ -55,31 +59,41 @@ type PortfolioButtonProps = Omit<React.ComponentProps<"button">, "type"> &
   VariantProps<typeof portfolioButtonVariants> & {
     href?: string;
     icon?: React.ReactNode;
+    resetScroll?: boolean;
     type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
   };
+
+function isInternalRoute(href: string) {
+  return href.startsWith("/");
+}
 
 export function PortfolioButton({
   children,
   className,
   href,
   icon,
+  onClick,
+  resetScroll = false,
   size = "default",
   type = "button",
   variant = "primary",
   ...props
 }: PortfolioButtonProps) {
-  const Comp = href ? "a" : "button";
   const iconContent = icon ?? <ArrowUpRight className="size-5 stroke-[2.6]" />;
+  const classNameValue = cn(
+    portfolioButtonVariants({ variant, size, className }),
+  );
+  const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    onClick?.(event);
 
-  return (
-    <Comp
-      className={cn(portfolioButtonVariants({ variant, size, className }))}
-      data-size={size}
-      data-variant={variant}
-      href={href}
-      type={href ? undefined : type}
-      {...props}
-    >
+    if (event.defaultPrevented || !resetScroll) {
+      return;
+    }
+
+    requestLenisRouteReset();
+  };
+  const content = (
+    <>
       <span>{children}</span>
       <span
         aria-hidden="true"
@@ -87,6 +101,49 @@ export function PortfolioButton({
       >
         {iconContent}
       </span>
-    </Comp>
+    </>
+  );
+
+  if (href && isInternalRoute(href)) {
+    return (
+      <Link
+        className={classNameValue}
+        data-size={size}
+        data-variant={variant}
+        href={href}
+        onClick={handleLinkClick}
+        {...props}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  if (href) {
+    return (
+      <a
+        className={classNameValue}
+        data-size={size}
+        data-variant={variant}
+        href={href}
+        onClick={handleLinkClick}
+        {...props}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <button
+      className={classNameValue}
+      data-size={size}
+      data-variant={variant}
+      onClick={onClick}
+      type={type}
+      {...props}
+    >
+      {content}
+    </button>
   );
 }
