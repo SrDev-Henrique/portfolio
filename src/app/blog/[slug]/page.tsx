@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteFloatingHeader } from "@/components/site-header";
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
@@ -60,8 +59,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      <SiteFloatingHeader availabilityLabel="Disponível" />
-
       <article className="px-5 pt-32 pb-20 sm:px-8 lg:px-12 lg:pt-40 lg:pb-28">
         <div className="mx-auto w-full max-w-5xl">
           <Link

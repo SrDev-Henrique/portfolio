@@ -1,44 +1,34 @@
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CursorTarget } from "@/components/cursor-tracker";
 import { projects } from "@/content/projects";
-import { Reveal } from "@/components/reveal";
 
-export function ProjectsSection() {
+export default function ProjectsPage() {
   return (
-    <section
-      id="projetos"
-      className="relative scroll-mt-24 overflow-hidden bg-background px-5 py-20 text-foreground sm:scroll-mt-28 sm:px-8 lg:px-12 lg:py-28"
-    >
-      <div className="mx-auto w-full max-w-7xl border-border border-t pt-14 lg:pt-20">
-        <Reveal
-          as="header"
-          className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between"
-        >
+    <main className="min-h-screen bg-background px-5 py-10 text-foreground sm:px-8 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl border-border border-t pt-10 lg:pt-16">
+        <header className="mb-12 flex flex-col gap-5 lg:mb-16 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               Projetos
             </p>
-            <h2 className="max-w-4xl font-semibold text-4xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
-              Projetos em destaque
-            </h2>
+            <h1 className="max-w-4xl font-semibold text-5xl leading-none tracking-normal sm:text-6xl lg:text-7xl">
+              Cases e trabalhos em destaque
+            </h1>
           </div>
 
           <p className="max-w-lg font-inter text-base text-muted-foreground leading-7 lg:text-right">
-            Uma seleção de trabalhos que combinam estratégia, interfaces
-            responsivas e desenvolvimento preparado para crescer.
+            Uma base para navegar pelos projetos do portfolio e evoluir cada um
+            deles para um estudo de caso mais detalhado.
           </p>
-        </Reveal>
+        </header>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <Reveal
-              as="article"
-              key={project.name}
-              delay={0.08}
-              direction="up"
-              staggerIndex={index}
-              className="group min-w-0 overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-accent/45"
+          {projects.map((project) => (
+            <article
+              key={project.slug}
+              className="group overflow-hidden rounded-lg border border-border bg-background transition-colors duration-300 hover:border-accent/45"
             >
               <CursorTarget
                 className="h-full"
@@ -60,22 +50,26 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="p-5 sm:p-6">
-                    <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
-                      {project.tag}
-                    </span>
-                    <h3 className="mt-3 font-semibold text-3xl text-foreground leading-none tracking-normal sm:text-4xl">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
+                        {project.tag}
+                      </span>
+                      <ArrowUpRight className="size-4 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+
+                    <h2 className="mt-3 font-semibold text-3xl text-foreground leading-none tracking-normal sm:text-4xl">
                       {project.name}
-                    </h3>
+                    </h2>
                     <p className="mt-4 font-inter text-base text-muted-foreground leading-7">
                       {project.description}
                     </p>
                   </div>
                 </Link>
               </CursorTarget>
-            </Reveal>
+            </article>
           ))}
         </div>
       </div>
-    </section>
+    </main>
   );
 }

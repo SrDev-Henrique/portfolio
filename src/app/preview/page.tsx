@@ -7,6 +7,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import { CursorTrackerVisual } from "@/components/cursor-tracker";
 import { ProfileVisual } from "@/components/home/profile-visual";
 import { PortfolioButton } from "@/components/portfolio-button";
 import { PortfolioStat } from "@/components/portfolio-stat";
@@ -82,6 +83,25 @@ const metricStats = [
   },
 ] as const;
 
+const cursorStates = [
+  {
+    name: "Default",
+    state: { mode: "default" as const },
+  },
+  {
+    name: "Arrow",
+    state: { label: "Ver projeto", mode: "arrow" as const },
+  },
+  {
+    name: "Media",
+    state: {
+      imageSrc: "/images/web-custom.jpeg",
+      label: "Sites sob medida",
+      mode: "media" as const,
+    },
+  },
+] as const;
+
 export default function PreviewPage() {
   return (
     <main className="min-h-screen bg-background px-5 py-10 text-foreground sm:px-8 lg:px-12">
@@ -98,6 +118,30 @@ export default function PreviewPage() {
             projeto e suas variações principais.
           </p>
         </header>
+
+        <ComponentPreviewSection
+          title="CursorTracker"
+          description="Tracker global do cursor para desktop, com estado base, expansao com seta para cards e expansao com imagem para servicos."
+        >
+          <div className="grid gap-6 lg:grid-cols-3">
+            {cursorStates.map((item) => (
+              <article key={item.name} className="min-w-0">
+                <div className="mb-4 flex items-center justify-between border-border border-b pb-3">
+                  <h3 className="font-semibold text-2xl text-foreground tracking-normal">
+                    {item.name}
+                  </h3>
+                  <code className="rounded-full border border-border px-3 py-1 text-muted-foreground text-xs">
+                    mode=&quot;{item.state.mode}&quot;
+                  </code>
+                </div>
+
+                <div className="flex min-h-56 items-center justify-center rounded-[1.75rem] border border-border bg-overlay p-6">
+                  <CursorTrackerVisual state={item.state} />
+                </div>
+              </article>
+            ))}
+          </div>
+        </ComponentPreviewSection>
 
         <ComponentPreviewSection
           title="PortfolioStat"

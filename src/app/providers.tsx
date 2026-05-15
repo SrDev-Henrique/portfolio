@@ -2,17 +2,18 @@
 
 import { ThemeProvider } from "@teispace/next-themes";
 import type { ReactNode } from "react";
+import { CursorTrackerProvider } from "@/components/cursor-tracker";
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system" 
+      defaultTheme="system"
       enableSystem
       disableTransitionOnChange
       storage="local"
     >
-      {children}
+      <CursorTrackerProvider>{children}</CursorTrackerProvider>
     </ThemeProvider>
   );
 }

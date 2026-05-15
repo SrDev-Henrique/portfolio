@@ -2,7 +2,7 @@
 
 import { ReactLenis, useLenis } from "lenis/react";
 import { usePathname } from "next/navigation";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
 import { consumeLenisRouteReset } from "@/utils/lenis-route-reset";
 
 type SmoothScrollProviderProps = {
@@ -34,6 +34,7 @@ function LenisRouteReset() {
   const pathname = usePathname();
 
   useEffect(() => {
+    void pathname;
     if (!consumeLenisRouteReset()) {
       return;
     }

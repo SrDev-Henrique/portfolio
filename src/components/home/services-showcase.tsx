@@ -1,14 +1,11 @@
 "use client";
 
 import { ArrowUpRight, Minus, Plus } from "lucide-react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useSpring,
-} from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import * as React from "react";
+import { isMobile as isMobileDevice } from "react-device-detect";
+import { useCursorTracker } from "@/components/cursor-tracker";
 import { Reveal } from "@/components/reveal";
 
 type Service = {
@@ -56,36 +53,30 @@ const services: Service[] = [
 
 export function ServicesShowcase() {
   const [activeId, setActiveId] = React.useState<string | null>(null);
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 20, stiffness: 150, mass: 0.5 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+  const [isSmallViewport, setIsSmallViewport] = React.useState(true);
+  const { isEnabled: isCursorEnabled, resetCursorState, setCursorState } =
+    useCursorTracker();
 
   React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    const checkViewport = () => setIsSmallViewport(window.innerWidth < 768);
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+    return () => window.removeEventListener("resize", checkViewport);
   }, []);
 
-  const handleMouseMove = (event: React.MouseEvent) => {
-    if (isMobile) return;
-    mouseX.set(event.clientX + 20);
-    mouseY.set(event.clientY + 20);
-  };
+  const isCompactDevice = isMobileDevice || isSmallViewport;
+  const isDesktopInteractive = !isCompactDevice && isCursorEnabled;
 
-  const activeService = activeId
-    ? (services.find((service) => service.id === activeId) ?? null)
-    : null;
+  React.useEffect(() => {
+    if (!isDesktopInteractive) {
+      setActiveId(null);
+      resetCursorState();
+    }
+  }, [isDesktopInteractive, resetCursorState]);
 
   return (
     <section
       aria-label="soluções digitais"
-      onMouseMove={handleMouseMove}
       className="relative w-full cursor-default overflow-hidden bg-background px-5 py-20 text-foreground sm:px-8 lg:px-12 lg:py-28"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-border" />
@@ -119,48 +110,25 @@ export function ServicesShowcase() {
               index={index}
               isActive={activeId === service.id}
               isAnyActive={activeId !== null}
-              isMobile={isMobile}
+              isDesktopInteractive={isDesktopInteractive}
+              isMobile={isCompactDevice}
+              onDesktopEnter={() => {
+                setActiveId(service.id);
+                setCursorState({
+                  imageSrc: service.image,
+                  label: service.title,
+                  mode: "media",
+                });
+              }}
+              onDesktopLeave={() => {
+                setActiveId(null);
+                resetCursorState();
+              }}
               setActiveId={setActiveId}
             />
           ))}
         </div>
       </div>
-
-      {!isMobile && (
-        <motion.div
-          style={{ x: cursorX, y: cursorY }}
-          className="pointer-events-none fixed top-0 left-0 z-50 hidden md:block"
-        >
-          <AnimatePresence mode="wait">
-            {activeService ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                exit={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="relative h-64 w-80 overflow-hidden rounded-xl border border-border bg-surface shadow-2xl"
-              >
-                <Image
-                  src={activeService.image}
-                  alt={activeService.title}
-                  fill
-                  sizes="320px"
-                  className="h-full w-full object-cover"
-                />
-
-                <div className="absolute right-0 bottom-0 w-full bg-linear-to-t from-overlay-strong to-transparent p-4">
-                  <div className="flex items-center gap-2">
-                    <div className="size-1.5 rounded-full bg-accent shadow-[0_0_14px_rgb(var(--accent-rgb)/0.9)]" />
-                    <span className="font-inter text-[10px] text-foreground-soft/85 uppercase tracking-normal">
-                      solução em destaque
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
-        </motion.div>
-      )}
     </section>
   );
 }
@@ -169,6 +137,9 @@ function ServiceRow({
   data,
   index,
   isActive,
+  isDesktopInteractive,
+  onDesktopEnter,
+  onDesktopLeave,
   setActiveId,
   isMobile,
   isAnyActive,
@@ -176,9 +147,12 @@ function ServiceRow({
   data: Service;
   index: number;
   isActive: boolean;
+  isDesktopInteractive: boolean;
   setActiveId: (id: string | null) => void;
   isMobile: boolean;
   isAnyActive: boolean;
+  onDesktopEnter: () => void;
+  onDesktopLeave: () => void;
 }) {
   const isDimmed = isAnyActive && !isActive;
 
@@ -191,8 +165,8 @@ function ServiceRow({
         backgroundColor:
           isActive && isMobile ? "rgb(var(--light-rgb)/0.03)" : "transparent",
       }}
-      onMouseEnter={() => !isMobile && setActiveId(data.id)}
-      onMouseLeave={() => !isMobile && setActiveId(null)}
+      onMouseEnter={() => isDesktopInteractive && onDesktopEnter()}
+      onMouseLeave={() => isDesktopInteractive && onDesktopLeave()}
       onClick={() => isMobile && setActiveId(isActive ? null : data.id)}
       visibleOpacity={isDimmed ? 0.35 : 1}
       className={`group relative border-border border-t transition-colors duration-500 last:border-b ${

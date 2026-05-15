@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { BlogPostCard } from "@/components/blog-post-card";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
-import { SiteFloatingHeader } from "@/components/site-header";
 import { getMainBlogPost, getSecondaryBlogPosts } from "@/content/blog-posts";
 
 export const metadata: Metadata = {
@@ -17,8 +16,6 @@ export default function BlogPage() {
 
   return (
     <main className="relative min-h-screen bg-background text-foreground">
-      <SiteFloatingHeader availabilityLabel="Disponível" />
-
       <section className="px-5 pt-36 pb-20 sm:px-8 lg:px-12 lg:pt-44 lg:pb-28">
         <div className="mx-auto w-full max-w-7xl">
           <Reveal as="header" className="max-w-5xl">
