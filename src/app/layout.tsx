@@ -3,6 +3,7 @@ import "./globals.css";
 import "lenis/dist/lenis.css";
 import { Suspense } from "react";
 import TVStaticCanvas from "@/components/canvas-rain";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteFloatingHeader } from "@/components/site-header";
 import SmoothScrollProvider from "@/components/smooth-scroll-provider";
 import { ThemeSwitcher } from "@/components/theme-switcher";
@@ -33,6 +34,7 @@ export default function RootLayout({
             <SmoothScrollProvider>{children}</SmoothScrollProvider>
             <ThemeSwitcher />
             <TVStaticCanvas animated />
+            <SiteFooter />
           </Providers>
         </Suspense>
       </body>

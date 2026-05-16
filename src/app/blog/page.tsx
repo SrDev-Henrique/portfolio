@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { BlogPostCard } from "@/components/blog-post-card";
 import { Reveal } from "@/components/reveal";
-import { SiteFooter } from "@/components/site-footer";
 import { getMainBlogPost, getSecondaryBlogPosts } from "@/content/blog-posts";
 
 export const metadata: Metadata = {
@@ -45,8 +44,6 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter />
     </main>
   );
 }

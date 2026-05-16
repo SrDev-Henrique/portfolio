@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SiteFooter } from "@/components/site-footer";
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
@@ -187,8 +186,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </article>
-
-      <SiteFooter />
     </main>
   );
 }

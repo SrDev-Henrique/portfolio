@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/home/hero-section";
 import { ProjectsSection } from "@/components/home/projects-section";
 import { ServicesShowcase } from "@/components/home/services-showcase";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
-import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
       <FaqSection />
       <BlogSection />
       <ContactSection />
-      <SiteFooter />
     </main>
   );
 }
