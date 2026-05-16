@@ -1,6 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { CursorTarget } from "@/components/cursor-tracker";
 import type { BlogPost } from "@/content/blog-posts";
 import { cn } from "@/lib/utils";
@@ -41,7 +41,7 @@ export function BlogPostCard({
           <div
             className={cn(
               "relative aspect-16/7 overflow-hidden bg-surface",
-              isFeatured && "aspect-16/9 lg:aspect-auto lg:min-h-104",
+              isFeatured && "aspect-video lg:aspect-auto lg:min-h-104",
               imageClassName,
             )}
           >
