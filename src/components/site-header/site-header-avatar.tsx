@@ -15,7 +15,7 @@ export type SiteHeaderAvatarProps = {
 };
 
 export function SiteHeaderAvatar({
-  href = "#inicio",
+  href = "/",
   imageSrc = "/images/me.png",
   imageSrcSecondary = "/images/me-2.png",
   imageAlt = "Henrique Albuquerque",

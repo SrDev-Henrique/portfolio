@@ -1,8 +1,8 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
 import { ProfileVisual } from "@/components/home/profile-visual";
 import { PortfolioButton } from "@/components/portfolio-button";
 import { Reveal } from "@/components/reveal";
-import Link from "next/link";
 
 const stats = [
   { value: "2+", label: "anos criando produtos digitais" },
@@ -58,7 +58,7 @@ export function HeroSection() {
             >
               Começar projeto
             </PortfolioButton>
-            <PortfolioButton href="#projetos" size="sm" variant="outline">
+            <PortfolioButton href="/projetos" size="sm" variant="outline">
               Ver trabalhos
             </PortfolioButton>
           </Reveal>

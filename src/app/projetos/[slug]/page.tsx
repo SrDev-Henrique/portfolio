@@ -1,12 +1,9 @@
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import { PortfolioButton } from "@/components/portfolio-button";
-import {
-  getProjectBySlug,
-  getProjectSlugs,
-} from "@/content/projects";
+import { getProjectBySlug, getProjectSlugs } from "@/content/projects";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -52,12 +49,16 @@ export default async function ProjectDetailPage({
             <p className="font-inter font-semibold text-accent text-xs uppercase tracking-normal">
               Projeto em evolucao
             </p>
-            <p className="mt-3 font-inter text-sm text-muted-foreground leading-6">
+            <p className="mt-3 font-inter text-muted-foreground text-sm leading-6">
               Esta pagina existe como base da rota interna do portfolio e pode
               crescer com estudos de caso, bastidores, stack e resultados.
             </p>
             <div className="mt-6">
-              <PortfolioButton href="/#contato" size="sm" variant="outline-green">
+              <PortfolioButton
+                href="/contato"
+                size="sm"
+                variant="outline-green"
+              >
                 Falar sobre um projeto assim
               </PortfolioButton>
             </div>
@@ -100,7 +101,7 @@ export default async function ProjectDetailPage({
             </p>
             <Link
               href="/blog"
-              className="mt-5 inline-flex items-center gap-2 font-inter font-semibold text-sm text-foreground-soft transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="mt-5 inline-flex items-center gap-2 font-inter font-semibold text-foreground-soft text-sm transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Ver tambem os artigos do blog
               <ArrowUpRight className="size-4" />
