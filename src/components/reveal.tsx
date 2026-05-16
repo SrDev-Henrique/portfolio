@@ -2,15 +2,15 @@
 
 import {
   motion,
+  type Transition,
   useInView,
   useReducedMotion,
-  type Transition,
 } from "motion/react";
 import {
-  useRef,
   type CSSProperties,
   type MouseEventHandler,
   type ReactNode,
+  useRef,
 } from "react";
 import { cn } from "@/lib/utils";
 
@@ -23,6 +23,7 @@ type RevealElement =
   | "h3"
   | "header"
   | "p"
+  | "section"
   | "span";
 type RevealDirection = "down" | "left" | "none" | "right" | "up";
 
@@ -52,6 +53,7 @@ const motionElement = {
   h3: motion.h3,
   header: motion.header,
   p: motion.p,
+  section: motion.section,
   span: motion.span,
 };
 

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Reveal } from "@/components/reveal";
 import {
   getBlogPostBySlug,
   getBlogPostSlugs,
@@ -60,15 +61,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <main className="relative min-h-screen bg-background text-foreground">
       <article className="px-5 pt-32 pb-20 sm:px-8 lg:px-12 lg:pt-40 lg:pb-28">
         <div className="mx-auto w-full max-w-5xl">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 font-inter font-semibold text-accent text-sm transition-colors hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          >
-            <ArrowLeft className="size-4" />
-            Voltar para o blog
-          </Link>
+          <Reveal>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 font-inter font-semibold text-accent text-sm transition-colors hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <ArrowLeft className="size-4" />
+              Voltar para o blog
+            </Link>
+          </Reveal>
 
-          <header className="mt-10">
+          <Reveal as="header" className="mt-10" delay={0.08}>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
               <span className="font-inter font-semibold text-accent text-xs uppercase leading-5 tracking-normal">
                 {post.tag}
@@ -92,9 +95,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p className="mt-6 max-w-3xl font-inter text-lg text-muted-foreground leading-8">
               {post.description}
             </p>
-          </header>
+          </Reveal>
 
-          <div className="relative mt-10 aspect-16/8 overflow-hidden rounded-lg border border-border bg-surface shadow-2xl shadow-overlay-strong">
+          <Reveal
+            className="relative mt-10 aspect-16/8 overflow-hidden rounded-lg border border-border bg-surface shadow-2xl shadow-overlay-strong"
+            delay={0.16}
+          >
             <Image
               src={post.image}
               alt={post.imageAlt}
@@ -104,11 +110,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-overlay/10" />
-          </div>
+          </Reveal>
 
           <div className="mx-auto mt-12 max-w-3xl space-y-12">
-            {post.content.map((section) => (
-              <section key={section.heading}>
+            {post.content.map((section, index) => (
+              <Reveal
+                as="section"
+                key={section.heading}
+                delay={0.04}
+                staggerIndex={index}
+              >
                 <h2 className="font-semibold text-4xl leading-none tracking-normal sm:text-5xl">
                   {section.heading}
                 </h2>
@@ -136,10 +147,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     ))}
                   </ul>
                 ) : null}
-              </section>
+              </Reveal>
             ))}
 
-            <section className="rounded-lg border border-border bg-surface/75 p-6 sm:p-8">
+            <Reveal
+              className="rounded-lg border border-border bg-surface/75 p-6 sm:p-8"
+              delay={0.04}
+              staggerIndex={post.content.length}
+            >
               <h2 className="font-semibold text-3xl leading-none tracking-normal sm:text-4xl">
                 Referências
               </h2>
@@ -158,10 +173,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </li>
                 ))}
               </ul>
-            </section>
+            </Reveal>
 
             {relatedPosts.length > 0 ? (
-              <section className="border-border border-t pt-10">
+              <Reveal
+                className="border-border border-t pt-10"
+                delay={0.04}
+                staggerIndex={post.content.length + 1}
+              >
                 <p className="font-inter font-semibold text-accent text-xs uppercase tracking-normal">
                   Continue lendo
                 </p>
@@ -181,7 +200,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </Link>
                   ))}
                 </div>
-              </section>
+              </Reveal>
             ) : null}
           </div>
         </div>

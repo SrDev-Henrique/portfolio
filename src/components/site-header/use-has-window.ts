@@ -1,14 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
-/** True after mount on the client (`window` is available). */
+function subscribe() {
+  return () => {};
+}
+
+function getClientSnapshot() {
+  return true;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+/** True on the client after hydration (`window` is available). */
 export function useHasWindow() {
-  const [hasWindow, setHasWindow] = useState(false);
-
-  useEffect(() => {
-    setHasWindow(true);
-  }, []);
-
-  return hasWindow;
+  return useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
 }

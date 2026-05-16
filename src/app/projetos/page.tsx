@@ -14,12 +14,13 @@ export default function ProjectsPage() {
             <p className="mb-5 font-inter font-semibold text-accent text-sm uppercase tracking-normal">
               Projetos
             </p>
-            <h1 className=        "font-semibold text-5xl leading-none tracking-normal sm:text-7xl lg:text-[6.5rem]">
+            <h1 className="font-semibold text-5xl leading-none tracking-normal sm:text-7xl lg:text-[6.5rem]">
               Cases e trabalhos em destaque
             </h1>
             <p className="mt-6 max-w-3xl font-inter text-base text-muted-foreground leading-7 sm:text-lg">
-              Uma base para navegar pelos projetos do portfolio e evoluir cada
-              um deles para um estudo de caso mais detalhado.
+              Uma seleção de projetos reais, com contexto, decisões técnicas e
+              produtos digitais pensados para crescer com clareza, performance e
+              resultado.
             </p>
           </Reveal>
 
