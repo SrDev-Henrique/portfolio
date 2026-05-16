@@ -205,7 +205,7 @@ export function CursorTrackerVisual({
         className,
       )}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="popLayout">
         {state.mode === "arrow" ? (
           <motion.div
             key="arrow"
@@ -222,10 +222,17 @@ export function CursorTrackerVisual({
         {mediaSrc ? (
           <motion.div
             key={mediaSrc}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            initial={{ opacity: 0.5, filter: "blur(4px)" }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transition: { duration: 0.2, ease: [0.32, 0.72, 0, 1] },
+            }}
+            exit={{
+              opacity: 0.5,
+              filter: "blur(4px)",
+              transition: { duration: 0.2, ease: [0.32, 0.72, 0, 1] },
+            }}
             className="absolute inset-0"
           >
             <Image
