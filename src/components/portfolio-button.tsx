@@ -63,10 +63,6 @@ type PortfolioButtonProps = Omit<React.ComponentProps<"button">, "type"> &
     type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
   };
 
-function isInternalRoute(href: string) {
-  return href.startsWith("/");
-}
-
 export function PortfolioButton({
   children,
   className,
@@ -104,7 +100,7 @@ export function PortfolioButton({
     </>
   );
 
-  if (href && isInternalRoute(href)) {
+  if (href) {
     return (
       <Link
         className={classNameValue}
@@ -116,21 +112,6 @@ export function PortfolioButton({
       >
         {content}
       </Link>
-    );
-  }
-
-  if (href) {
-    return (
-      <a
-        className={classNameValue}
-        data-size={size}
-        data-variant={variant}
-        href={href}
-        onClick={handleLinkClick}
-        {...props}
-      >
-        {content}
-      </a>
     );
   }
 

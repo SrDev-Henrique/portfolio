@@ -78,7 +78,7 @@ export function AboutSection() {
             className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-x-7"
           >
             {contactLinks.map(({ external, href, Icon, label }) => (
-              <a
+              <Link
                 key={href}
                 href={href}
                 target={external ? "_blank" : undefined}
@@ -87,7 +87,7 @@ export function AboutSection() {
               >
                 <Icon className="size-4" />
                 <span>{label}</span>
-              </a>
+              </Link>
             ))}
 
             <Link

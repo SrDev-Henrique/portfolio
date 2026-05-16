@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/select";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
 
 const whatsappHref = "https://wa.me/5519994012785";
 
@@ -309,7 +310,7 @@ function SuccessMessage({ onReset }: { onReset: () => void }) {
 
 function WhatsappGhostLink() {
   return (
-    <a
+    <Link
       href={whatsappHref}
       target="_blank"
       rel="noreferrer"
@@ -317,6 +318,6 @@ function WhatsappGhostLink() {
     >
       <HugeiconsIcon icon={WhatsappFreeIcons} strokeWidth={1.5} />
       <span>Prefere conversar pelo WhatsApp?</span>
-    </a>
+    </Link>
   );
 }

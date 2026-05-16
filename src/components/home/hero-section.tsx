@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { ProfileVisual } from "@/components/home/profile-visual";
 import { PortfolioButton } from "@/components/portfolio-button";
 import { Reveal } from "@/components/reveal";
+import Link from "next/link";
 
 const stats = [
   { value: "2+", label: "anos criando produtos digitais" },
@@ -121,12 +122,14 @@ function SocialLink({
   label: string;
 }) {
   return (
-    <a
+    <Link
       href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noreferrer" : undefined}
       aria-label={label}
       className="grid size-11 place-items-center rounded-full border border-border bg-foreground/5 text-foreground-muted transition hover:border-accent/60 hover:text-accent-hover"
     >
       {children}
-    </a>
+    </Link>
   );
 }

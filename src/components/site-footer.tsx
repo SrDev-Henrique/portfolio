@@ -1,8 +1,9 @@
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
+import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 
 const footerLinks = [
-  { href: "#projetos", label: "Projetos" },
+  { href: "/projetos", label: "Projetos" },
   { href: "/blog", label: "Blog" },
   { href: "/sobre-mim", label: "Sobre mim" },
 ];
@@ -46,14 +47,14 @@ export function SiteFooter() {
               aria-label="Links do rodape"
               className="flex flex-wrap gap-4 lg:justify-end"
             >
-              {footerLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+              {footerLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
                   className="font-inter font-semibold text-sm transition-opacity hover:opacity-65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
                 >
-                  {link.label}
-                </a>
+                  {label}
+                </Link>
               ))}
             </nav>
           </div>
@@ -66,7 +67,7 @@ export function SiteFooter() {
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             {contactLinks.map(({ href, Icon, label }) => (
-              <a
+              <Link
                 key={href}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
@@ -76,7 +77,7 @@ export function SiteFooter() {
                 <Icon className="size-4" />
                 <span>{label}</span>
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              </Link>
             ))}
           </div>
 
