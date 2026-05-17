@@ -44,7 +44,11 @@ export type ProjectCaseStudy = {
     description: string;
     eyebrow: string;
     title: string;
-    variant?: "lead-pipeline" | "service-routing";
+    variant?:
+      | "admin-composition"
+      | "arcane-art-direction"
+      | "lead-pipeline"
+      | "service-routing";
   };
   visualSection?: {
     body: string;
@@ -288,31 +292,73 @@ export const projects: Project[] = [
         title: "A solução",
         body: "A aplicação usa Next.js com App Router, rotas públicas para vitrine e conteúdo institucional, BFF para autenticação e API REST, além de um painel admin protegido para CRUD de catálogo, categorias, plataformas, ações em lote, dashboard de KPIs, exploração de cliques e exportação CSV.",
       },
-      placeholders: [
+      placeholders: [],
+      technicalDiagram: {
+        eyebrow: "Composição do admin",
+        title: "Curadoria de catálogo com operação e analytics no mesmo fluxo",
+        description:
+          "O painel foi planejado para combinar formulário de produto, variantes multimídia, operações em lote e análise exportável sem perder consistência visual entre loja pública e área administrativa.",
+        variant: "admin-composition",
+      },
+      visualSection: {
+        eyebrow: "Experiência em telas",
+        title: "Uma vitrine de ofertas com bastidores operacionais completos",
+        body: "As telas mostram como o Achadinho Preferido une descoberta pública, páginas institucionais, catálogo de ofertas e uma área administrativa capaz de manter produtos, categorias e cliques sob controle.",
+      },
+      showcaseImages: [
         {
-          eyebrow: "Imagem futura",
-          title: "Home e oferta do dia",
-          hint: "Inserir uma captura da home com hero, trust bar, produto em destaque e CTAs de descoberta.",
+          src: "/images/projects/achadinho-preferido/hero.png",
+          alt: "Home do Achadinho Preferido com vitrine de ofertas",
+          caption:
+            "Home com proposta de curadoria, destaque para ofertas e caminhos rápidos para descoberta.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Catálogo e busca",
-          hint: "Mostrar filtros, ordenação, categorias e scroll infinito para destacar a navegação por ofertas.",
+          src: "/images/projects/achadinho-preferido/ofertas.png",
+          alt: "Listagem de ofertas do Achadinho Preferido",
+          caption:
+            "Catálogo público com ofertas organizadas para busca, comparação e clique rastreado.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Detalhe do produto",
-          hint: "Usar uma tela com variantes, galeria, CTA de afiliado, favoritos e elementos de urgência.",
+          src: "/images/projects/achadinho-preferido/sobre.png",
+          alt: "Página sobre do Achadinho Preferido",
+          caption:
+            "Página institucional para explicar a proposta do produto sem simular um e-commerce próprio.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Painel administrativo",
-          hint: "Adicionar uma visão do dashboard com KPIs, produtos mais clicados, gráficos e itens de atenção.",
+          src: "/images/projects/achadinho-preferido/contato.png",
+          alt: "Página de contato do Achadinho Preferido",
+          caption:
+            "Contato direto para suporte, parcerias e relacionamento com a operação.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "CRUD e analytics",
-          hint: "Criar uma composição com formulário de produto, variantes, ações em lote e exportação CSV de cliques.",
+          src: "/images/projects/achadinho-preferido/dashboard.png",
+          alt: "Dashboard administrativo do Achadinho Preferido",
+          caption:
+            "Dashboard administrativo para acompanhar produtos, cliques e sinais principais da operação.",
+        },
+        {
+          src: "/images/projects/achadinho-preferido/dashboard-2.png",
+          alt: "Visão complementar do painel administrativo do Achadinho Preferido",
+          caption:
+            "Visão operacional com indicadores e áreas de atenção para gestão diária.",
+        },
+        {
+          src: "/images/projects/achadinho-preferido/admin-produto.png",
+          alt: "Formulário administrativo de produto do Achadinho Preferido",
+          caption:
+            "Formulário de produto para dados comerciais, links de afiliado, categorias, plataforma e publicação.",
+        },
+        {
+          src: "/images/projects/achadinho-preferido/categorias.png",
+          alt: "Tela administrativa de categorias do Achadinho Preferido",
+          caption:
+            "Gestão de categorias para manter a curadoria organizada e escalável.",
+        },
+        {
+          src: "/images/projects/achadinho-preferido/admin-cliques.png",
+          alt: "Tela de analytics de cliques do Achadinho Preferido",
+          caption:
+            "Analytics de cliques com filtros, gráfico e exportação CSV para leitura comercial.",
         },
       ],
       stack: [
@@ -371,31 +417,169 @@ export const projects: Project[] = [
         title: "A solução",
         body: "A arquitetura combina Next.js, React, TypeScript, SCSS Modules, Framer Motion e Lenis. A home funciona como uma narrativa vertical, personagens são renderizados em rotas estáticas, temporadas ganham experiências fullscreen, e os dados de personagens e episódios ficam organizados em arquivos tipados para separar conteúdo e apresentação.",
       },
-      placeholders: [
+      placeholders: [],
+      technicalDiagram: {
+        eyebrow: "Art direction & UI",
+        title: "Experiência imersiva Arcane",
+        description:
+          "A direção visual traduz a dualidade Piltover e Zaun em paleta, tipografia, layout e movimento, tratando o conteúdo como uma exposição digital cinematográfica em vez de um wiki.",
+        variant: "arcane-art-direction",
+      },
+      visualSection: {
+        eyebrow: "Experiência em telas",
+        title: "Do hero cinematográfico aos mundos de Piltover e Zaun",
+        body: "A sequência visual acompanha a narrativa do site: abertura em tela cheia, passagem pela elegância clara de Piltover, mergulho no polo escuro de Zaun e fechamento com áreas promocionais e musicais que reforçam o caráter sensorial do projeto.",
+      },
+      showcaseImages: [
         {
-          eyebrow: "Imagem futura",
-          title: "Hero cinematográfico",
-          hint: "Inserir uma captura do hero com vídeo, loader, CTA e a primeira impressão visual da experiência.",
+          src: "/images/projects/arcane/hero.png",
+          alt: "Hero cinematográfico do projeto Arcane",
+          caption:
+            "Hero em tela cheia com atmosfera cinematográfica, vídeo como textura e entrada de marca.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Piltover e Zaun",
-          hint: "Mostrar o contraste entre regiões, paletas, blocos narrativos e cards de personagens.",
+          src: "/images/projects/arcane/piltover-intro.png",
+          alt: "Introdução da região de Piltover no projeto Arcane",
+          caption:
+            "Piltover abre o eixo claro da experiência, com bege, luz e sensação institucional.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Microsites de personagem",
-          hint: "Usar uma tela com abas, história, player de áudio e identidade visual adaptada à região do personagem.",
+          src: "/images/projects/arcane/piltover-historia.png",
+          alt: "Seção narrativa sobre Piltover no projeto Arcane",
+          caption:
+            "Texto e imagem em composição editorial para apresentar história sem parecer enciclopédia.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Explorador de temporadas",
-          hint: "Adicionar uma visão fullscreen com episódios, highlights em vídeo e navegação entre conteúdos.",
+          src: "/images/projects/arcane/piltover-personagens-intro.png",
+          alt: "Introdução dos personagens de Piltover no projeto Arcane",
+          caption:
+            "Cards e ritmo de scroll aproximam os personagens de uma vitrine de museu digital.",
         },
         {
-          eyebrow: "Imagem futura",
-          title: "Motion e transições",
-          hint: "Criar uma composição com menu por âncoras, view transitions, scroll suave e animações coordenadas.",
+          src: "/images/projects/arcane/piltover-personagem-hero.png",
+          alt: "Hero de personagem de Piltover no projeto Arcane",
+          caption:
+            "Microsites por personagem reforçam identidade própria sem quebrar o sistema visual global.",
+        },
+        {
+          src: "/images/projects/arcane/piltover-personagem-banner.png",
+          alt: "Banner de personagem de Piltover no projeto Arcane",
+          caption:
+            "Banners de personagem funcionam como capas editoriais dentro do universo claro de Piltover.",
+        },
+        {
+          src: "/images/projects/arcane/piltover-personagem-historia-jornada.png",
+          alt: "Seção de jornada de personagem de Piltover no projeto Arcane",
+          caption:
+            "A jornada do personagem organiza texto longo em blocos visuais com ritmo de leitura controlado.",
+        },
+        {
+          src: "/images/projects/arcane/piltover-personagem-historia-temporada.png",
+          alt: "Seção de temporada de personagem de Piltover no projeto Arcane",
+          caption:
+            "História por temporada mantém a narrativa conectada sem transformar o conteúdo em wiki.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-first-intro.png",
+          alt: "Primeira introdução visual de Zaun no projeto Arcane",
+          caption:
+            "Zaun muda o clima imediatamente: preto, tensão e verde químico como linguagem dominante.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-second-intro.png",
+          alt: "Segunda introdução visual de Zaun no projeto Arcane",
+          caption:
+            "Colunas, vídeo e contraste alto criam sensação industrial e subterrânea.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-historia.png",
+          alt: "Seção narrativa sobre Zaun no projeto Arcane",
+          caption:
+            "A narrativa de Zaun usa sombra, textura e recortes visuais para sustentar resistência e conflito.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-personagens-intro.png",
+          alt: "Introdução dos personagens de Zaun no projeto Arcane",
+          caption:
+            "Personagens de Zaun entram em uma camada mais escura, tensa e underground.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-personagem-hero.png",
+          alt: "Hero de personagem de Zaun no projeto Arcane",
+          caption:
+            "Rotas de personagem alternam tema por região, reforçando onde o usuário está no universo.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-personagem-banner.png",
+          alt: "Banner de personagem de Zaun no projeto Arcane",
+          caption:
+            "Banners escuros ampliam a sensação de tensão e identidade underground dos personagens de Zaun.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-personagem-historia-jornada.png",
+          alt: "Seção de jornada de personagem de Zaun no projeto Arcane",
+          caption:
+            "A jornada em Zaun usa contraste forte e composição mais densa para sustentar conflito.",
+        },
+        {
+          src: "/images/projects/arcane/zaun-personagem-historia-temporada.png",
+          alt: "Seção de temporada de personagem de Zaun no projeto Arcane",
+          caption:
+            "Recortes por temporada ajudam a navegar conteúdo extenso sem perder atmosfera.",
+        },
+        {
+          src: "/images/projects/arcane/arcane-dark-season-1.png",
+          alt: "Tela escura da primeira temporada no projeto Arcane",
+          caption:
+            "Temporada 1 assume o polo escuro, aproximando a navegação de uma experiência de streaming editorial.",
+        },
+        {
+          src: "/images/projects/arcane/arcane-dark-season-2.png",
+          alt: "Tela escura da segunda temporada no projeto Arcane",
+          caption:
+            "Temporada 2 amplia a camada cinematográfica com foco em episódios, vídeos e highlights.",
+        },
+        {
+          src: "/images/projects/arcane/temporada-2-episodio-list.png",
+          alt: "Listagem de episódios da segunda temporada no projeto Arcane",
+          caption:
+            "A listagem de episódios organiza descoberta e progressão dentro de uma interface fullscreen.",
+        },
+        {
+          src: "/images/projects/arcane/temporada-2-episodio.png",
+          alt: "Detalhe de episódio da segunda temporada no projeto Arcane",
+          caption:
+            "Detalhes de episódio usam hierarquia dramática para manter sinopse, mídia e navegação em equilíbrio.",
+        },
+        {
+          src: "/images/projects/arcane/temporada-2-highlights.png",
+          alt: "Highlights da segunda temporada no projeto Arcane",
+          caption:
+            "Highlights em vídeo reforçam movimento como textura narrativa, não apenas decoração.",
+        },
+        {
+          src: "/images/projects/arcane/termporada-2-video-1.png",
+          alt: "Primeiro vídeo da segunda temporada no projeto Arcane",
+          caption:
+            "Vídeos inline funcionam como momentos de pausa visual dentro do fluxo editorial.",
+        },
+        {
+          src: "/images/projects/arcane/temporada-2-video-2.png",
+          alt: "Segundo vídeo da segunda temporada no projeto Arcane",
+          caption:
+            "A experiência de temporada combina imagem, vídeo e tipografia para criar clima de sala de cinema.",
+        },
+        {
+          src: "/images/projects/arcane/arcane-dark-promo.png",
+          alt: "Tela promocional escura do projeto Arcane",
+          caption:
+            "Áreas promocionais seguem o polo escuro, com leitura próxima a uma sala de cinema.",
+        },
+        {
+          src: "/images/projects/arcane/arcane-dark-music.png",
+          alt: "Tela musical escura do projeto Arcane",
+          caption:
+            "A camada musical adiciona sensação sensorial ao case, conectando personagem, atmosfera e navegação.",
         },
       ],
       stack: [

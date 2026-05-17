@@ -422,8 +422,32 @@ function TechnicalDiagram({
   description: string;
   eyebrow: string;
   title: string;
-  variant?: "lead-pipeline" | "service-routing";
+  variant?:
+    | "admin-composition"
+    | "arcane-art-direction"
+    | "lead-pipeline"
+    | "service-routing";
 }) {
+  if (variant === "arcane-art-direction") {
+    return (
+      <ArcaneArtDirectionDiagram
+        description={description}
+        eyebrow={eyebrow}
+        title={title}
+      />
+    );
+  }
+
+  if (variant === "admin-composition") {
+    return (
+      <AdminCompositionDiagram
+        description={description}
+        eyebrow={eyebrow}
+        title={title}
+      />
+    );
+  }
+
   if (variant === "service-routing") {
     return (
       <ServiceRoutingDiagram
@@ -537,6 +561,278 @@ function TechnicalDiagram({
         ))}
       </ol>
     </section>
+  );
+}
+
+function ArcaneArtDirectionDiagram({
+  description,
+  eyebrow,
+  title,
+}: {
+  description: string;
+  eyebrow: string;
+  title: string;
+}) {
+  const identityRows = [
+    {
+      dimension: "Fundo",
+      piltover: "Bege e creme: #FFEBB7, #ead8c0, #f5f5dc",
+      zaun: "Preto profundo: #0a0a0a, #141414",
+    },
+    {
+      dimension: "Acentos",
+      piltover: "Dourado, laranja queimado e títulos bege",
+      zaun: "Verde químico, roxo e rosa Arcane",
+    },
+    {
+      dimension: "Tipografia",
+      piltover: "Cinzel com sensação clássica e institucional",
+      zaun: "Cinzel com neon no intro e clima underground",
+    },
+    {
+      dimension: "UI",
+      piltover: "Cards translúcidos, blur e bordas creme",
+      zaun: "Colunas verdes, máscaras em vídeo e fundo contínuo",
+    },
+  ];
+
+  const designPillars = [
+    {
+      detail:
+        "Arcane pink, purple e blue para marca; família bege para Piltover; pretos em camadas para Zaun.",
+      title: "Tokens SCSS semânticos",
+    },
+    {
+      detail:
+        "Zentry para impacto, Cinzel para épico, Lora para leitura e Playfair para tensão dramática.",
+      title: "Tipografia editorial",
+    },
+    {
+      detail:
+        "100svh, sticky sections, clip-path, perspectiva e grids assimétricos para scroll como câmera.",
+      title: "Composição imersiva",
+    },
+    {
+      detail:
+        "Easing cubic-bezier(0.76, 0, 0.24, 1), wipes, Lenis, textos revelados e tilt 3D.",
+      title: "Motion com timing editorial",
+    },
+  ];
+
+  return (
+    <section className="rounded-lg border border-border bg-surface p-5 sm:p-8">
+      <div className="max-w-3xl">
+        <p className="font-inter font-semibold text-accent text-xs uppercase tracking-normal">
+          {eyebrow}
+        </p>
+        <h3 className="mt-3 font-semibold text-4xl leading-none tracking-normal sm:text-5xl">
+          {title}
+        </h3>
+        <p className="mt-4 font-inter text-base text-foreground-muted leading-7">
+          {description}
+        </p>
+      </div>
+
+      <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="overflow-hidden rounded-lg border border-border bg-background">
+          <div className="grid grid-cols-[0.7fr_1fr_1fr] border-border border-b bg-muted/30 font-inter font-semibold text-foreground text-sm">
+            <div className="p-4">Dimensão</div>
+            <div className="p-4">Piltover</div>
+            <div className="p-4">Zaun</div>
+          </div>
+          {identityRows.map((row) => (
+            <div
+              key={row.dimension}
+              className="grid grid-cols-[0.7fr_1fr_1fr] border-border border-b last:border-b-0"
+            >
+              <div className="p-4 font-inter font-semibold text-accent text-sm">
+                {row.dimension}
+              </div>
+              <div className="p-4 font-inter text-foreground-muted text-sm leading-6">
+                {row.piltover}
+              </div>
+              <div className="p-4 font-inter text-foreground-muted text-sm leading-6">
+                {row.zaun}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-3">
+          {designPillars.map((pillar) => (
+            <div
+              key={pillar.title}
+              className="rounded-lg border border-border bg-background p-4"
+            >
+              <p className="font-inter font-semibold text-foreground text-sm">
+                {pillar.title}
+              </p>
+              <p className="mt-2 font-inter text-foreground-muted text-sm leading-6">
+                {pillar.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-5 rounded-lg border border-border border-dashed bg-background p-4">
+        <p className="font-inter font-semibold text-foreground text-sm">
+          Direção de arte inspirada em Arcane: dualidade Piltover/Zaun em paleta
+          e tipografia, layout imersivo com scroll cinematográfico e motion
+          design com transições customizadas.
+        </p>
+        <p className="mt-3 font-inter text-foreground-muted text-sm leading-6">
+          O resultado é um fan tribute de alto craft, respeitoso à IP da Riot e
+          voltado a portfólio: conteúdo denso tratado como exposição digital,
+          não como landing genérica ou wiki.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function AdminCompositionDiagram({
+  description,
+  eyebrow,
+  title,
+}: {
+  description: string;
+  eyebrow: string;
+  title: string;
+}) {
+  const visualTokens = [
+    { dark: "#1c1614", label: "Background", light: "#f7f5f2" },
+    { dark: "#2a211d", label: "Card", light: "#ffffff" },
+    { dark: "#f5ede0", label: "Texto", light: "#2c1f1a" },
+    { dark: "#e07a5f", label: "Primary / CTA", light: "#c2410c" },
+    { dark: "#f59e0b", label: "Accent", light: "#d97706" },
+    { dark: "rgb(245 237 224 / 12%)", label: "Border", light: "#e8dfd3" },
+  ];
+
+  const adminPanels = [
+    {
+      detail:
+        "Identificação, preços, links, variantes, especificações e aviso legal.",
+      title: "Formulário de produto",
+    },
+    {
+      detail:
+        "Zoom do card com miniatura, plataforma, categoria e estado de publicação.",
+      title: "Variantes e preview",
+    },
+    {
+      detail:
+        "Tabela de produtos com seleção múltipla e barra bulk em formato pill.",
+      title: "Lista de produtos",
+    },
+    {
+      detail:
+        "Filtros, gráfico de cliques, leitura por produto e exportação CSV.",
+      title: "/admin/clicks",
+    },
+  ];
+
+  return (
+    <section className="rounded-lg border border-border bg-surface p-5 sm:p-8">
+      <div className="max-w-3xl">
+        <p className="font-inter font-semibold text-accent text-xs uppercase tracking-normal">
+          {eyebrow}
+        </p>
+        <h3 className="mt-3 font-semibold text-4xl leading-none tracking-normal sm:text-5xl">
+          {title}
+        </h3>
+        <p className="mt-4 font-inter text-base text-foreground-muted leading-7">
+          {description}
+        </p>
+      </div>
+
+      <div className="mt-8 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="rounded-lg border border-border bg-background p-4">
+          <div className="flex items-center gap-2 font-inter font-semibold text-accent text-xs uppercase leading-none">
+            <Layers3 className="size-5" />
+            Identidade visual
+          </div>
+          <div className="mt-5 grid gap-3">
+            {visualTokens.map((token) => (
+              <div
+                key={token.label}
+                className="grid grid-cols-[7rem_1fr_1fr] items-center gap-3 font-inter text-sm"
+              >
+                <span className="text-foreground-muted">{token.label}</span>
+                <TokenSwatch label="Loja" value={token.light} />
+                <TokenSwatch label="Admin" value={token.dark} />
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 border-border border-t pt-4 font-inter text-foreground-muted text-sm leading-6">
+            Inter na interface, títulos com Fraunces, Hugeicons outline e cards
+            shadcn com tabelas em header bg-muted/40.
+          </p>
+        </div>
+
+        <div className="grid gap-3">
+          <div className="rounded-lg border border-border bg-background p-4">
+            <div className="flex items-center gap-2 font-inter font-semibold text-accent text-xs uppercase leading-none">
+              <FileCode2 className="size-5" />
+              Layout 2x2
+            </div>
+            <div className="mt-5 grid gap-3 md:grid-cols-[1.5fr_1fr]">
+              {adminPanels.slice(0, 2).map((panel) => (
+                <AdminPanel key={panel.title} {...panel} />
+              ))}
+            </div>
+            <div className="mt-3 grid gap-3">
+              {adminPanels.slice(2).map((panel) => (
+                <AdminPanel key={panel.title} {...panel} />
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-border border-dashed bg-background p-4">
+            <p className="font-inter font-semibold text-foreground text-sm">
+              Curadoria de catálogo com variantes multimídia, operações em lote
+              e analytics exportável.
+            </p>
+            <p className="mt-3 font-inter text-foreground-muted text-sm leading-6">
+              Mock principal: Fone Bluetooth ANC com Case — Edição 2025, slug
+              fone-bluetooth-anc-2025, Shopee, categoria Eletrônicos, preço de
+              R$ 189,90 com desconto aproximado de 46%.
+            </p>
+            <p className="mt-3 font-inter text-foreground-muted text-sm leading-6">
+              Destaques técnicos: validação originalPrice maior ou igual a
+              currentPrice, PATCH enviando apenas diff no modo edição e alerta
+              beforeunload quando existem alterações não salvas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TokenSwatch({ label, value }: { label: string; value: string }) {
+  return (
+    <span className="flex items-center gap-2 text-foreground-muted">
+      <span
+        aria-hidden="true"
+        className="size-5 rounded-full border border-border"
+        style={{ backgroundColor: value }}
+      />
+      <span>{label}</span>
+    </span>
+  );
+}
+
+function AdminPanel({ detail, title }: { detail: string; title: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-surface p-4">
+      <p className="font-inter font-semibold text-foreground text-sm">
+        {title}
+      </p>
+      <p className="mt-2 font-inter text-foreground-muted text-sm leading-6">
+        {detail}
+      </p>
+    </div>
   );
 }
 
