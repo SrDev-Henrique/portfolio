@@ -14,7 +14,7 @@ import * as React from "react";
 import { isMobile as isMobileDevice } from "react-device-detect";
 import { cn } from "@/lib/utils";
 
-export type CursorMode = "arrow" | "default" | "media";
+export type CursorMode = "arrow" | "default" | "logo" | "media";
 
 export type CursorState = {
   imageSrc?: string;
@@ -187,21 +187,31 @@ export function CursorTrackerVisual({
 
   const isMedia =
     state.mode === "media" && state.imageSrc && failedSrc !== state.imageSrc;
+  const isLogo =
+    state.mode === "logo" && state.imageSrc && failedSrc !== state.imageSrc;
   const mediaSrc = isMedia ? state.imageSrc : null;
+  const logoSrc = isLogo ? state.imageSrc : null;
+  const imageSrc = mediaSrc ?? logoSrc;
 
   return (
     <motion.div
       animate={{
-        borderRadius: isMedia ? 28 : 999,
-        height: isMedia ? 276 : state.mode === "arrow" ? 112 : 20,
-        width: isMedia ? 276 : state.mode === "arrow" ? 112 : 20,
-        x: isMedia ? 120 : state.mode === "arrow" ? 25 : 0,
-        y: isMedia ? 120 : state.mode === "arrow" ? 20 : 0,
+        borderRadius: isMedia ? 28 : isLogo ? 24 : 999,
+        height: isMedia
+          ? 276
+          : isLogo
+            ? 104
+            : state.mode === "arrow"
+              ? 112
+              : 20,
+        width: isMedia ? 276 : isLogo ? 104 : state.mode === "arrow" ? 112 : 20,
+        x: isMedia ? 120 : state.mode === "arrow" ? 25 : isLogo ? 38 : 0,
+        y: isMedia ? 120 : state.mode === "arrow" ? 20 : isLogo ? 34 : 0,
       }}
       transition={{ damping: 24, mass: 0.4, stiffness: 280, type: "spring" }}
       className={cn(
         "relative overflow-hidden border border-accent/20 shadow-[0_0_34px_rgb(var(--glow-rgb)/0.18)]",
-        isMedia ? "bg-surface-elevated" : "bg-accent",
+        isMedia || isLogo ? "bg-surface-elevated" : "bg-accent",
         className,
       )}
     >
@@ -219,35 +229,37 @@ export function CursorTrackerVisual({
           </motion.div>
         ) : null}
 
-        {mediaSrc ? (
+        {imageSrc ? (
           <motion.div
-            key={mediaSrc}
-            initial={{ opacity: 0.5, filter: "blur(4px)" }}
+            key={`${state.mode}-${imageSrc}`}
+            initial={{ opacity: 0, filter: "blur(4px)" }}
             animate={{
               opacity: 1,
               filter: "blur(0px)",
               transition: { duration: 0.2, ease: [0.32, 0.72, 0, 1] },
             }}
             exit={{
-              opacity: 0.5,
+              opacity: 0,
               filter: "blur(4px)",
               transition: { duration: 0.2, ease: [0.32, 0.72, 0, 1] },
             }}
             className="absolute inset-0"
           >
             <Image
-              src={mediaSrc}
+              src={imageSrc}
               alt={state.label ?? ""}
               fill
-              sizes="176px"
-              className="object-cover"
+              sizes={isLogo ? "104px" : "176px"}
+              className={cn(isLogo ? "object-contain p-5" : "object-cover")}
               onError={() => {
-                setFailedSrc(mediaSrc);
+                setFailedSrc(imageSrc);
                 onMediaError?.();
               }}
             />
-            <div className="absolute inset-0 bg-linear-to-t from-overlay-strong via-transparent to-transparent" />
-            {state.label ? (
+            {isMedia ? (
+              <div className="absolute inset-0 bg-linear-to-t from-overlay-strong via-transparent to-transparent" />
+            ) : null}
+            {isMedia && state.label ? (
               <span className="absolute inset-x-0 bottom-0 px-3 pb-3 font-inter font-semibold text-[11px] text-foreground uppercase leading-4 tracking-normal">
                 {state.label}
               </span>
