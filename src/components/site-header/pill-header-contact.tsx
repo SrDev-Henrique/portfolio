@@ -9,7 +9,7 @@ export type PillHeaderContactProps = {
 };
 
 export function PillHeaderContact({
-  href = "/contato",
+  href = "/#contato",
   label = "Contato",
   className,
 }: PillHeaderContactProps) {
