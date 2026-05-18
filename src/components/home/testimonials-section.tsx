@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "A experiência visual ficou imersiva, responsiva e muito bem cuidada nos detalhes de interacao, animacao e organizacao do front-end.",
+      "A experiência visual ficou imersiva, responsiva e muito bem cuidada nos detalhes de interação, animação e organização do front-end.",
     author: "Projeto Arcane",
     company: "Frontend interativo",
   },

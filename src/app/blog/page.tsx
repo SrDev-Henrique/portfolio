@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { BlogPostCard } from "@/components/blog-post-card";
 import { Reveal } from "@/components/reveal";
 import { getMainBlogPost, getSecondaryBlogPosts } from "@/content/blog-posts";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Blog | Henrique Albuquerque",
   description:
     "Insights, tutoriais e ideias sobre sites, webapps, performance, SEO e APIs.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const mainPost = getMainBlogPost();

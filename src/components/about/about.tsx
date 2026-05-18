@@ -17,7 +17,7 @@ const socialLinks = [
     Icon: MessageCircle,
   },
   {
-    href: "mailto:halbuquerque2850@gmail.com",
+    href: "mailto:contato@henriquealbuquerque.dev",
     Icon: Mail,
   },
 ];

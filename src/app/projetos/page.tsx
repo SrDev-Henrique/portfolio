@@ -1,9 +1,18 @@
 import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CursorTarget } from "@/components/cursor-tracker";
 import { Reveal } from "@/components/reveal";
 import { projects } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  description:
+    "Cases de websites, webapps, e-commerce e experiências digitais criadas por Henrique Albuquerque com foco em performance, SEO e resultado.",
+  path: "/projetos",
+  title: "Projetos | Henrique Albuquerque",
+});
 
 export default function ProjectsPage() {
   return (

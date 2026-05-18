@@ -66,7 +66,7 @@ export function FaqSection() {
             Perguntas frequentes
           </h2>
           <p className="mt-6 max-w-md font-inter text-lg text-muted-foreground leading-8">
-            Algumas respostas rapidas para entender o processo, o escopo e como
+            Algumas respostas rápidas para entender o processo, o escopo e como
             eu conduzo projetos digitais do briefing ao deploy.
           </p>
         </Reveal>

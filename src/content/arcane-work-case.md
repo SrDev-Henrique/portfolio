@@ -1,4 +1,4 @@
-**Work case de portfólio** — site imersivo sobre a série *Arcane* (Riot Games / Netflix)  
+**Work case de portfólio** — site imersivo sobre a série _Arcane_ (Riot Games / Netflix)  
 **Autor:** SrDev Henrique  
 **Repositório:** [github.com/SrDev-Henrique/Arcane_Project](https://github.com/SrDev-Henrique/Arcane_Project)  
 **Stack principal:** Next.js 15 · React 19 · TypeScript · SCSS Modules · Framer Motion · Lenis
@@ -9,22 +9,22 @@
 
 ## Visão geral
 
-**Arcane: Universo Interativo** é uma experiência web editorial que apresenta o universo de *Arcane* de forma cinematográfica: uma landing page longa com navegação por âncoras, microsites dedicados para dez personagens, exploradores de temporada em tela cheia e uma seção de extras com materiais promocionais e trilhas sonoras.
+**Arcane: Universo Interativo** é uma experiência web editorial que apresenta o universo de _Arcane_ de forma cinematográfica: uma landing page longa com navegação por âncoras, microsites dedicados para dez personagens, exploradores de temporada em tela cheia e uma seção de extras com materiais promocionais e trilhas sonoras.
 
 O projeto foi pensado como peça de portfólio de alto impacto visual — não como um blog ou wiki estático, mas como um **produto digital imersivo** em que scroll, motion design, tipografia e hierarquia de conteúdo trabalham juntos para transmitir a atmosfera de Piltover (claro, aristocrático, bege/dourado) e Zaun (escuro, industrial, `#0a0a0a`).
 
 **Escala aproximada da codebase:**
 
-| Métrica | Valor |
-|--------|-------|
-| Arquivos `.tsx`, `.ts`, `.scss` em `src/` | ~170 |
-| Componentes React (`.tsx`) | ~76 |
-| Módulos SCSS co-localizados | ~60 |
-| Arquivos de variantes de animação (`anime.ts`) | 18 |
-| Linhas em `Characters.ts` | ~2.070 |
-| Linhas em `Temporadas.ts` | ~558 |
-| Rotas públicas | 4 padrões (`/`, `/[character]`, `/temporada_1`, `/temporada_2`) |
-| Personagens com página própria | 10 (SSG) |
+| Métrica                                        | Valor                                                           |
+| ---------------------------------------------- | --------------------------------------------------------------- |
+| Arquivos `.tsx`, `.ts`, `.scss` em `src/`      | ~170                                                            |
+| Componentes React (`.tsx`)                     | ~76                                                             |
+| Módulos SCSS co-localizados                    | ~60                                                             |
+| Arquivos de variantes de animação (`anime.ts`) | 18                                                              |
+| Linhas em `Characters.ts`                      | ~2.070                                                          |
+| Linhas em `Temporadas.ts`                      | ~558                                                            |
+| Rotas públicas                                 | 4 padrões (`/`, `/[character]`, `/temporada_1`, `/temporada_2`) |
+| Personagens com página própria                 | 10 (SSG)                                                        |
 
 ---
 
@@ -32,7 +32,7 @@ O projeto foi pensado como peça de portfólio de alto impacto visual — não c
 
 ### Contexto
 
-*Arcane* consolidou-se como referência em animação para games e streaming. O universo de Runeterra — em especial o contraste entre **Piltover** (cidade do progresso) e **Zaun** (subcidade da desigualdade) — oferece material rico para narrativa, identidade visual e interação.
+_Arcane_ consolidou-se como referência em animação para games e streaming. O universo de Runeterra — em especial o contraste entre **Piltover** (cidade do progresso) e **Zaun** (subcidade da desigualdade) — oferece material rico para narrativa, identidade visual e interação.
 
 ### Objetivos do projeto
 
@@ -84,12 +84,12 @@ Construir um site que:
 
 ### Modelo de navegação
 
-| Rota | Comportamento |
-|------|----------------|
-| `/` | Single-page com 8 blocos: Hero → About → Piltover → Zaun → Temporadas → Extras → Outro (+ Header fixo) |
-| `/[character]` | Microsite do personagem (abas: Perfil, Sobre, História) — **gerado estaticamente** |
-| `/temporada_1` | Explorador Season 1 (episódios + highlights) |
-| `/temporada_2` | Explorador Season 2 |
+| Rota           | Comportamento                                                                                          |
+| -------------- | ------------------------------------------------------------------------------------------------------ |
+| `/`            | Single-page com 8 blocos: Hero → About → Piltover → Zaun → Temporadas → Extras → Outro (+ Header fixo) |
+| `/[character]` | Microsite do personagem (abas: Perfil, Sobre, História) — **gerado estaticamente**                     |
+| `/temporada_1` | Explorador Season 1 (episódios + highlights)                                                           |
+| `/temporada_2` | Explorador Season 2                                                                                    |
 
 O grupo de rotas `(sections)` organiza componentes da home **sem afetar a URL** — padrão do App Router para manter `page.tsx` enxuto.
 
@@ -97,20 +97,20 @@ O grupo de rotas `(sections)` organiza componentes da home **sem afetar a URL** 
 
 ## Stack tecnológica
 
-| Tecnologia | Papel no projeto |
-|------------|------------------|
-| **Next.js 15.3** | App Router, `generateStaticParams`, `next/image`, build de produção |
-| **React 19** | Componentes client/server, hooks, estado local e global |
-| **TypeScript 5** | Tipagem de personagens, temporadas e props de UI |
-| **Sass Modules** | Estilos encapsulados por componente; tokens em `variables.scss` |
-| **Framer Motion 12** | Scroll-linked animations, variants, `AnimatePresence`, `useInView` |
-| **Lenis 1.3** | Scroll suave global (desktop); instâncias locais em História e Highlights |
-| **next-view-transitions** | Transições de página com API View Transitions + animações custom |
-| **react-device-detect** | Desativar Lenis e fullscreen em mobile |
-| **react-icons** | Ícones de UI (menu, player, navegação) |
-| **lodash.debounce** | Debounce em interações sensíveis ao resize/scroll |
-| **classnames** | Composição condicional de classes SCSS |
-| **ESLint 9** | Lint com `eslint-config-next` |
+| Tecnologia                | Papel no projeto                                                          |
+| ------------------------- | ------------------------------------------------------------------------- |
+| **Next.js 15.3**          | App Router, `generateStaticParams`, `next/image`, build de produção       |
+| **React 19**              | Componentes client/server, hooks, estado local e global                   |
+| **TypeScript 5**          | Tipagem de personagens, temporadas e props de UI                          |
+| **Sass Modules**          | Estilos encapsulados por componente; tokens em `variables.scss`           |
+| **Framer Motion 12**      | Scroll-linked animations, variants, `AnimatePresence`, `useInView`        |
+| **Lenis 1.3**             | Scroll suave global (desktop); instâncias locais em História e Highlights |
+| **next-view-transitions** | Transições de página com API View Transitions + animações custom          |
+| **react-device-detect**   | Desativar Lenis e fullscreen em mobile                                    |
+| **react-icons**           | Ícones de UI (menu, player, navegação)                                    |
+| **lodash.debounce**       | Debounce em interações sensíveis ao resize/scroll                         |
+| **classnames**            | Composição condicional de classes SCSS                                    |
+| **ESLint 9**              | Lint com `eslint-config-next`                                             |
 
 **Scripts npm:**
 
@@ -192,23 +192,23 @@ O **Header** carrega `Nav` e `Button` com `dynamic(..., { ssr: false })` e spinn
 
 Identidade **clara e nobre**: fundo bege (`#ead8c0`, `#FFEBB7`), tipografia serifada, cards com texto lateral.
 
-| Subseção | Destaque técnico |
-|----------|------------------|
-| **Apresentação** | Grid de imagens, cards `Cardtextaside` / `Cardinnertext`, registro em `sectionRefs` |
-| **História** | Timeline/conteúdo via `data.ts` local + `RenderContent` |
-| **Personagens** | 5 cards (Viktor, Jayce, Mel, Caitlyn, Heimerdinger) → `TransitionLink` para `/[slug]` |
-| **Outro** | Fechamento visual da região |
+| Subseção         | Destaque técnico                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| **Apresentação** | Grid de imagens, cards `Cardtextaside` / `Cardinnertext`, registro em `sectionRefs`   |
+| **História**     | Timeline/conteúdo via `data.ts` local + `RenderContent`                               |
+| **Personagens**  | 5 cards (Viktor, Jayce, Mel, Caitlyn, Heimerdinger) → `TransitionLink` para `/[slug]` |
+| **Outro**        | Fechamento visual da região                                                           |
 
 ### Zaun
 
 Identidade **sombria e industrial**: fundo `#0a0a0a`, acentos neon, colunas animadas.
 
-| Subseção | Destaque técnico |
-|----------|------------------|
-| **Intro** | Hero com vídeo/scroll; animações em `anime.ts` |
-| **Apresentação** | `AnimatedColumns`, `CardAside`, dados em `data.ts` |
-| **História** | Mesmo padrão de renderização de conteúdo que Piltover |
-| **Personagens** | 5 cards (Ekko, Jinx, Violet, Vander, Silco) com `TransitionLink` |
+| Subseção         | Destaque técnico                                                 |
+| ---------------- | ---------------------------------------------------------------- |
+| **Intro**        | Hero com vídeo/scroll; animações em `anime.ts`                   |
+| **Apresentação** | `AnimatedColumns`, `CardAside`, dados em `data.ts`               |
+| **História**     | Mesmo padrão de renderização de conteúdo que Piltover            |
+| **Personagens**  | 5 cards (Ekko, Jinx, Violet, Vander, Silco) com `TransitionLink` |
 
 **Contraste intencional:** ao entrar em uma página de personagem, o `backgroundColor` do `<main>` muda conforme `data.theme` (`zaun` → `#0a0a0a`, `piltover` → `#ead8c0`), reforçando pertencimento regional sem nova rota.
 
@@ -227,18 +227,18 @@ export async function generateStaticParams() {
 
 **Personagens disponíveis** (10 rotas estáticas no build):
 
-| Slug | Nome | Região |
-|------|------|--------|
-| `caitlyn` | Caitlyn Kiramman | Piltover |
-| `mel` | Mel | Piltover |
-| `jayce` | Jayce Talis | Piltover |
-| `viktor` | Viktor | Piltover |
-| `heimerdinger` | Heimerdinger | Piltover |
-| `silco` | Silco | Zaun |
-| `vander` | Vander | Zaun |
-| `violet` | Vi (Violet) | Zaun |
-| `jinx` | Jinx | Zaun |
-| `ekko` | Ekko | Zaun |
+| Slug           | Nome             | Região   |
+| -------------- | ---------------- | -------- |
+| `caitlyn`      | Caitlyn Kiramman | Piltover |
+| `mel`          | Mel              | Piltover |
+| `jayce`        | Jayce Talis      | Piltover |
+| `viktor`       | Viktor           | Piltover |
+| `heimerdinger` | Heimerdinger     | Piltover |
+| `silco`        | Silco            | Zaun     |
+| `vander`       | Vander           | Zaun     |
+| `violet`       | Vi (Violet)      | Zaun     |
+| `jinx`         | Jinx             | Zaun     |
+| `ekko`         | Ekko             | Zaun     |
 
 Slug inválido → `notFound()` do Next.js.
 
@@ -296,10 +296,10 @@ Links: `/temporada_1` e `/temporada_2`.
 
 Experiência **quase app-like** em tela cheia:
 
-| Aba | Funcionalidade |
-|-----|----------------|
-| **Episódios** | Lista lateral (`EpisodesList`) + painel de detalhe (`Episodes`) — título, nota IMDB, sinopse, imagem, **link direto Netflix** |
-| **Highlights** | Lista vertical com Lenis; reprodução inline de MP4 (CloudFront) |
+| Aba            | Funcionalidade                                                                                                                |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Episódios**  | Lista lateral (`EpisodesList`) + painel de detalhe (`Episodes`) — título, nota IMDB, sinopse, imagem, **link direto Netflix** |
+| **Highlights** | Lista vertical com Lenis; reprodução inline de MP4 (CloudFront)                                                               |
 
 **Dados** (`Temporadas.ts`):
 
@@ -329,16 +329,16 @@ Experiência **quase app-like** em tela cheia:
 
 ## Componentes reutilizáveis (`src/components`)
 
-| Componente | Responsabilidade |
-|------------|------------------|
-| **Header** | Menu morphing (Framer `variants` open/closed), click outside, `AnimatePresence` |
-| **Button** | Variantes: `default`, `hero`, `ghost`, `fechar`, `chars`, `voltar`, `assistaAgora`, `anterior` — texto duplicado para hover animado |
-| **AnimatedText** | Split palavra/caractere; `useInView`; camada decorativa `aria-hidden` + `.srOnly` para leitores de tela |
-| **AnimatedTitle** | Títulos por palavra com stagger |
-| **TransitionLink** | Salva scroll em `sessionStorage`, `useTransitionRouter`, animação clip-path + scale na View Transition |
-| **TransitionCard** | Card com estilos de transição |
-| **FullscreenSwitcher** | Toggle Fullscreen API no `document.documentElement` |
-| **AnimatedLine** | Helper SVG para linhas animadas |
+| Componente             | Responsabilidade                                                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Header**             | Menu morphing (Framer `variants` open/closed), click outside, `AnimatePresence`                                                     |
+| **Button**             | Variantes: `default`, `hero`, `ghost`, `fechar`, `chars`, `voltar`, `assistaAgora`, `anterior` — texto duplicado para hover animado |
+| **AnimatedText**       | Split palavra/caractere; `useInView`; camada decorativa `aria-hidden` + `.srOnly` para leitores de tela                             |
+| **AnimatedTitle**      | Títulos por palavra com stagger                                                                                                     |
+| **TransitionLink**     | Salva scroll em `sessionStorage`, `useTransitionRouter`, animação clip-path + scale na View Transition                              |
+| **TransitionCard**     | Card com estilos de transição                                                                                                       |
+| **FullscreenSwitcher** | Toggle Fullscreen API no `document.documentElement`                                                                                 |
+| **AnimatedLine**       | Helper SVG para linhas animadas                                                                                                     |
 
 ### Padrão `anime.ts`
 
@@ -350,12 +350,12 @@ Experiência **quase app-like** em tela cheia:
 
 ### `MenuProvider` (`GlobalContext`)
 
-| Estado | Uso |
-|--------|-----|
-| `isMenuOpen` | Menu header (também espelhado localmente no Header) |
-| `isLoading` | Splash Hero 6s; bloqueia scroll (`overflow-hidden` no body) |
-| `isSeasonActive` / `activeSeason` | Sincronização temporada + resize scroll para refs da home |
-| `isAudioOn` | Definido no contexto; **não consumido** na UI global (áudio é local ao NavBar do personagem) |
+| Estado                            | Uso                                                                                          |
+| --------------------------------- | -------------------------------------------------------------------------------------------- |
+| `isMenuOpen`                      | Menu header (também espelhado localmente no Header)                                          |
+| `isLoading`                       | Splash Hero 6s; bloqueia scroll (`overflow-hidden` no body)                                  |
+| `isSeasonActive` / `activeSeason` | Sincronização temporada + resize scroll para refs da home                                    |
+| `isAudioOn`                       | Definido no contexto; **não consumido** na UI global (áudio é local ao NavBar do personagem) |
 
 ### `LenisProvider`
 
@@ -426,15 +426,15 @@ Leitores de tela recebem o texto completo; usuários visuais veem stagger por ca
 
 ## Performance e entrega
 
-| Estratégia | Benefício |
-|------------|-----------|
+| Estratégia             | Benefício                                         |
+| ---------------------- | ------------------------------------------------- |
 | `generateStaticParams` | 10 HTMLs estáticos de personagem; TTFB previsível |
-| `dynamic()` no Header | Menu não bloqueia SSR inicial |
-| Lenis só no desktop | Scroll nativo mais performático em touch |
-| Vídeos no CloudFront | Bandwidth e cache fora do bundle Next |
-| `next/image` | Otimização de imagens onde aplicado |
-| Preload Zentry | Fonte crítica no `<head>` do layout |
-| Dados em TS puro | Sem runtime de CMS; build time conhecido |
+| `dynamic()` no Header  | Menu não bloqueia SSR inicial                     |
+| Lenis só no desktop    | Scroll nativo mais performático em touch          |
+| Vídeos no CloudFront   | Bandwidth e cache fora do bundle Next             |
+| `next/image`           | Otimização de imagens onde aplicado               |
+| Preload Zentry         | Fonte crítica no `<head>` do layout               |
+| Dados em TS puro       | Sem runtime de CMS; build time conhecido          |
 
 **Trade-offs conscientes:**
 
@@ -465,12 +465,12 @@ Leitores de tela recebem o texto completo; usuários visuais veem stagger por ca
 
 ## Integrações externas
 
-| Plataforma | Uso |
-|------------|-----|
-| **Netflix** | Links `watch` por episódio em `Temporadas.ts` |
-| **YouTube** | Embeds na seção Músicas / promocionais |
+| Plataforma     | Uso                                                          |
+| -------------- | ------------------------------------------------------------ |
+| **Netflix**    | Links `watch` por episódio em `Temporadas.ts`                |
+| **YouTube**    | Embeds na seção Músicas / promocionais                       |
 | **CloudFront** | `d3v6dicq4pzaym.cloudfront.net` — clips do Hero e highlights |
-| **IMDB** | Notas por episódio nos metadados |
+| **IMDB**       | Notas por episódio nos metadados                             |
 
 ---
 
@@ -487,14 +487,14 @@ Leitores de tela recebem o texto completo; usuários visuais veem stagger por ca
 
 ## Métricas de complexidade (por área)
 
-| Área | Complexidade | Observação |
-|------|--------------|------------|
-| `data/Characters.ts` | Muito alta | Fonte única de verdade; manutenção centralizada |
-| `NavBar` (personagem) | Alta | Áudio + Framer + tabs |
-| `RenderSeasons` + episódios/highlights | Alta | Múltiplos overlays, Lenis, vídeo |
-| `Header/Nav` | Média-alta | Accordion + scroll polling + fullscreen |
-| Seções Piltover/Zaun | Média-alta | Muitos subcomponentes e `anime.ts` |
-| `components/` compartilhados | Média | Primitivos bem definidos |
+| Área                                   | Complexidade | Observação                                      |
+| -------------------------------------- | ------------ | ----------------------------------------------- |
+| `data/Characters.ts`                   | Muito alta   | Fonte única de verdade; manutenção centralizada |
+| `NavBar` (personagem)                  | Alta         | Áudio + Framer + tabs                           |
+| `RenderSeasons` + episódios/highlights | Alta         | Múltiplos overlays, Lenis, vídeo                |
+| `Header/Nav`                           | Média-alta   | Accordion + scroll polling + fullscreen         |
+| Seções Piltover/Zaun                   | Média-alta   | Muitos subcomponentes e `anime.ts`              |
+| `components/` compartilhados           | Média        | Primitivos bem definidos                        |
 
 ---
 
@@ -537,7 +537,7 @@ Acesse [http://localhost:3000](http://localhost:3000). O script `dev` expõe `0.
 
 - GitHub: [github.com/SrDev-Henrique](https://github.com/SrDev-Henrique)
 - Instagram: [@hick.slv](https://www.instagram.com/hick.slv/)
-- E-mail: [halbuquerque2850@gmail.com](mailto:halbuquerque2850@gmail.com?subject=Gostaria%20de%20montar%20um%20orçamento%20para%20um%20projeto)
+- E-mail: [contato@henriquealbuquerque.dev](mailto:contato@henriquealbuquerque.dev?subject=Gostaria%20de%20montar%20um%20orçamento%20para%20um%20projeto)
 
 **Propriedade intelectual:** Arcane, League of Legends e personagens são propriedade da Riot Games. Este projeto é homenagem de fã e material de portfólio.
 
@@ -561,4 +561,4 @@ O objetivo foi provar que consigo entregar **produto digital com nível editoria
 
 ---
 
-*Documento gerado a partir da análise da codebase em maio de 2026.*
+_Documento gerado a partir da análise da codebase em maio de 2026._

@@ -39,15 +39,15 @@ A home em `src/app/page.tsx` compoe, nesta ordem:
 8. `ContactSection`
 9. `SiteFooter`
 
-Preserve essa ordem a menos que o usuario peca explicitamente outra organizacao.
+Preserve essa ordem a menos que o usuario peca explicitamente outra organização.
 
 ## conteúdo e contatos
 
 - Nome público: Henrique Albuquerque.
 - WhatsApp: `(19) 99401-2785`
 - Link WhatsApp: `https://wa.me/5519994012785`
-- E-mail atual: `halbuquerque2850@gmail.com`
-- Link e-mail: `mailto:halbuquerque2850@gmail.com`
+- E-mail atual: `contato@henriquealbuquerque.dev`
+- Link e-mail: `mailto:contato@henriquealbuquerque.dev`
 - Link sobre mim planejado: `/sobre-mim`
 - Link blog planejado: `/blog`
 
@@ -57,7 +57,7 @@ Preserve essa ordem a menos que o usuario peca explicitamente outra organizacao.
 - **Servicos**: `ServicesShowcase`, baseado no antigo `KineticTeamHybrid`, com linhas interativas e imagens locais de servicos.
 - **Projetos**: grid com ate 2 colunas, imagem grande, nome, tag e descricao. Cards nao sao links por enquanto.
 - **Depoimentos**: inspirado em layout de cards escuros com estrelas e cards metricos; grid 1/2/3 por breakpoint.
-- **FAQ**: accordion client-side inspirado na interacao mobile de `ServicesShowcase`; coluna de titulo sticky a partir de `md`.
+- **FAQ**: accordion client-side inspirado na interação mobile de `ServicesShowcase`; coluna de titulo sticky a partir de `md`.
 - **Blog**: lista local com 7 posts, renderiza apenas 2 na home; imagens sao placeholders ate o usuario fornecer assets.
 - **Contato**: formulário client-side com React Hook Form + Zod, envio simulado de 1 segundo, spinner durante submit, sucesso com `AnimatePresence`.
 - **Footer**: usa `bg-accent` e inclui e-mail, WhatsApp, links rápidos e copyright.

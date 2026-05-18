@@ -10,8 +10,8 @@ const footerLinks = [
 
 const contactLinks = [
   {
-    href: "mailto:halbuquerque2850@gmail.com",
-    label: "halbuquerque2850@gmail.com",
+    href: "mailto:contato@henriquealbuquerque.dev",
+    label: "contato@henriquealbuquerque.dev",
     Icon: Mail,
   },
   {

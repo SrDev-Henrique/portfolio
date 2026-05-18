@@ -37,7 +37,7 @@ Secao "Sobre mim" com texto breve, metricas e links ghost:
 - `2+` anos de experiencia.
 - `20+` clientes atendidos.
 - WhatsApp: `https://wa.me/5519994012785`.
-- E-mail: `mailto:halbuquerque2850@gmail.com`.
+- E-mail: `mailto:contato@henriquealbuquerque.dev`.
 - Link futuro: `/sobre-mim`.
 
 ### ServicesShowcase
@@ -123,7 +123,7 @@ Comportamento importante:
 
 - Usa `next/image` com `fill`.
 - Mantem moldura arredondada, sombra forte e detalhes de acento.
-- Variantes com selo circular usam animacao vertical em `src/app/globals.css` com classes `profile-badge-copy` e `profile-badge-icon`.
+- Variantes com selo circular usam animação vertical em `src/app/globals.css` com classes `profile-badge-copy` e `profile-badge-icon`.
 
 ## Padroes de secao
 

@@ -9,6 +9,7 @@ import {
   getBlogPostSlugs,
   getFeaturedBlogPosts,
 } from "@/content/blog-posts";
+import { createPageMetadata } from "@/lib/seo";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -30,10 +31,21 @@ export async function generateMetadata({
     };
   }
 
-  return {
+  const metadata = createPageMetadata({
+    description: post.description,
+    image: post.image,
+    imageAlt: post.imageAlt,
+    path: `/blog/${post.slug}`,
     title: `${post.title} | Henrique Albuquerque`,
+    type: "article",
+  });
+
+  return {
+    ...metadata,
     description: post.description,
     openGraph: {
+      ...metadata.openGraph,
+      authors: ["Henrique Albuquerque"],
       description: post.description,
       images: [
         {
@@ -41,6 +53,7 @@ export async function generateMetadata({
           url: post.image,
         },
       ],
+      publishedTime: post.dateTime,
       title: post.title,
       type: "article",
     },

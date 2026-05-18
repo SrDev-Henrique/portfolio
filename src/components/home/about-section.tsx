@@ -15,7 +15,7 @@ const contactLinks = [
     external: true,
   },
   {
-    href: "mailto:halbuquerque2850@gmail.com",
+    href: "mailto:contato@henriquealbuquerque.dev",
     label: "Enviar e-mail",
     Icon: Mail,
     external: false,

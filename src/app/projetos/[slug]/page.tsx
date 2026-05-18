@@ -16,6 +16,7 @@ import {
   UploadCloud,
   UserRound,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -23,10 +24,35 @@ import type { ReactNode } from "react";
 import { PortfolioButton } from "@/components/portfolio-button";
 import { Reveal } from "@/components/reveal";
 import { getProjectBySlug, getProjectSlugs } from "@/content/projects";
+import { createPageMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: "Projeto não encontrado | Henrique Albuquerque",
+    };
+  }
+
+  return createPageMetadata({
+    description: project.description,
+    image: project.image,
+    imageAlt: `Mockup do projeto ${project.name}`,
+    path: `/projetos/${project.slug}`,
+    title: `${project.name} | Henrique Albuquerque`,
+    type: "article",
+  });
 }
 
 export default async function ProjectDetailPage({
