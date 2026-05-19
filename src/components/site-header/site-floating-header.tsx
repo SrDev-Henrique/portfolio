@@ -50,7 +50,7 @@ export function SiteFloatingHeader({
             "bg-card/95 text-card-foreground",
             compact
               ? "w-42 max-w-md py-1.5 pr-3 pl-2"
-              : "w-full max-w-120 py-1.5 pr-2 pl-2 sm:gap-4 sm:px-4",
+              : "w-full max-w-120 py-1.5 pr-2 pl-2 sm:gap-4",
           )}
           aria-label="Navegação principal"
         >

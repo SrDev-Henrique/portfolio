@@ -6,12 +6,14 @@ export type PillHeaderContactProps = {
   href?: string;
   label?: string;
   className?: string;
+  onNavigate?: () => void;
 };
 
 export function PillHeaderContact({
   href = "/#contato",
   label = "Contato",
   className,
+  onNavigate,
 }: PillHeaderContactProps) {
   return (
     <Button
@@ -23,7 +25,7 @@ export function PillHeaderContact({
         className,
       )}
     >
-      <Link href={href}>{label}</Link>
+      <Link href={href} onClick={onNavigate}>{label}</Link>
     </Button>
   );
 }

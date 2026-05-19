@@ -15,13 +15,13 @@ Trata-se de um **produto web de marketing e conversão**, construído como **Sin
 
 ## Contexto do cliente
 
-| Item | Detalhe |
-|------|---------|
-| **Segmento** | Corretagem de seguros e consórcios |
-| **Público** | Pessoas físicas, empresas e gestores de benefícios |
-| **Proposta de valor** | Consultoria personalizada, parcerias com seguradoras de referência (Porto Seguro, SulAmérica, Amil, Omint, Seguros Unimed, MetLife, Care Plus, entre outras) e atendimento humanizado |
-| **Diferencial de mercado** | Mais de 15 anos de experiência, soluções sob medida, cobertura nacional |
-| **Canais de conversão** | Formulário de contato (e-mail), WhatsApp fixo e CTAs contextuais por serviço |
+| Item                       | Detalhe                                                                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Segmento**               | Corretagem de seguros e consórcios                                                                                                                                                    |
+| **Público**                | Pessoas físicas, empresas e gestores de benefícios                                                                                                                                    |
+| **Proposta de valor**      | Consultoria personalizada, parcerias com seguradoras de referência (Porto Seguro, SulAmérica, Amil, Omint, Seguros Unimed, MetLife, Care Plus, entre outras) e atendimento humanizado |
+| **Diferencial de mercado** | Mais de 15 anos de experiência, soluções sob medida, cobertura nacional                                                                                                               |
+| **Canais de conversão**    | Formulário de contato (e-mail), WhatsApp fixo e CTAs contextuais por serviço                                                                                                          |
 
 ---
 
@@ -40,16 +40,16 @@ Trata-se de um **produto web de marketing e conversão**, construído como **Sin
 
 ### Páginas e rotas
 
-| Rota | Descrição |
-|------|-----------|
-| `/` | Home com hero em vídeo, sobre resumido, parceiros, opções de serviços, essência da marca, mensagem institucional, visão e CTAs |
-| `/servicos` | Listagem narrativa de todos os serviços (seguros + consórcios) com seções animadas e âncoras |
-| `/servicos/[service]` | **9 páginas dinâmicas** geradas a partir de um único modelo e fonte de dados centralizada |
-| `/sobre-nos` | História, passos, metodologia e como trabalhamos |
-| `/contato` | Formulário validado, cards de contato e FAQ |
-| `/termos-de-uso` | Termos legais |
-| `/politica-de-privacidade` | Política de privacidade |
-| `POST /api/contact` | API serverless para envio de e-mail via Resend |
+| Rota                       | Descrição                                                                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `/`                        | Home com hero em vídeo, sobre resumido, parceiros, opções de serviços, essência da marca, mensagem institucional, visão e CTAs |
+| `/servicos`                | Listagem narrativa de todos os serviços (seguros + consórcios) com seções animadas e âncoras                                   |
+| `/servicos/[service]`      | **9 páginas dinâmicas** geradas a partir de um único modelo e fonte de dados centralizada                                      |
+| `/sobre-nos`               | História, passos, metodologia e como trabalhamos                                                                               |
+| `/#contato`                | Formulário validado, cards de contato e FAQ                                                                                    |
+| `/termos-de-uso`           | Termos legais                                                                                                                  |
+| `/politica-de-privacidade` | Política de privacidade                                                                                                        |
+| `POST /api/contact`        | API serverless para envio de e-mail via Resend                                                                                 |
 
 ### Serviços modelados (9 slugs)
 
@@ -63,20 +63,20 @@ Cada serviço possui: headline, subtítulo, imagem hero, três diferenciais com 
 
 ## Stack tecnológica
 
-| Camada | Tecnologias |
-|--------|-------------|
-| **Framework** | Next.js 16.1.6 (App Router, Server Components, Route Handlers) |
-| **UI** | React 19.2, TypeScript 5 |
-| **Estilo** | Tailwind CSS 4 (`@import "tailwindcss"`), design tokens em OKLCH, `tw-animate-css` |
-| **Componentes** | Radix UI (primitivos acessíveis), padrão shadcn/ui (33 componentes em `components/ui`) |
-| **Ícones** | Lucide React, Remix Icon (`@remixicon/react`), Font Awesome (marcas, ex.: WhatsApp no hero) |
-| **Formulários** | React Hook Form 7, Zod 4, `@hookform/resolvers` |
-| **E-mail** | Resend 4 (API route server-side) |
-| **Animação** | GSAP 3 + ScrollTrigger + SplitText; Motion 12 (`motion/react`) |
-| **Carrosséis / UI** | Embla Carousel, Recharts (gráficos), Sonner (toasts) |
-| **Imagens** | `next/image` com `priority`, `sizes` e `fill` onde aplicável |
-| **Qualidade** | ESLint 9 (`eslint-config-next`), Biome 2.2 (dev) |
-| **Fontes** | Inter (sans), Poppins (serif), Montserrat (mono) — via CSS variables |
+| Camada              | Tecnologias                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------- |
+| **Framework**       | Next.js 16.1.6 (App Router, Server Components, Route Handlers)                              |
+| **UI**              | React 19.2, TypeScript 5                                                                    |
+| **Estilo**          | Tailwind CSS 4 (`@import "tailwindcss"`), design tokens em OKLCH, `tw-animate-css`          |
+| **Componentes**     | Radix UI (primitivos acessíveis), padrão shadcn/ui (33 componentes em `components/ui`)      |
+| **Ícones**          | Lucide React, Remix Icon (`@remixicon/react`), Font Awesome (marcas, ex.: WhatsApp no hero) |
+| **Formulários**     | React Hook Form 7, Zod 4, `@hookform/resolvers`                                             |
+| **E-mail**          | Resend 4 (API route server-side)                                                            |
+| **Animação**        | GSAP 3 + ScrollTrigger + SplitText; Motion 12 (`motion/react`)                              |
+| **Carrosséis / UI** | Embla Carousel, Recharts (gráficos), Sonner (toasts)                                        |
+| **Imagens**         | `next/image` com `priority`, `sizes` e `fill` onde aplicável                                |
+| **Qualidade**       | ESLint 9 (`eslint-config-next`), Biome 2.2 (dev)                                            |
+| **Fontes**          | Inter (sans), Poppins (serif), Montserrat (mono) — via CSS variables                        |
 
 ---
 
@@ -130,7 +130,7 @@ Isso permite escalar conteúdo adicionando entradas em `services.ts` sem duplica
 
 ### 2. Formulário de contato inteligente
 
-O formulário em `/contato` (`contact-form.tsx`) usa **validação condicional com Zod**:
+O formulário em `/#contato` (`contact-form.tsx`) usa **validação condicional com Zod**:
 
 - Nome completo (nome + sobrenome).
 - Telefone brasileiro com máscara em tempo real (`formatPhone` / `getPhoneDigits` em `lib/phone.ts`).
@@ -176,13 +176,13 @@ Componente reutilizável `JsonLd<T>` injeta `application/ld+json` de forma segur
 
 **Tipos Schema.org usados no projeto:**
 
-| Página | Schema |
-|--------|--------|
-| Contato | `ContactPage` + `InsuranceAgency` + `ContactPoint` + endereço |
-| Sobre nós | `InsuranceAgency` + `AboutPage` |
-| Serviços (listagem) | `CollectionPage` + `ItemList` (na seção Services) |
-| Serviço individual | `Service` + `FAQPage` |
-| Essência Jaber (home) | `ItemList` |
+| Página                | Schema                                                        |
+| --------------------- | ------------------------------------------------------------- |
+| Contato               | `ContactPage` + `InsuranceAgency` + `ContactPoint` + endereço |
+| Sobre nós             | `InsuranceAgency` + `AboutPage`                               |
+| Serviços (listagem)   | `CollectionPage` + `ItemList` (na seção Services)             |
+| Serviço individual    | `Service` + `FAQPage`                                         |
+| Essência Jaber (home) | `ItemList`                                                    |
 
 Metadados globais em `layout.tsx` com `metadataBase` derivado de `NEXT_PUBLIC_SITE_URL`.
 
@@ -229,9 +229,9 @@ Espaçamento vertical responsivo (`space-y-20` → `40` em large) cria ritmo de 
 
 ## Integrações e variáveis de ambiente
 
-| Variável | Uso |
-|----------|-----|
-| `RESEND_API_KEY` | Envio de e-mails do formulário (server-only) |
+| Variável               | Uso                                                                                     |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`       | Envio de e-mails do formulário (server-only)                                            |
 | `NEXT_PUBLIC_SITE_URL` | `metadataBase`, URLs absolutas em OG e JSON-LD (default: `https://jaberseguros.com.br`) |
 
 **Deploy:** Compatível com Vercel, Netlify ou qualquer host Next.js; variáveis configuradas no painel do provedor. A chave Resend nunca é exposta ao cliente.
@@ -262,14 +262,14 @@ npm run lint   # ESLint
 
 ## Métricas de escopo (referência)
 
-| Métrica | Valor aproximado |
-|---------|------------------|
-| Arquivos TS/TSX em `src/` | ~124 |
-| Componentes UI (`components/ui`) | 33 |
-| Páginas públicas | 7 rotas + 9 dinâmicas |
-| Linhas em `services.ts` (conteúdo) | ~650 |
-| Dependências de produção | ~40 pacotes |
-| Parceiros exibidos na home | 7 logos |
+| Métrica                            | Valor aproximado      |
+| ---------------------------------- | --------------------- |
+| Arquivos TS/TSX em `src/`          | ~124                  |
+| Componentes UI (`components/ui`)   | 33                    |
+| Páginas públicas                   | 7 rotas + 9 dinâmicas |
+| Linhas em `services.ts` (conteúdo) | ~650                  |
+| Dependências de produção           | ~40 pacotes           |
+| Parceiros exibidos na home         | 7 logos               |
 
 ---
 
@@ -281,53 +281,60 @@ npm run lint   # ESLint
 - **Base técnica escalável** — Novos serviços ou ajustes de copy concentrados em `services.ts` e metadados automáticos.
 - **Preparado para marketing** — OG/Twitter prontos para compartilhamento; estrutura para campanhas por landing de serviço.
 
-*(Métricas de tráfego, conversão e ranking — preencher com dados reais pós-deploy, se disponíveis.)*
+_(Métricas de tráfego, conversão e ranking — preencher com dados reais pós-deploy, se disponíveis.)_
 
 ---
 
 ## Desafios e decisões de engenharia
 
-| Desafio | Decisão |
-|---------|---------|
-| Muito conteúdo por serviço sem CMS headless | Modelo de dados tipado em TypeScript + página template única |
-| Performance do hero com vídeo | Poster LCP + idle load + reduced motion |
-| Formulário com regras diferentes por produto | `superRefine` no Zod + `useWatch` para UI condicional |
-| Animações sem prejudicar a11y/perf | GSAP apenas em viewport; Motion em blocos isolados; CSS para entradas simples |
-| E-mail transacional confiável | Resend na Route Handler, validação dupla (client + server) |
-| Menu complexo em mobile | Context API para estado global do menu + animações GSAP no drawer |
+| Desafio                                      | Decisão                                                                       |
+| -------------------------------------------- | ----------------------------------------------------------------------------- |
+| Muito conteúdo por serviço sem CMS headless  | Modelo de dados tipado em TypeScript + página template única                  |
+| Performance do hero com vídeo                | Poster LCP + idle load + reduced motion                                       |
+| Formulário com regras diferentes por produto | `superRefine` no Zod + `useWatch` para UI condicional                         |
+| Animações sem prejudicar a11y/perf           | GSAP apenas em viewport; Motion em blocos isolados; CSS para entradas simples |
+| E-mail transacional confiável                | Resend na Route Handler, validação dupla (client + server)                    |
+| Menu complexo em mobile                      | Context API para estado global do menu + animações GSAP no drawer             |
 
 ---
 
 ## Sugestões para o portfolio (como apresentar)
 
 ### Título sugerido
+
 **Jaber Seguros — Site institucional com Next.js 16, SEO avançado e captação de leads**
 
 ### Uma linha (elevator pitch)
+
 Site institucional full-stack para corretora de seguros: nove landing pages de produto a partir de um único template, formulário inteligente com e-mail transacional, hero em vídeo otimizado e dados estruturados Schema.org.
 
 ### Tags para filtros
+
 `Next.js` · `React` · `TypeScript` · `Tailwind CSS` · `SEO` · `GSAP` · `Radix UI` · `Zod` · `Resend` · `Institucional` · `Finanças / Seguros`
 
 ### Bullets para card do projeto
+
 - App Router com Server Components e 9 rotas dinâmicas de serviço
 - JSON-LD (Service, FAQ, Organization, ContactPage) em todas as páginas-chave
 - Formulário com validação condicional Zod + API Resend
 - Hero com vídeo: LCP em poster, `requestIdleCallback`, `prefers-reduced-motion`
 - Design system OKLCH + 33 componentes Radix/shadcn
 
-### Seção “Meu papel” *(personalizar)*
-<!-- Exemplo — substitua conforme sua participação real -->
-- [ ] Arquitetura e setup Next.js  
-- [ ] UI/UX e implementação front-end  
-- [ ] Integração Resend e API de contato  
-- [ ] Conteúdo / copy dos serviços  
-- [ ] SEO técnico e Schema.org  
-- [ ] Deploy e DevOps  
+### Seção “Meu papel” _(personalizar)_
 
-### Links *(preencher quando publicado)*
-- **Site em produção:** `https://jaberseguros.com.br`  
-- **Repositório:** *(privado — uso interno Jaber Seguros)*  
+<!-- Exemplo — substitua conforme sua participação real -->
+
+- [ ] Arquitetura e setup Next.js
+- [ ] UI/UX e implementação front-end
+- [ ] Integração Resend e API de contato
+- [ ] Conteúdo / copy dos serviços
+- [ ] SEO técnico e Schema.org
+- [ ] Deploy e DevOps
+
+### Links _(preencher quando publicado)_
+
+- **Site em produção:** `https://jaberseguros.com.br`
+- **Repositório:** _(privado — uso interno Jaber Seguros)_
 
 ---
 
@@ -335,16 +342,16 @@ Site institucional full-stack para corretora de seguros: nove landing pages de p
 
 Recomenda-se capturas em desktop e mobile:
 
-- [ ] Home — Hero com vídeo e CTAs  
-- [ ] Home — Logo cloud de parceiros  
-- [ ] Home — Seção Essência Jaber (estado ativo)  
-- [ ] `/servicos` — Listagem de um bloco (ex.: seguro saúde)  
-- [ ] `/servicos/seguro-saude` — Hero + diferenciais  
-- [ ] `/servicos/consorcio-imoveis` — FAQ  
-- [ ] `/contato` — Formulário com campos condicionais abertos  
-- [ ] `/sobre-nos` — Timeline / passos  
-- [ ] Menu mobile aberto  
-- [ ] Botão flutuante WhatsApp  
+- [ ] Home — Hero com vídeo e CTAs
+- [ ] Home — Logo cloud de parceiros
+- [ ] Home — Seção Essência Jaber (estado ativo)
+- [ ] `/servicos` — Listagem de um bloco (ex.: seguro saúde)
+- [ ] `/servicos/seguro-saude` — Hero + diferenciais
+- [ ] `/servicos/consorcio-imoveis` — FAQ
+- [ ] `/#contato` — Formulário com campos condicionais abertos
+- [ ] `/sobre-nos` — Timeline / passos
+- [ ] Menu mobile aberto
+- [ ] Botão flutuante WhatsApp
 
 ---
 
@@ -365,4 +372,4 @@ Projeto de **uso privado**. Todos os direitos reservados à Jaber Seguros. Ao pu
 
 ---
 
-*Documento gerado com base na análise da codebase do repositório `jaberseguros` (estrutura, dependências, rotas, componentes e padrões de implementação).*
+_Documento gerado com base na análise da codebase do repositório `jaberseguros` (estrutura, dependências, rotas, componentes e padrões de implementação)._

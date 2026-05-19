@@ -138,7 +138,10 @@ export function MobileHeader({ avaible = true, className }: MobileHeaderProps) {
             </li>
           ))}
         </ul>
-        <PillHeaderContact className="mx-auto w-fit bg-accent" />
+        <PillHeaderContact
+          className="mx-auto w-fit bg-accent"
+          onNavigate={() => setIsOpen(false)}
+        />
       </div>
     </motion.nav>
   );

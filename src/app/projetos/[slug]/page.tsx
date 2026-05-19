@@ -304,7 +304,7 @@ export default async function ProjectDetailPage({
                   {caseStudy.cta.body}
                 </h2>
               </div>
-              <PortfolioButton href="/contato" variant="outline-green">
+              <PortfolioButton href="/#contato" variant="outline-green">
                 {caseStudy.cta.label}
               </PortfolioButton>
             </Reveal>

@@ -325,7 +325,7 @@ export const projects: Project[] = [
             "Página institucional para explicar a proposta do produto sem simular um e-commerce próprio.",
         },
         {
-          src: "/images/projects/achadinho-preferido/contato.png",
+          src: "/images/projects/achadinho-preferido/#contato.png",
           alt: "Página de contato do Achadinho Preferido",
           caption:
             "Contato direto para suporte, parcerias e relacionamento com a operação.",

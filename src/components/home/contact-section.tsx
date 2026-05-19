@@ -5,9 +5,10 @@ import { WhatsappFreeIcons } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { CheckCircle2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { sendContactEmail } from "@/actions/send-contact-email";
 import { ProfileVisual } from "@/components/home/profile-visual";
 import { PortfolioButton } from "@/components/portfolio-button";
 import { Reveal } from "@/components/reveal";
@@ -29,28 +30,14 @@ import {
 } from "@/components/ui/select";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
-import Link from "next/link";
+import {
+  type ContactFormValues,
+  contactSchema,
+  contactServiceOptions,
+} from "@/lib/contact-form";
+import { formatBrazilianPhone } from "@/lib/phone";
 
 const whatsappHref = "https://wa.me/5519994012785";
-
-const serviceOptions = [
-  { label: "Website", value: "website" },
-  { label: "Webapp", value: "webapp" },
-  { label: "E-commerce", value: "ecommerce" },
-  { label: "API", value: "api" },
-  { label: "Ainda não sei ao certo", value: "unsure" },
-] as const;
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Informe seu nome."),
-  email: z.string().email("Informe um e-mail valido."),
-  service: z.enum(["website", "webapp", "ecommerce", "api", "unsure"], {
-    error: "Escolha um servico.",
-  }),
-  message: z.string().optional(),
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function ContactSection() {
   const form = useForm<ContactFormValues>({
@@ -58,19 +45,30 @@ export function ContactSection() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       message: "",
     },
   });
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  async function onSubmit() {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  async function onSubmit(values: ContactFormValues) {
+    setSubmitError(null);
+
+    const result = await sendContactEmail(values);
+
+    if (!result.success) {
+      setSubmitError(result.error);
+      return;
+    }
+
     setIsSuccess(true);
   }
 
   function handleReset() {
     form.reset();
     setIsSuccess(false);
+    setSubmitError(null);
   }
 
   return (
@@ -175,43 +173,78 @@ export function ContactSection() {
                       </Reveal>
                     </div>
 
-                    <Reveal delay={0.08} distance={16} staggerIndex={2}>
-                      <FormField
-                        control={form.control}
-                        name="service"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="font-inter text-accent">
-                              Servico
-                            </FormLabel>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger className="h-12 w-full border-border bg-surface-elevated text-foreground focus-visible:border-accent/60 focus-visible:ring-accent/20">
-                                  <SelectValue placeholder="Escolha o tipo de projeto" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent className="border-border bg-background text-foreground">
-                                {serviceOptions.map((option) => (
-                                  <SelectItem
-                                    key={option.value}
-                                    value={option.value}
-                                    className="focus:bg-accent focus:text-accent-foreground"
-                                  >
-                                    {option.label}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </Reveal>
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      <Reveal delay={0.08} distance={16} staggerIndex={2}>
+                        <FormField
+                          control={form.control}
+                          name="service"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-inter text-accent">
+                                Servico
+                              </FormLabel>
+                              <Select
+                                onValueChange={field.onChange}
+                                value={field.value}
+                              >
+                                <FormControl>
+                                  <SelectTrigger className="h-12 w-full border-border bg-surface-elevated text-foreground focus-visible:border-accent/60 focus-visible:ring-accent/20">
+                                    <SelectValue placeholder="Escolha o tipo de projeto" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent className="border-border bg-background text-foreground">
+                                  {contactServiceOptions.map((option) => (
+                                    <SelectItem
+                                      key={option.value}
+                                      value={option.value}
+                                      className="focus:bg-accent focus:text-accent-foreground"
+                                    >
+                                      {option.label}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </Reveal>
 
-                    <Reveal delay={0.08} distance={16} staggerIndex={3}>
+                      <Reveal delay={0.08} distance={16} staggerIndex={3}>
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="font-inter text-accent">
+                                Telefone
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="tel"
+                                  inputMode="numeric"
+                                  autoComplete="tel"
+                                  placeholder="(19) 99999-9999"
+                                  className="h-12 border-border bg-surface-elevated text-foreground placeholder:text-foreground-placeholder focus-visible:border-accent/60 focus-visible:ring-accent/20"
+                                  value={field.value}
+                                  onChange={(event) =>
+                                    field.onChange(
+                                      formatBrazilianPhone(event.target.value),
+                                    )
+                                  }
+                                  onBlur={field.onBlur}
+                                  name={field.name}
+                                  ref={field.ref}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </Reveal>
+                    </div>
+
+                    <Reveal delay={0.08} distance={16} staggerIndex={4}>
                       <FormField
                         control={form.control}
                         name="message"
@@ -219,9 +252,6 @@ export function ContactSection() {
                           <FormItem>
                             <FormLabel className="font-inter text-accent">
                               Descricao do projeto
-                              <span className="text-foreground-subtle">
-                                (opcional)
-                              </span>
                             </FormLabel>
                             <FormControl>
                               <Textarea
@@ -236,9 +266,18 @@ export function ContactSection() {
                       />
                     </Reveal>
 
+                    {submitError ? (
+                      <p
+                        role="alert"
+                        className="font-inter text-destructive text-sm"
+                      >
+                        {submitError}
+                      </p>
+                    ) : null}
+
                     <Reveal
                       delay={0.08}
-                      staggerIndex={4}
+                      staggerIndex={5}
                       className="flex flex-col items-center gap-4 pt-2 xl:flex-row xl:justify-between"
                     >
                       <PortfolioButton

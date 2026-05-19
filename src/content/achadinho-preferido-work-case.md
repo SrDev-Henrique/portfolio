@@ -18,14 +18,14 @@ A arquitetura prioriza **produção em hosts distintos** (ex.: Next na Vercel, A
 
 ## Contexto e problema
 
-| Desafio | Como o projeto responde |
-|--------|-------------------------|
-| Catálogo dinâmico com muitos filtros e ordenações | TanStack Query + URL como fonte de verdade nos filtros; scroll infinito em `/ofertas` |
-| Rastrear cliques sem expor PII na home | Endpoint público `GET /products/day-offer` (fuso `America/Sao_Paulo`) + fallback no servidor |
-| Admin e loja no mesmo app, papéis distintos | RBAC `admin` \| `user` via Better Auth; layout `/admin` com `requireAdmin()` no servidor |
-| API e frontend em origens diferentes | BFF que encaminha `Cookie` e sanitiza `Set-Cookie` (remove `Domain` da API) |
-| Busca em português sem acento | Normalização NFD + remoção de diacríticos alinhada ao backend |
-| Operadores precisam de produtividade | Formulário único create/edit (~2.300 linhas), bulk deactivate/delete, CSV de cliques |
+| Desafio                                           | Como o projeto responde                                                                      |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Catálogo dinâmico com muitos filtros e ordenações | TanStack Query + URL como fonte de verdade nos filtros; scroll infinito em `/ofertas`        |
+| Rastrear cliques sem expor PII na home            | Endpoint público `GET /products/day-offer` (fuso `America/Sao_Paulo`) + fallback no servidor |
+| Admin e loja no mesmo app, papéis distintos       | RBAC `admin` \| `user` via Better Auth; layout `/admin` com `requireAdmin()` no servidor     |
+| API e frontend em origens diferentes              | BFF que encaminha `Cookie` e sanitiza `Set-Cookie` (remove `Domain` da API)                  |
+| Busca em português sem acento                     | Normalização NFD + remoção de diacríticos alinhada ao backend                                |
+| Operadores precisam de produtividade              | Formulário único create/edit (~2.300 linhas), bulk deactivate/delete, CSV de cliques         |
 
 ---
 
@@ -79,11 +79,11 @@ flowchart TB
 
 ### Separação de responsabilidades
 
-| Camada | Repositório / pasta | Responsabilidade |
-|--------|---------------------|------------------|
-| **Este repo** | `lojinha_produtos` | UI, BFF, SEO, estado cliente, formulários, tipos espelhando DTOs |
-| **API** | Backend Lojinhas (externo) | Persistência, regras de negócio, redirect `/go`, OpenAPI em `/openapi` |
-| **Infra** | Vercel + Render (típico) | `NEXT_PUBLIC_SITE_URL` vs `NEXT_PUBLIC_API_URL` |
+| Camada        | Repositório / pasta        | Responsabilidade                                                       |
+| ------------- | -------------------------- | ---------------------------------------------------------------------- |
+| **Este repo** | `lojinha_produtos`         | UI, BFF, SEO, estado cliente, formulários, tipos espelhando DTOs       |
+| **API**       | Backend Lojinhas (externo) | Persistência, regras de negócio, redirect `/go`, OpenAPI em `/openapi` |
+| **Infra**     | Vercel + Render (típico)   | `NEXT_PUBLIC_SITE_URL` vs `NEXT_PUBLIC_API_URL`                        |
 
 ---
 
@@ -91,33 +91,33 @@ flowchart TB
 
 ### Frontend (este repositório)
 
-| Área | Tecnologia | Uso no projeto |
-|------|------------|----------------|
-| Framework | **Next.js 16.2** (App Router) | Rotas em grupos `(site)`, `(auth)`, `admin`; RSC + client islands |
-| UI | **React 19** | Componentes de loja e admin |
-| Linguagem | **TypeScript 5** | Tipos em `src/types/api.ts` espelhando contrato da API |
-| Estilo | **Tailwind CSS 4** + **shadcn/ui** (Radix) | Design system “cozy & warm” (cream, espresso, terracotta) |
-| Tipografia | **Inter** + **Fraunces** | Sans para UI; heading serif na vitrine |
-| Dados remotos | **TanStack Query v5** | Listas paginadas, mutations, invalidação via `qk` centralizado |
-| Tabelas admin | **TanStack Table v8** | Produtos, categorias, cliques |
-| Formulários | **React Hook Form** + **Zod 4** | Produto, auth, contato, create-admin |
-| Auth cliente | **Better Auth** (`better-auth/react` + plugin admin) | `authClient` — **não** passa pelo `apiClient` |
-| Motion | **Framer Motion / motion** | Hero, day-offer, trust bar, seções institucionais (~30 componentes) |
-| Gráficos | **Recharts** | Tendência de cliques no dashboard e explorer |
-| E-mail | **Resend** | Server Action do formulário de contato |
-| Analytics | **Vercel Analytics** | Root layout |
-| Qualidade | **ESLint** (`eslint-config-next`) + **Biome** (format) | Scripts `lint` e `format` |
+| Área          | Tecnologia                                             | Uso no projeto                                                      |
+| ------------- | ------------------------------------------------------ | ------------------------------------------------------------------- |
+| Framework     | **Next.js 16.2** (App Router)                          | Rotas em grupos `(site)`, `(auth)`, `admin`; RSC + client islands   |
+| UI            | **React 19**                                           | Componentes de loja e admin                                         |
+| Linguagem     | **TypeScript 5**                                       | Tipos em `src/types/api.ts` espelhando contrato da API              |
+| Estilo        | **Tailwind CSS 4** + **shadcn/ui** (Radix)             | Design system “cozy & warm” (cream, espresso, terracotta)           |
+| Tipografia    | **Inter** + **Fraunces**                               | Sans para UI; heading serif na vitrine                              |
+| Dados remotos | **TanStack Query v5**                                  | Listas paginadas, mutations, invalidação via `qk` centralizado      |
+| Tabelas admin | **TanStack Table v8**                                  | Produtos, categorias, cliques                                       |
+| Formulários   | **React Hook Form** + **Zod 4**                        | Produto, auth, contato, create-admin                                |
+| Auth cliente  | **Better Auth** (`better-auth/react` + plugin admin)   | `authClient` — **não** passa pelo `apiClient`                       |
+| Motion        | **Framer Motion / motion**                             | Hero, day-offer, trust bar, seções institucionais (~30 componentes) |
+| Gráficos      | **Recharts**                                           | Tendência de cliques no dashboard e explorer                        |
+| E-mail        | **Resend**                                             | Server Action do formulário de contato                              |
+| Analytics     | **Vercel Analytics**                                   | Root layout                                                         |
+| Qualidade     | **ESLint** (`eslint-config-next`) + **Biome** (format) | Scripts `lint` e `format`                                           |
 
 ### Backend (referência — não está neste repo)
 
-| Camada | Escolha |
-|--------|---------|
-| Runtime | Bun |
-| HTTP | Elysia |
-| DB | PostgreSQL 17 (Docker Compose em dev) |
-| ORM | Drizzle |
-| Auth | Better Auth (email/senha + plugin admin) |
-| Validação | Zod (handlers + OpenAPI) |
+| Camada    | Escolha                                  |
+| --------- | ---------------------------------------- |
+| Runtime   | Bun                                      |
+| HTTP      | Elysia                                   |
+| DB        | PostgreSQL 17 (Docker Compose em dev)    |
+| ORM       | Drizzle                                  |
+| Auth      | Better Auth (email/senha + plugin admin) |
+| Validação | Zod (handlers + OpenAPI)                 |
 
 ---
 
@@ -151,26 +151,26 @@ src/
 
 **Rotas públicas principais**
 
-| Rota | Função |
-|------|--------|
-| `/` | Home: hero, trust bar, oferta do dia, destaques, recentes, prova social, como funciona |
-| `/ofertas` | Catálogo completo com filtros e infinite scroll |
-| `/busca` | Busca por texto (query `q`) |
-| `/categorias`, `/categoria/[slug]` | Índice e listagem por categoria |
-| `/achadinho/[slug]` | Detalhe do produto + relacionados + JSON-LD |
-| `/favoritos` | Lista local (localStorage) |
-| `/como-funciona`, `/quem-somos`, `/contato` | Institucional |
-| `/politica-de-privacidade`, `/termos-de-uso` | Legal (Markdown parseado em seções) |
+| Rota                                         | Função                                                                                 |
+| -------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `/`                                          | Home: hero, trust bar, oferta do dia, destaques, recentes, prova social, como funciona |
+| `/ofertas`                                   | Catálogo completo com filtros e infinite scroll                                        |
+| `/busca`                                     | Busca por texto (query `q`)                                                            |
+| `/categorias`, `/categoria/[slug]`           | Índice e listagem por categoria                                                        |
+| `/achadinho/[slug]`                          | Detalhe do produto + relacionados + JSON-LD                                            |
+| `/favoritos`                                 | Lista local (localStorage)                                                             |
+| `/como-funciona`, `/quem-somos`, `/#contato` | Institucional                                                                          |
+| `/politica-de-privacidade`, `/termos-de-uso` | Legal (Markdown parseado em seções)                                                    |
 
 **Rotas admin**
 
-| Rota | Função |
-|------|--------|
-| `/admin` | Dashboard: KPIs, produtos mais clicados, expirando, inativos, tendência |
-| `/admin/products` | Lista com filtros, grid/tabela, seleção multi-página, bulk actions |
-| `/admin/products/new`, `/admin/products/[slug]` | Criar / editar produto (variantes, specs, aviso legal) |
-| `/admin/categories`, `/admin/platforms` | CRUD com sheets/dialogs |
-| `/admin/clicks` | Explorer: filtros na URL, gráfico diário, tabela, export CSV |
+| Rota                                            | Função                                                                  |
+| ----------------------------------------------- | ----------------------------------------------------------------------- |
+| `/admin`                                        | Dashboard: KPIs, produtos mais clicados, expirando, inativos, tendência |
+| `/admin/products`                               | Lista com filtros, grid/tabela, seleção multi-página, bulk actions      |
+| `/admin/products/new`, `/admin/products/[slug]` | Criar / editar produto (variantes, specs, aviso legal)                  |
+| `/admin/categories`, `/admin/platforms`         | CRUD com sheets/dialogs                                                 |
+| `/admin/clicks`                                 | Explorer: filtros na URL, gráfico diário, tabela, export CSV            |
 
 ---
 
@@ -227,14 +227,14 @@ src/
 
 ### Dashboard (`/admin`)
 
-| Widget | Fonte de dados |
-|--------|----------------|
-| KPI tiles | Contagens `GET /products` (ativo vs total), `GET /admin/clicks` com `from` para 24h/7d, scan client-side de expiração em 7 dias |
-| Mais desejados | Produtos ordenados por `clickCount` |
-| Expirando em breve | Filtro `expiresAt` na janela |
-| Inativos | Lista para reativação |
-| Top categorias | Métricas agregadas |
-| Tendência de cliques | Recharts — série temporal |
+| Widget               | Fonte de dados                                                                                                                  |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| KPI tiles            | Contagens `GET /products` (ativo vs total), `GET /admin/clicks` com `from` para 24h/7d, scan client-side de expiração em 7 dias |
+| Mais desejados       | Produtos ordenados por `clickCount`                                                                                             |
+| Expirando em breve   | Filtro `expiresAt` na janela                                                                                                    |
+| Inativos             | Lista para reativação                                                                                                           |
+| Top categorias       | Métricas agregadas                                                                                                              |
+| Tendência de cliques | Recharts — série temporal                                                                                                       |
 
 Cada tile **degrada independentemente** (skeleton / “—”) se um endpoint falhar.
 
@@ -276,10 +276,10 @@ Cada tile **degrada independentemente** (skeleton / “—”) se um endpoint fa
 
 ### RBAC
 
-| Papel | Acesso |
-|-------|--------|
-| `admin` | Painel, writes em catálogo, `/admin/*` |
-| `user` | Loja logada; chamadas admin retornam **403** |
+| Papel   | Acesso                                       |
+| ------- | -------------------------------------------- |
+| `admin` | Painel, writes em catálogo, `/admin/*`       |
+| `user`  | Loja logada; chamadas admin retornam **403** |
 
 Bootstrap: **primeiro usuário** do banco vira `admin` no sign-up; demais são `user`. Provisioning extra via `POST /internal/_ops/create-admin` (secret no body, nunca em `NEXT_PUBLIC_*`).
 
@@ -365,13 +365,13 @@ No browser, `apiClient` prefixa esses segmentos com `/api/lojinhas` (`ADMIN_API_
 
 ## Integração e ambiente
 
-| Variável | Papel |
-|----------|--------|
-| `NEXT_PUBLIC_API_URL` | Origem HTTP da API (sem sufixo `/api`) |
-| `NEXT_PUBLIC_SITE_URL` | Canonical, OG, sitemap, `metadataBase`, Better Auth `baseURL` |
-| `ALLOW_CREATE_ADMIN_ROUTE` | Habilita proxy/UI de create-admin |
-| `CREATE_ADMIN_ROUTE_BEARER_TOKEN` | Bearer opcional no proxy |
-| Resend (contato) | Chave no ambiente do deploy (não commitada) |
+| Variável                          | Papel                                                         |
+| --------------------------------- | ------------------------------------------------------------- |
+| `NEXT_PUBLIC_API_URL`             | Origem HTTP da API (sem sufixo `/api`)                        |
+| `NEXT_PUBLIC_SITE_URL`            | Canonical, OG, sitemap, `metadataBase`, Better Auth `baseURL` |
+| `ALLOW_CREATE_ADMIN_ROUTE`        | Habilita proxy/UI de create-admin                             |
+| `CREATE_ADMIN_ROUTE_BEARER_TOKEN` | Bearer opcional no proxy                                      |
+| Resend (contato)                  | Chave no ambiente do deploy (não commitada)                   |
 
 **Scripts:** `npm run dev` · `build` · `start` · `lint` · `format` (Biome).
 
@@ -381,13 +381,13 @@ No browser, `apiClient` prefixa esses segmentos com `/api/lojinhas` (`ADMIN_API_
 
 ## Métricas do codebase (referência)
 
-| Métrica | Valor aproximado |
-|---------|------------------|
-| Arquivos `.ts` / `.tsx` em `src/` | ~226 |
-| Linhas em `src/` | ~31.600 |
-| Rotas `page.tsx` | 22 |
-| Hooks de dados customizados | 11 |
-| Proxies BFF | 2 (`auth`, `lojinhas`) |
+| Métrica                           | Valor aproximado       |
+| --------------------------------- | ---------------------- |
+| Arquivos `.ts` / `.tsx` em `src/` | ~226                   |
+| Linhas em `src/`                  | ~31.600                |
+| Rotas `page.tsx`                  | 22                     |
+| Hooks de dados customizados       | 11                     |
+| Proxies BFF                       | 2 (`auth`, `lojinhas`) |
 
 ---
 
@@ -416,12 +416,12 @@ No browser, `apiClient` prefixa esses segmentos com `/api/lojinhas` (`ADMIN_API_
 
 ## Links e documentação interna
 
-| Documento | Conteúdo |
-|-----------|----------|
-| `README.md` | Setup, env, layout do repo |
+| Documento                                | Conteúdo                                                                |
+| ---------------------------------------- | ----------------------------------------------------------------------- |
+| `README.md`                              | Setup, env, layout do repo                                              |
 | `_agents-notes/backend-documentation.md` | Contrato HTTP completo, auth, paginação, erros, cookbook TanStack Query |
-| `src/types/api.ts` | Tipos consumidos pelo frontend |
-| OpenAPI (API) | `GET /openapi` no backend em dev |
+| `src/types/api.ts`                       | Tipos consumidos pelo frontend                                          |
+| OpenAPI (API)                            | `GET /openapi` no backend em dev                                        |
 
 ---
 
@@ -434,6 +434,7 @@ No browser, `apiClient` prefixa esses segmentos com `/api/lojinhas` (`ADMIN_API_
 **Parágrafo curto:** Desenvolvi o frontend do Achadinho Preferido, plataforma de curadoria de ofertas de marketplaces brasileiros. A loja combina busca accent-insensitive, filtros avançados, detalhe de produto com variantes e redirect de afiliado instrumentado; o painel permite gerenciar catálogo, analisar cliques e exportar dados. A arquitetura usa proxies BFF para sessão HttpOnly entre domínios, Server Components para SEO e TanStack Query para estado servidor-cliente consistente.
 
 **Bullets para LinkedIn:**
+
 - Loja pública + admin RBAC no mesmo monorepo frontend (~31k LOC TS)
 - BFF `/api/auth` e `/api/lojinhas` para cookies cross-domain (Vercel + API externa)
 - Dashboard com KPIs, gráficos Recharts e export CSV de cliques
@@ -442,4 +443,4 @@ No browser, `apiClient` prefixa esses segmentos com `/api/lojinhas` (`ADMIN_API_
 
 ---
 
-*Documento gerado para uso em portfólio. Atualize URLs e métricas após deploys significativos.*
+_Documento gerado para uso em portfólio. Atualize URLs e métricas após deploys significativos._

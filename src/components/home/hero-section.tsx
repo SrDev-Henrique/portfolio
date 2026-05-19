@@ -52,7 +52,7 @@ export function HeroSection() {
 
           <Reveal delay={0.24} className="mt-9 flex flex-col gap-3 sm:flex-row">
             <PortfolioButton
-              href="mailto:contato@henriquealbuquerque.dev"
+              href="https://wa.me/5519994012785"
               size="sm"
               variant="primary"
             >
