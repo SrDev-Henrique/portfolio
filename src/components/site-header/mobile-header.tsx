@@ -63,7 +63,7 @@ export function MobileHeader({ avaible = true, className }: MobileHeaderProps) {
       initial="closed"
       animate={isOpen ? "open" : "closed"}
       className={cn(
-        "relative flex h-12 w-57 flex-col items-center justify-start gap-2.5 rounded-full bg-card/95 px-3 pt-1 sm:gap-3",
+        "relative flex h-12 w-57 flex-col items-center justify-start gap-2.5 rounded-full bg-card/95 px-1.5 pt-1 sm:gap-3",
         "pointer-events-auto cursor-pointer overflow-hidden",
         className,
       )}

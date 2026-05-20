@@ -94,7 +94,8 @@ function getProcessCardBorderClass(index: number) {
   const hasLgRightBorder = visualIndex % 3 !== 0;
   const hasNoBottomBorder = visualIndex === 6;
   const hasNoBottomBorderMd = visualIndex === 5 || visualIndex === 6;
-  const hasNoBottomBorderLg = visualIndex === 4;
+  const hasNoBottomBorderLg =
+    visualIndex === 4 || visualIndex === 5 || visualIndex === 6;
 
   return cn(
     hasMdRightBorder ? "md:border-r" : "md:border-r-0",
