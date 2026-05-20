@@ -181,7 +181,7 @@ export function ContactSection() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="font-inter text-accent">
-                                Servico
+                                Serviço
                               </FormLabel>
                               <Select
                                 onValueChange={field.onChange}
@@ -251,7 +251,7 @@ export function ContactSection() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="font-inter text-accent">
-                              Descricao do projeto
+                              Descrição do projeto
                             </FormLabel>
                             <FormControl>
                               <Textarea

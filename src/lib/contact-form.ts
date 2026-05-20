@@ -80,7 +80,7 @@ export function buildContactEmailHtml({
     <p style="margin:0 0 8px;"><strong>E-mail:</strong> ${escapeHtml(email)}</p>
     <p style="margin:0 0 8px;"><strong>Telefone:</strong> ${escapeHtml(phone)}</p>
     <p style="margin:0 0 16px;"><strong>Servico:</strong> ${escapeHtml(service)}</p>
-    <p style="margin:0 0 8px;font-weight:600;">Descricao do projeto</p>
+    <p style="margin:0 0 8px;font-weight:600;">Descrição do projeto</p>
     <p style="margin:0;white-space:pre-wrap;">${escapeHtml(message)}</p>
   </body>
 </html>`;
@@ -107,7 +107,7 @@ export function buildContactEmailText({
     `Telefone: ${phone}`,
     `Servico: ${service}`,
     "",
-    "Descricao do projeto:",
+    "Descrição do projeto:",
     message,
   ];
 

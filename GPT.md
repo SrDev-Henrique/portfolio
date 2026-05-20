@@ -55,7 +55,7 @@ Preserve essa ordem a menos que o usuario peca explicitamente outra organizaçã
 
 - **Sobre mim**: texto breve, `2+` anos de experiencia e `20+` clientes atendidos, links ghost para WhatsApp, e-mail e `/sobre-mim`.
 - **Servicos**: `ServicesShowcase`, baseado no antigo `KineticTeamHybrid`, com linhas interativas e imagens locais de servicos.
-- **Projetos**: grid com ate 2 colunas, imagem grande, nome, tag e descricao. Cards nao sao links por enquanto.
+- **Projetos**: grid com ate 2 colunas, imagem grande, nome, tag e Descrição. Cards nao sao links por enquanto.
 - **Depoimentos**: inspirado em layout de cards escuros com estrelas e cards metricos; grid 1/2/3 por breakpoint.
 - **FAQ**: accordion client-side inspirado na interação mobile de `ServicesShowcase`; coluna de titulo sticky a partir de `md`.
 - **Blog**: lista local com 7 posts, renderiza apenas 2 na home; imagens sao placeholders ate o usuario fornecer assets.

@@ -10,7 +10,7 @@ Esta pasta contem componentes usados para a vitrine interna `/preview`.
 ## Padrao
 
 - Nome do componente.
-- Descricao curta.
+- Descrição curta.
 - Demonstracao real.
 - Quando houver variantes, mostrar cada uma com label e props relevantes.
 

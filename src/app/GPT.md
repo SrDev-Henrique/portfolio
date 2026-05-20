@@ -28,5 +28,5 @@ Esta pasta usa o App Router do Next.js. Antes de mexer em convencoes de páginas
 
 ## Preview
 
-- `/preview` e ferramenta interna de alinhamento visual; mantenha objetiva, com nome do componente, descricao curta, variante e demonstracao.
+- `/preview` e ferramenta interna de alinhamento visual; mantenha objetiva, com nome do componente, Descrição curta, variante e demonstracao.
 - Nem toda secao da home precisa preview. Priorize componentes reutilizaveis, componentes com variantes ou interacoes importantes.

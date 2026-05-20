@@ -60,7 +60,7 @@ Secao "Projetos em destaque".
 
 - Grid de no maximo 2 colunas.
 - Cards nao sao links por enquanto.
-- Cada card tem imagem grande, tag, nome e descricao.
+- Cada card tem imagem grande, tag, nome e Descrição.
 - Imagens principais:
   - `/images/projects/jaber-seguros/jaber-main.webp`
   - `/images/projects/coimcamp/coimcamp-main.webp`
@@ -79,7 +79,7 @@ Secao de depoimentos inspirada em referencia visual com titulo grande, cards esc
 FAQ client-side com accordion.
 
 - Reaproveita harmonia visual do `ServicesShowcase`: numero, pergunta grande, plus/minus e expansao animada.
-- A coluna com titulo e descricao deve ficar `sticky` a partir de `md`.
+- A coluna com titulo e Descrição deve ficar `sticky` a partir de `md`.
 - Pode abrir/fechar itens; preserve acessibilidade com `aria-expanded` e `aria-controls`.
 
 ### BlogSection
@@ -104,7 +104,7 @@ Secao final antes do footer.
   - Nome obrigatorio.
   - E-mail obrigatorio e valido.
   - Servico obrigatorio: website, webapp, e-commerce, API, "Ainda não sei ao certo".
-  - Descricao opcional.
+  - Descrição opcional.
 - Submit e simulado: aguarda 1 segundo, mostra spinner via `isSubmitting`, depois troca para sucesso.
 - Troca formulário/sucesso deve ser suave com `AnimatePresence mode="wait"` e fade-in/fade-out.
 - Sucesso mostra "Mensagem enviada", texto claro, link WhatsApp e botao para enviar outra mensagem.

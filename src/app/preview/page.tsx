@@ -145,7 +145,7 @@ export default function PreviewPage() {
 
         <ComponentPreviewSection
           title="PortfolioStat"
-          description="Bloco de stats do portfolio com dois estilos: beneficio com icone e texto, e metrica com numero grande, descricao e icone destacado."
+          description="Bloco de stats do portfolio com dois estilos: beneficio com icone e texto, e metrica com numero grande, descrição e icone destacado."
         >
           <div className="space-y-8">
             <article className="min-w-0">
@@ -245,7 +245,7 @@ export default function PreviewPage() {
 
         <ComponentPreviewSection
           title="ProfileVisual"
-          description="Componente usado no Hero para exibir o retrato com elementos de interface, glow e animação no selo circular."
+          description="Componente usado no Hero para exibir o retrato com elementos de interface, Glow e animação no selo circular."
         >
           <div className="grid gap-8 lg:grid-cols-3">
             {profileVariants.map((item) => (

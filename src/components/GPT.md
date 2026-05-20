@@ -44,6 +44,6 @@ Nao coloque estilos especificos do portfolio dentro de `src/components/ui`. Essa
 Todo componente visual novo com variantes ou uso recorrente deve aparecer em `/preview`. O padrao:
 
 - Nome do componente.
-- Descricao curta.
+- Descrição curta.
 - Cada variante dentro de bloco com nome e props relevantes.
 - Demonstracao em fundo escuro.
