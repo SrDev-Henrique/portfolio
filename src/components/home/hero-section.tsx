@@ -89,10 +89,13 @@ export function HeroSection() {
             delay={0.48}
             className="mt-6 flex justify-center gap-2 sm:justify-start"
           >
-            <SocialLink href="https://github.com/" label="GitHub">
+            <SocialLink href="https://github.com/SrDev-Henrique" label="GitHub">
               <Github className="size-4" />
             </SocialLink>
-            <SocialLink href="https://www.linkedin.com/" label="LinkedIn">
+            <SocialLink
+              href="https://www.linkedin.com/in/henrique-albuquerque-aa54632b4/"
+              label="LinkedIn"
+            >
               <Linkedin className="size-4" />
             </SocialLink>
             <SocialLink
