@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig = {
   creator: "Henrique Albuquerque",
   description:
-    "Desenvolvimento full stack para websites, webapps, e-commerce e APIs com foco em performance, SEO e resultado.",
+    "Criação de sites, sistemas web e e-commerces de alto desempenho para empresas que buscam autoridade, escalabilidade e mais oportunidades de negócio. Desenvolvimento personalizado com foco em SEO, velocidade, segurança e conversão.lidade e mais oportunidades de negócio. Desenvolvimento personalizado com foco em SEO, velocidade, segurança e conversão..",
   email: "contato@henriquealbuquerque.dev",
   locale: "pt_BR",
   name: "Henrique Albuquerque",
